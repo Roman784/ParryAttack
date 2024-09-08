@@ -6,6 +6,8 @@ public class GameEntryPoint
 {
     private static GameEntryPoint _instance;
 
+    private UIRoot _uiRoot;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void AutostartGame()
     {
@@ -16,6 +18,11 @@ public class GameEntryPoint
         _instance.RunGame();
     }
 
+    private GameEntryPoint()
+    {
+        CreateUIRoot();
+    }
+
     private void RunGame()
     {
         Coroutines.StartRoutine(LoadAndStartGameplay());
@@ -23,6 +30,8 @@ public class GameEntryPoint
 
     private IEnumerator LoadAndStartGameplay()
     {
+        _uiRoot.ShowLoadingScreen();
+
         yield return LoadScene(Scenes.BOOT);
 
         BootEntryPoint bootEntryPoint = Object.FindFirstObjectByType<BootEntryPoint>();
@@ -32,11 +41,20 @@ public class GameEntryPoint
 
         GameplayEntryPoint sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
         yield return sceneEntryPoint.Run();
+
+        _uiRoot.HideLoadingScreen();
     }
 
     private IEnumerator LoadScene(string sceneName)
     {
         yield return SceneManager.LoadSceneAsync(sceneName);
         yield return null;
+    }
+
+    private void CreateUIRoot()
+    {
+        var uiRootPrefab = Resources.Load<UIRoot>("UIRoot");
+        _uiRoot = Object.Instantiate(uiRootPrefab);
+        Object.DontDestroyOnLoad(_uiRoot.gameObject);
     }
 }
