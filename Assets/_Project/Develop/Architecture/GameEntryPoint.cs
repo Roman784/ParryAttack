@@ -40,7 +40,7 @@ public class GameEntryPoint
         yield return LoadScene(Scenes.GAMEPLAY);
 
         GameplayEntryPoint sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        yield return sceneEntryPoint.Run();
+        yield return sceneEntryPoint.Run(_uiRoot);
 
         _uiRoot.HideLoadingScreen();
     }
