@@ -1,15 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class GameplayEntryPoint : MonoBehaviour
 {
-    [SerializeField] private GameplayUI _gameplayUI;
+    private UIRoot _uiRoot;
+    private GameplayUI _gameplayUI;
 
-    public IEnumerator Run(UIRoot uiRoot)
+    [Inject]
+    private void Construct(UIRoot uIRoot, GameplayUI gameplayUI)
+    {
+        _uiRoot = uIRoot;
+        _gameplayUI = gameplayUI;
+    }
+
+    public IEnumerator Run()
     {
         GameplayUI gameplayUI = Instantiate(_gameplayUI);
-        uiRoot.AttachSceneUI(gameplayUI.transform);
+        _uiRoot.AttachSceneUI(gameplayUI.transform);
 
         yield return null;
+
+        Debug.Log("Gameplay scene loaded");
     }
 }

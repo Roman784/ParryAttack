@@ -4,40 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class GameEntryPoint
 {
-    private static GameEntryPoint _instance;
-
-    private UIRoot _uiRoot;
-    private SceneLoader _sceneLoader;
-
-    private void Construct(SceneLoader sceneLoader)
-    {
-        _sceneLoader = sceneLoader;
-    }
-
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static void AutostartGame()
+    public static void RunGame()
     {
-        Application.targetFrameRate = 60;
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
-        _instance = new GameEntryPoint();
-        _instance.RunGame();
+        Coroutines.StartRoutine(LoadAndRunBoot());
     }
 
-    private GameEntryPoint()
+    private static IEnumerator LoadAndRunBoot()
     {
-        CreateUIRoot();
-    }
+        yield return SceneManager.LoadSceneAsync(Scenes.BOOT);
 
-    private void RunGame()
-    {
-        _sceneLoader.LoadAndStartGameplay(_uiRoot);
-    }
-
-    private void CreateUIRoot()
-    {
-        var uiRootPrefab = Resources.Load<UIRoot>("UIRoot");
-        _uiRoot = Object.Instantiate(uiRootPrefab);
-        Object.DontDestroyOnLoad(_uiRoot.gameObject);
+        BootEntryPoint bootEntryPoint = Object.FindFirstObjectByType<BootEntryPoint>();
+        yield return bootEntryPoint.Run();
     }
 }

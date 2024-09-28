@@ -1,34 +1,37 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class SceneLoader
 {
-    public void LoadAndStartGameplay(UIRoot uiRoot)
+    private UIRoot _uiRoot;
+
+    [Inject]
+    private void Construct(UIRoot uIRoot)
     {
-        Coroutines.StartRoutine(LoadAndStartGameplayRoutine(uiRoot));
+        _uiRoot = uIRoot;
     }
 
-    private IEnumerator LoadAndStartGameplayRoutine(UIRoot uiRoot)
+    public void LoadGameplay()
     {
-        uiRoot.ShowLoadingScreen();
+        Coroutines.StartRoutine(LoadAndRunGameplayRoutine());
+    }
 
-        yield return LoadScene(Scenes.BOOT);
-
-        BootEntryPoint bootEntryPoint = Object.FindFirstObjectByType<BootEntryPoint>();
-        yield return bootEntryPoint.Run();
+    private IEnumerator LoadAndRunGameplayRoutine()
+    {
+        _uiRoot.ShowLoadingScreen();
 
         yield return LoadScene(Scenes.GAMEPLAY);
 
         GameplayEntryPoint sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
-        yield return sceneEntryPoint.Run(uiRoot);
+        yield return sceneEntryPoint.Run();
 
-        uiRoot.HideLoadingScreen();
+        _uiRoot.HideLoadingScreen();
     }
 
     private IEnumerator LoadScene(string sceneName)
     {
         yield return SceneManager.LoadSceneAsync(sceneName);
-        yield return null;
     }
 }
