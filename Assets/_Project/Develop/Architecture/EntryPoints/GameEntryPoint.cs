@@ -7,10 +7,10 @@ public class GameEntryPoint
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void RunGame()
     {
-        Coroutines.StartRoutine(LoadAndRunBoot());
+        Coroutines.StartRoutine(LoadBootScene());
     }
 
-    private static IEnumerator LoadAndRunBoot()
+    private static IEnumerator LoadBootScene()
     {
         yield return SceneManager.LoadSceneAsync(Scenes.BOOT);
 

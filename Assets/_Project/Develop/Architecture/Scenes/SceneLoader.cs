@@ -15,23 +15,19 @@ public class SceneLoader
 
     public void LoadGameplay()
     {
-        Coroutines.StartRoutine(LoadAndRunGameplayRoutine());
+        Coroutines.StartRoutine(
+            LoadScene<GameplayEntryPoint>(Scenes.GAMEPLAY));
     }
 
-    private IEnumerator LoadAndRunGameplayRoutine()
+    private IEnumerator LoadScene<T>(string sceneName) where T : EntryPoint
     {
         _uiRoot.ShowLoadingScreen();
 
-        yield return LoadScene(Scenes.GAMEPLAY);
+        yield return SceneManager.LoadSceneAsync(sceneName);
 
-        GameplayEntryPoint sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
+        EntryPoint sceneEntryPoint = Object.FindFirstObjectByType<T>();
         yield return sceneEntryPoint.Run();
 
         _uiRoot.HideLoadingScreen();
-    }
-
-    private IEnumerator LoadScene(string sceneName)
-    {
-        yield return SceneManager.LoadSceneAsync(sceneName);
     }
 }

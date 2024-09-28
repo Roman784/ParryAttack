@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class BootEntryPoint : MonoBehaviour
+public class BootEntryPoint : EntryPoint
 {
     private SceneLoader _sceneLoader;
 
@@ -12,7 +12,7 @@ public class BootEntryPoint : MonoBehaviour
         _sceneLoader = sceneLoader;
     }
 
-    public IEnumerator Run()
+    public override IEnumerator Run()
     {
         Debug.Log("Game boot");
 

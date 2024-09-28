@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class GameplayEntryPoint : MonoBehaviour
+public class GameplayEntryPoint : EntryPoint
 {
     private UIRoot _uiRoot;
     private GameplayUI _gameplayUI;
@@ -14,7 +14,7 @@ public class GameplayEntryPoint : MonoBehaviour
         _gameplayUI = gameplayUI;
     }
 
-    public IEnumerator Run()
+    public override IEnumerator Run()
     {
         GameplayUI gameplayUI = Instantiate(_gameplayUI);
         _uiRoot.AttachSceneUI(gameplayUI.transform);
