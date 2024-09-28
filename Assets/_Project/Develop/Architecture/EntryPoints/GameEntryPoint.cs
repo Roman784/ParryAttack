@@ -14,7 +14,7 @@ public class GameEntryPoint
     {
         yield return SceneManager.LoadSceneAsync(Scenes.BOOT);
 
-        BootEntryPoint bootEntryPoint = Object.FindFirstObjectByType<BootEntryPoint>();
+        EntryPoint bootEntryPoint = Object.FindFirstObjectByType<BootEntryPoint>();
         yield return bootEntryPoint.Run();
     }
 }

@@ -1,8 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
-// It's a class, not an interface, in order to be found in the scene.
 public abstract class EntryPoint : MonoBehaviour
 {
+    protected UIRoot UIRoot;
+
+    [Inject]
+    private void Construct(UIRoot uIRoot)
+    {
+        UIRoot = uIRoot;
+    }
+
     public abstract IEnumerator Run();
 }
