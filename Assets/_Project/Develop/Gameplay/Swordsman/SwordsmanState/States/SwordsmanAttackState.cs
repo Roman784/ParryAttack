@@ -8,7 +8,7 @@ public class SwordsmanAttackState : SwordsmanState
     private bool _isAttack;
     private bool _isPreattack;
 
-    public SwordsmanAttackState(SwordsmanStateHandler stateHandler) : base(stateHandler)
+    public SwordsmanAttackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
     {
     }
 
@@ -23,11 +23,13 @@ public class SwordsmanAttackState : SwordsmanState
     private IEnumerator Attack()
     {
         _isPreattack = true;
+        Swordsman.Animation.SetPreattack();
 
         yield return new WaitForSeconds(1f);
 
         _isAttack = true;
         _isPreattack = false;
+        Swordsman.Animation.SetAttack();
 
         yield return new WaitForSeconds(1f);
 

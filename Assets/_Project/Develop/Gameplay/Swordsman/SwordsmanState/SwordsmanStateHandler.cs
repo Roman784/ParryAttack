@@ -6,8 +6,12 @@ public class SwordsmanStateHandler
     private Dictionary<Type, SwordsmanState> _statesMap;
     private SwordsmanState _currentState;
 
-    public SwordsmanStateHandler()
+    private Swordsman _swordsman;
+
+    public SwordsmanStateHandler(Swordsman swordsman)
     {
+        _swordsman = swordsman;
+
         InitStates();
     }
 
@@ -15,9 +19,9 @@ public class SwordsmanStateHandler
     {
         _statesMap = new Dictionary<Type, SwordsmanState>();
 
-        _statesMap[typeof(SwordsmanIdleState)] = new SwordsmanIdleState(this);
-        _statesMap[typeof(SwordsmanAttackState)] = new SwordsmanAttackState(this);
-        _statesMap[typeof(SwordsmanParryState)] = new SwordsmanParryState(this);
+        _statesMap[typeof(SwordsmanIdleState)] = new SwordsmanIdleState(this, _swordsman);
+        _statesMap[typeof(SwordsmanAttackState)] = new SwordsmanAttackState(this, _swordsman);
+        _statesMap[typeof(SwordsmanParryState)] = new SwordsmanParryState(this, _swordsman);
     }
 
     public void Update(IInput input)
