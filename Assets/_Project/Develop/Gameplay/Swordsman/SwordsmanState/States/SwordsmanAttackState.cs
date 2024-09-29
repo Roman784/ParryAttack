@@ -24,6 +24,7 @@ public class SwordsmanAttackState : SwordsmanState
     {
         _isPreattack = true;
         Swordsman.Animation.SetPreattack();
+        Swordsman.AttackIndicator.Activate(1f);
 
         yield return new WaitForSeconds(1f);
 
@@ -51,5 +52,6 @@ public class SwordsmanAttackState : SwordsmanState
     public override void Exit() 
     {
         Coroutines.StopRoutine(_coroutine);
+        Swordsman.AttackIndicator.Deactivate();
     }
 }

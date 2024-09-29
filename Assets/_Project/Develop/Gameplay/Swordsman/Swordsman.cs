@@ -5,6 +5,10 @@ public class Swordsman : MonoBehaviour
     [SerializeField] private SwordsmanConfig _config;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    [Space]
+
+    [SerializeField] private AttackIndicator _attackIndicator;
+
     protected IInput Input;
 
     private SwordsmanStateHandler _stateHandler;
@@ -25,4 +29,5 @@ public class Swordsman : MonoBehaviour
     }
 
     public SwordsmanAnimation Animation => _animation;
+    public AttackIndicator AttackIndicator => _attackIndicator;
 }
