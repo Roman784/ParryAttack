@@ -42,7 +42,7 @@ public class SwordsmanAttackState : SwordsmanState
         {
             StateHandler.SetParryState();
         }
-        else if (!input.IsAttacking() && !input.IsParrying() && !_isPreattack && !_isAttack)
+        else if (!_isPreattack && !_isAttack)
         {
             StateHandler.SetIdleState();
         }
