@@ -1,17 +1,24 @@
 using UnityEngine;
 
-public class KeyboadrInput : IInput
+public class KeyboadrInput : PlayerInput
 {
-    public bool IsAttacking()
+    public override void Update()
     {
-        return IsLeftKeyPressed() && !IsRightKeyPressed();
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OnParryTrigger.Invoke(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            OnAttackTrigger.Invoke(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            OnParryTrigger.Invoke(false);
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            OnAttackTrigger.Invoke(false);
+        }
     }
-
-    public bool IsParrying()
-    {
-        return IsRightKeyPressed() && !IsLeftKeyPressed();
-    }
-
-    private bool IsLeftKeyPressed() => Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-    private bool IsRightKeyPressed() => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 }

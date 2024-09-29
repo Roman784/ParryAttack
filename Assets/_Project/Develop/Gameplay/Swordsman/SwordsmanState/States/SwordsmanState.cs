@@ -10,6 +10,6 @@ public abstract class SwordsmanState
     }
 
     public abstract void Enter();
-    public abstract void Update(IInput input);
-    public abstract void Exit();
+    public abstract void ChangeState(bool isAttacking, bool isParrying);
+    public virtual void Exit() { }
 }

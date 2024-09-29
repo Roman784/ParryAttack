@@ -13,19 +13,15 @@ public class SwordsmanParryState : SwordsmanState
         Swordsman.Animation.SetParry();
     }
 
-    public override void Update(IInput input)
+    public override void ChangeState(bool isAttacking, bool isParrying)
     {
-        if (input.IsAttacking())
+        if (isAttacking)
         {
             StateHandler.SetPreattackState();
         }
-        else if (!input.IsParrying())
+        else
         {
             StateHandler.SetIdleState();
         }
-    }
-
-    public override void Exit()
-    {
     }
 }

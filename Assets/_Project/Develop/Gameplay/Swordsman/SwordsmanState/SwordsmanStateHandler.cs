@@ -25,9 +25,9 @@ public class SwordsmanStateHandler
         _statesMap[typeof(SwordsmanParryState)] = new SwordsmanParryState(this, _swordsman);
     }
 
-    public void Update(IInput input)
+    public void ChangeState(bool isAttacking, bool isParrying)
     {
-        _currentState?.Update(input);
+        _currentState?.ChangeState(isAttacking, isParrying);
     }
 
     public void SetIdleState()

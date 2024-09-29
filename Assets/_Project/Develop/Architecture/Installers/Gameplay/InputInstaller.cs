@@ -9,6 +9,6 @@ public class InputInstaller : MonoInstaller
 
     private void BindInput()
     {
-        Container.Bind<IInput>().To<KeyboadrInput>().AsSingle();
+        Container.Bind<PlayerInput>().To<KeyboadrInput>().AsSingle();
     }
 }

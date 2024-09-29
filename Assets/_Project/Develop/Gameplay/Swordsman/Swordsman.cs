@@ -9,23 +9,17 @@ public class Swordsman : MonoBehaviour
 
     [SerializeField] private AttackIndicator _attackIndicator;
 
-    protected IInput Input;
+    protected PlayerInput Input;
+    protected SwordsmanStateHandler StateHandler;
 
-    private SwordsmanStateHandler _stateHandler;
     private SwordsmanAnimation _animation;
 
     protected void Awake()
     {
         _animation = new SwordsmanAnimation(_config.SpritesConfig, _spriteRenderer);
-        _stateHandler = new SwordsmanStateHandler(this);
+        StateHandler = new SwordsmanStateHandler(this);
 
-        _stateHandler.SetIdleState();
-    }
-
-    protected void Update()
-    {
-        if (Input != null)
-            _stateHandler.Update(Input);
+        StateHandler.SetIdleState();
     }
 
     public SwordsmanConfig Config => _config;

@@ -4,7 +4,6 @@ using UnityEngine;
 public class SwordsmanAttackState : SwordsmanState
 {
     private float _duration;
-    private bool _isFinished;
 
     public SwordsmanAttackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
     {
@@ -21,34 +20,14 @@ public class SwordsmanAttackState : SwordsmanState
     {
         Debug.Log("Attack");
 
-        _isFinished = false;
-
         Swordsman.Animation.SetAttack();
 
         yield return new WaitForSeconds(_duration);
 
-        _isFinished = true;
+        StateHandler.SetIdleState();
     }
 
-    public override void Update(IInput input)
-    {
-        if (!_isFinished) return;
-
-        if (input.IsAttacking())
-        {
-            StateHandler.SetPreattackState();
-        }
-        else if (input.IsParrying())
-        {
-            StateHandler.SetParryState();
-        }
-        else
-        {
-            StateHandler.SetIdleState();
-        }
-    }
-
-    public override void Exit() 
+    public override void ChangeState(bool isAttacking, bool isParrying)
     {
     }
 }
