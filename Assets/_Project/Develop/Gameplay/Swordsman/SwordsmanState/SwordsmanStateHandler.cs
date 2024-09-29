@@ -20,6 +20,7 @@ public class SwordsmanStateHandler
         _statesMap = new Dictionary<Type, SwordsmanState>();
 
         _statesMap[typeof(SwordsmanIdleState)] = new SwordsmanIdleState(this, _swordsman);
+        _statesMap[typeof(SwordsmanPreattackState)] = new SwordsmanPreattackState(this, _swordsman);
         _statesMap[typeof(SwordsmanAttackState)] = new SwordsmanAttackState(this, _swordsman);
         _statesMap[typeof(SwordsmanParryState)] = new SwordsmanParryState(this, _swordsman);
     }
@@ -32,6 +33,12 @@ public class SwordsmanStateHandler
     public void SetIdleState()
     {
         var State = GetState<SwordsmanIdleState>();
+        SetState(State);
+    }
+
+    public void SetPreattackState()
+    {
+        var State = GetState<SwordsmanPreattackState>();
         SetState(State);
     }
 

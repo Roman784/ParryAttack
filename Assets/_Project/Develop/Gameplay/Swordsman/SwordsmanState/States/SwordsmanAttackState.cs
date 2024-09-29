@@ -3,13 +3,8 @@ using UnityEngine;
 
 public class SwordsmanAttackState : SwordsmanState
 {
-    private Coroutine _coroutine;
-
-    private float _preattackDuration;
-    private float _attackDuration;
-
-    private bool _isAttack;
-    private bool _isPreattack;
+    private float _duration;
+    private bool _isFinished;
 
     public SwordsmanAttackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
     {
@@ -17,62 +12,43 @@ public class SwordsmanAttackState : SwordsmanState
 
     public override void Enter()
     {
-        _preattackDuration = Swordsman.Config.AttributesConfig.PreattackDuration;
-        _attackDuration = Swordsman.Config.AttributesConfig.AttackDuration;
+        _duration = Swordsman.Config.AttributesConfig.AttackDuration;
 
-        _isAttack = false;
-        _isPreattack = false;
-
-        _coroutine = Coroutines.StartRoutine(Attack());
+        Coroutines.StartRoutine(Attack());
     }
 
     private IEnumerator Attack()
     {
-        Debug.Log("Preattack");
-
-        _isPreattack = true;
-        Swordsman.Animation.SetPreattack();
-        Swordsman.AttackIndicator.Activate(_preattackDuration);
-
-        yield return new WaitForSeconds(_preattackDuration);
-
         Debug.Log("Attack");
 
-        _isAttack = true;
-        _isPreattack = false;
+        _isFinished = false;
+
         Swordsman.Animation.SetAttack();
 
-        yield return new WaitForSeconds(_attackDuration);
+        yield return new WaitForSeconds(_duration);
 
-        _isAttack = false;
+        _isFinished = true;
     }
 
     public override void Update(IInput input)
     {
-        if (input.IsParrying() && _isPreattack)
+        if (!_isFinished) return;
+
+        if (input.IsAttacking())
+        {
+            StateHandler.SetPreattackState();
+        }
+        else if (input.IsParrying())
         {
             StateHandler.SetParryState();
         }
-        else if (!_isPreattack && !_isAttack)
+        else
         {
-            if (input.IsAttacking())
-            {
-                StateHandler.SetAttackState();
-            }
-            else if (input.IsParrying())
-            {
-                StateHandler.SetParryState();
-            }
-            else
-            {
-                StateHandler.SetIdleState();
-            }
+            StateHandler.SetIdleState();
         }
     }
 
     public override void Exit() 
     {
-        Coroutines.StopRoutine(_coroutine);
-        Swordsman.AttackIndicator.Deactivate();
     }
 }

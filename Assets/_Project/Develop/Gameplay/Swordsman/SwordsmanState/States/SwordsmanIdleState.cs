@@ -17,7 +17,7 @@ public class SwordsmanIdleState : SwordsmanState
     {
         if (input.IsAttacking())
         {
-            StateHandler.SetAttackState();
+            StateHandler.SetPreattackState();
         }
         else if (input.IsParrying())
         {
