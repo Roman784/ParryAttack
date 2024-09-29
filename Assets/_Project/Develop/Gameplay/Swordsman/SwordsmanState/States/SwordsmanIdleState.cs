@@ -8,6 +8,8 @@ public class SwordsmanIdleState : SwordsmanState
 
     public override void Enter()
     {
+        Debug.Log("Idle");
+
         Swordsman.Animation.SetIdle();
     }
 

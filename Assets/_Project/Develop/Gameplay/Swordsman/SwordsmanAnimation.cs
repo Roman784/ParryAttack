@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SwordsmanAnimation
 {
-    private SwordsmanConfig _config;
+    private SwordsmanSpritesConfig _config;
     private SpriteRenderer _spriteRenderer;
 
-    public SwordsmanAnimation(SwordsmanConfig config, SpriteRenderer spriteRenderer)
+    public SwordsmanAnimation(SwordsmanSpritesConfig config, SpriteRenderer spriteRenderer)
     {
         _config = config;
         _spriteRenderer = spriteRenderer;

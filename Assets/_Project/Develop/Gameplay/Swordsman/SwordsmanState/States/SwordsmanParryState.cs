@@ -8,6 +8,8 @@ public class SwordsmanParryState : SwordsmanState
 
     public override void Enter()
     {
+        Debug.Log("Parry");
+
         Swordsman.Animation.SetParry();
     }
 

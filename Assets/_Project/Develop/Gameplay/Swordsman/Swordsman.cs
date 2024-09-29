@@ -16,7 +16,7 @@ public class Swordsman : MonoBehaviour
 
     protected void Awake()
     {
-        _animation = new SwordsmanAnimation(_config, _spriteRenderer);
+        _animation = new SwordsmanAnimation(_config.SpritesConfig, _spriteRenderer);
         _stateHandler = new SwordsmanStateHandler(this);
 
         _stateHandler.SetIdleState();
@@ -28,6 +28,7 @@ public class Swordsman : MonoBehaviour
             _stateHandler.Update(Input);
     }
 
+    public SwordsmanConfig Config => _config;
     public SwordsmanAnimation Animation => _animation;
     public AttackIndicator AttackIndicator => _attackIndicator;
 }

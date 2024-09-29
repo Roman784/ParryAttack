@@ -5,6 +5,9 @@ public class SwordsmanAttackState : SwordsmanState
 {
     private Coroutine _coroutine;
 
+    private float _preattackDuration;
+    private float _attackDuration;
+
     private bool _isAttack;
     private bool _isPreattack;
 
@@ -14,6 +17,9 @@ public class SwordsmanAttackState : SwordsmanState
 
     public override void Enter()
     {
+        _preattackDuration = Swordsman.Config.AttributesConfig.PreattackDuration;
+        _attackDuration = Swordsman.Config.AttributesConfig.AttackDuration;
+
         _isAttack = false;
         _isPreattack = false;
 
@@ -22,17 +28,21 @@ public class SwordsmanAttackState : SwordsmanState
 
     private IEnumerator Attack()
     {
+        Debug.Log("Preattack");
+
         _isPreattack = true;
         Swordsman.Animation.SetPreattack();
-        Swordsman.AttackIndicator.Activate(1f);
+        Swordsman.AttackIndicator.Activate(_preattackDuration);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_preattackDuration);
+
+        Debug.Log("Attack");
 
         _isAttack = true;
         _isPreattack = false;
         Swordsman.Animation.SetAttack();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_attackDuration);
 
         _isAttack = false;
     }
@@ -45,7 +55,18 @@ public class SwordsmanAttackState : SwordsmanState
         }
         else if (!_isPreattack && !_isAttack)
         {
-            StateHandler.SetIdleState();
+            if (input.IsAttacking())
+            {
+                StateHandler.SetAttackState();
+            }
+            else if (input.IsParrying())
+            {
+                StateHandler.SetParryState();
+            }
+            else
+            {
+                StateHandler.SetIdleState();
+            }
         }
     }
 
