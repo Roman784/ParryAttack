@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class KeyboadrInput : IInput
 {
-    private const string HORIZONTAL = "Horizontal";
-
     public bool IsAttacking()
     {
-        return Input.GetAxis(HORIZONTAL) > 0;
+        return Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
     }
 
     public bool IsParrying()
     {
-        return Input.GetAxis(HORIZONTAL) < 0;
+        return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
     }
 }

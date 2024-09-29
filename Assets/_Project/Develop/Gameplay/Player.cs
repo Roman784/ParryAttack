@@ -1,11 +1,12 @@
-using System.Collections;
 using UnityEngine;
 using Zenject;
 
 public class Player : MonoBehaviour
 {
-    private bool _isAttacking;
+    [SerializeField] private SwordsmanConfig _config;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    private SwordsmanStateHandler _stateHandler;
     private IInput _input;
 
     [Inject]
@@ -14,30 +15,35 @@ public class Player : MonoBehaviour
         _input = input;
     }
 
+    private void Start()
+    {
+        _stateHandler = new SwordsmanStateHandler();
+
+        _stateHandler.SetIdleState();
+    }
+
     private void Update()
     {
-        if (_input.IsParrying())
-        {
-            Parry();
-        }
-        else if (_input.IsAttacking() && !_isAttacking)
-        {
-            Coroutines.StartRoutine(Attack());
-        }
+        _stateHandler.Update(_input);
     }
 
-    private IEnumerator Attack()
+    public void SetIdleSprite()
     {
-        _isAttacking = true;
-        Debug.Log("Attack");
-
-        yield return new WaitForSeconds(1f);
-
-        _isAttacking = false;
+        _spriteRenderer.sprite = _config.Idle;
     }
 
-    private void Parry()
+    public void SetPreattackSprite()
     {
-        Debug.Log("Parry");
+        _spriteRenderer.sprite = _config.Preattack;
+    }
+
+    public void SetAttackSprite()
+    {
+        _spriteRenderer.sprite = _config.Attack;
+    }
+
+    public void SetParrySprite()
+    {
+        _spriteRenderer.sprite = _config.Parry;
     }
 }
