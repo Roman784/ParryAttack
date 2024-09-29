@@ -4,11 +4,14 @@ public class KeyboadrInput : IInput
 {
     public bool IsAttacking()
     {
-        return Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
+        return IsLeftKeyPressed() && !IsRightKeyPressed();
     }
 
     public bool IsParrying()
     {
-        return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        return IsRightKeyPressed() && !IsLeftKeyPressed();
     }
+
+    private bool IsLeftKeyPressed() => Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+    private bool IsRightKeyPressed() => Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 }
