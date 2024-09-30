@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
@@ -17,60 +19,18 @@ public class Enemy : Swordsman
 
         _isInAction = false;
 
-        //Coroutines.StartRoutine(Life());
+        Coroutines.StartRoutine(Life());
     }
 
     private void Update()
     {
-        if (_playerStateName == SwordsmanStateName.Preattack || _playerStateName == SwordsmanStateName.Attack)
-        {
-            Debug.Log("Parry");
-            StateHandler.ChangeState(false, true);
-        }
-        else if (_playerStateName == SwordsmanStateName.Idle || _playerStateName == SwordsmanStateName.Parry)
-        {
-            Debug.Log("Preattack");
-            StateHandler.ChangeState(true, false);
-        }
     }
 
     private IEnumerator Life()
     {
         while (true)
         {
-            if (!_isInAction)
-            {
-                /*int r = Random.Range(0, 100);
-
-                if (r > 95)
-                {
-                    Coroutines.StartRoutine(Attack());
-                }
-                else if (r > 80)
-                {
-                    Coroutines.StartRoutine(Parry());
-                }
-                else
-                {
-                    StateHandler.SetIdleState();
-                }*/
-
-                if (_playerStateName == SwordsmanStateName.Preattack || _playerStateName == SwordsmanStateName.Attack)
-                {
-                    Debug.Log("Parry");
-                    StateHandler.SetParryState();
-                }
-                else if (_playerStateName == SwordsmanStateName.Idle)
-                {
-                    Debug.Log("Attack");
-                    StateHandler.SetPreattackState();
-                }
-                else if (_playerStateName == SwordsmanStateName.Parry)
-                {
-                    Debug.Log("Idle");
-                    StateHandler.SetIdleState();
-                }
-            }
+            DetermineState();
 
             yield return null;
         }
@@ -79,48 +39,44 @@ public class Enemy : Swordsman
     private void OnPlayerStateChanged(SwordsmanStateName stateName)
     {
         _playerStateName = stateName;
-        /*if (_isInAction) return;
-
-        if (stateName == SwordsmanStateName.Preattack || stateName == SwordsmanStateName.Attack)
-        {
-            Debug.Log("Parry");
-            Coroutines.StartRoutine(Parry());
-        }
-        else if (stateName == SwordsmanStateName.Parry)
-        {
-            Debug.Log("Idle");
-            StateHandler.ChangeState(false, false);
-        }
-        else if (stateName == SwordsmanStateName.Idle)
-        {
-            Debug.Log("Attack");
-            Coroutines.StartRoutine(Attack());
-        }*/
+        DetermineState();
     }
 
-    private IEnumerator Attack()
+    private void DetermineState()
     {
-        _isInAction = true;
+        if (_playerStateName == SwordsmanStateName.Idle)
+        {
+            if (Randomizer.TryChance(0.5f))
+            {
+                StateHandler.ChangeAttackState();
+                return;
+            }
+        }
+        else if (_playerStateName == SwordsmanStateName.Preattack)
+        {
+            if (Randomizer.TryChance(0.5f))
+            {
+                StateHandler.ChangeParryState();
+                return;
+            }
+        }
+        else if (_playerStateName == SwordsmanStateName.Attack)
+        {
+            if (Randomizer.TryChance(0.5f))
+            {
+                StateHandler.ChangeParryState();
+                return;
+            }
+        }
+        else if (_playerStateName == SwordsmanStateName.Parry)
+        {
+            if (Randomizer.TryChance(0.5f))
+            {
+                StateHandler.ChangeAttackState();
+                return;
+            }
+        }
 
-        StateHandler.SetPreattackState();
-
-        yield return new WaitForSeconds(Config.AttributesConfig.PreattackDuration);
-
-        StateHandler.SetAttackState();
-
-        yield return new WaitForSeconds(Config.AttributesConfig.AttackDuration);
-
-        _isInAction = false;
-    }
-
-    private IEnumerator Parry()
-    {
-        _isInAction = true;
-        StateHandler.SetParryState();
-
-        yield return new WaitForSeconds(2f);
-
-        _isInAction = false;
-        StateHandler.SetIdleState();
+        //StateHandler.ChangeRandomState();
     }
 }

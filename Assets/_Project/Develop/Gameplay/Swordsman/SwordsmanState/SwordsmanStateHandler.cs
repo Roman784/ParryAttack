@@ -28,6 +28,20 @@ public class SwordsmanStateHandler
         _statesMap[SwordsmanStateName.Parry] = new SwordsmanParryState(this, _swordsman);
     }
 
+    public void ChangeRandomState()
+    {
+        Randomizer.GetRandomValue<Action>(new List<Action>() 
+        {
+            ChangeIdleState,
+            ChangeAttackState,
+            ChangeParryState
+        }).Invoke();
+    }
+
+    public void ChangeIdleState() => ChangeState(false, false);
+    public void ChangeAttackState() => ChangeState(true, false);
+    public void ChangeParryState() => ChangeState(false, true);
+
     public void ChangeState(bool isAttacking, bool isParrying)
     {
         _currentState?.ChangeState(isAttacking, isParrying);
