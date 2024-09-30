@@ -3,12 +3,12 @@ using UnityEngine;
 
 public static class Randomizer
 {
-    public static bool TryChance(float chance)
+    public static bool TryProbability(float probability)
     {
-        if (chance < 0 || chance > 1)
-            throw new System.ArgumentOutOfRangeException($"Chance {chance} is outside the range (0; 1).");
+        if (probability < 0 || probability > 1)
+            throw new System.ArgumentOutOfRangeException($"Probability {probability} is outside the range (0; 1).");
 
-        return Random.Range(0f, 1f) <= chance;
+        return Random.Range(0f, 1f) <= probability;
     }
 
     public static T GetRandomValue<T>(List<T> values)

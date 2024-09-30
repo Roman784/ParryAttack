@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Enemy : Swordsman
 {
     [SerializeField] private Player _player;
-
     private SwordsmanStateName _playerStateName;
-    private bool _isInAction;
+
+    private float _stateUpdateColdown;
+    private float _attackProbability;
+    private float _parryProbability;
 
     private new void Awake()
     {
@@ -17,22 +17,16 @@ public class Enemy : Swordsman
 
         _player.StateHandler.OnStateChanged.AddListener(OnPlayerStateChanged);
 
-        _isInAction = false;
-
-        Coroutines.StartRoutine(Life());
+        Coroutines.StartRoutine(StateUpdate());
     }
 
-    private void Update()
-    {
-    }
-
-    private IEnumerator Life()
+    private IEnumerator StateUpdate()
     {
         while (true)
         {
             DetermineState();
 
-            yield return null;
+            yield return new WaitForSeconds(_stateUpdateColdown);
         }
     }
 
@@ -44,39 +38,26 @@ public class Enemy : Swordsman
 
     private void DetermineState()
     {
-        if (_playerStateName == SwordsmanStateName.Idle)
+        // Define state transitions with their corresponding probabilities.
+        var stateTransitions = new Dictionary<SwordsmanStateName, (SwordsmanStateName, float)>
         {
-            if (Randomizer.TryChance(0.5f))
-            {
-                StateHandler.ChangeAttackState();
-                return;
-            }
-        }
-        else if (_playerStateName == SwordsmanStateName.Preattack)
+            { SwordsmanStateName.Idle, (SwordsmanStateName.Attack, _attackProbability) },
+            { SwordsmanStateName.Preattack, (SwordsmanStateName.Parry, _parryProbability) },
+            { SwordsmanStateName.Attack, (SwordsmanStateName.Parry, _parryProbability) },
+            { SwordsmanStateName.Parry, (SwordsmanStateName.Attack, _attackProbability) }
+        };
+
+        // Check if a transition exists for the current state.
+        if (stateTransitions.TryGetValue(_playerStateName, out var transition))
         {
-            if (Randomizer.TryChance(0.5f))
+            if (Randomizer.TryProbability(transition.Item2))
             {
-                StateHandler.ChangeParryState();
-                return;
-            }
-        }
-        else if (_playerStateName == SwordsmanStateName.Attack)
-        {
-            if (Randomizer.TryChance(0.5f))
-            {
-                StateHandler.ChangeParryState();
-                return;
-            }
-        }
-        else if (_playerStateName == SwordsmanStateName.Parry)
-        {
-            if (Randomizer.TryChance(0.5f))
-            {
-                StateHandler.ChangeAttackState();
+                StateHandler.ChangeState(transition.Item1);
                 return;
             }
         }
 
-        //StateHandler.ChangeRandomState();
+        // If no transition exists, change to a random state.
+        StateHandler.ChangeRandomState();
     }
 }

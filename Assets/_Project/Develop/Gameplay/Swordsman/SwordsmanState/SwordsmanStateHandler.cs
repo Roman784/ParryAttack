@@ -30,12 +30,19 @@ public class SwordsmanStateHandler
 
     public void ChangeRandomState()
     {
-        Randomizer.GetRandomValue<Action>(new List<Action>() 
+        Randomizer.GetRandomValue<Action>(new() 
         {
             ChangeIdleState,
             ChangeAttackState,
             ChangeParryState
         }).Invoke();
+    }
+
+    public void ChangeState(SwordsmanStateName stateName)
+    {
+        if (stateName == SwordsmanStateName.Idle) ChangeIdleState();
+        else if (stateName == SwordsmanStateName.Attack) ChangeAttackState();
+        else if (stateName == SwordsmanStateName.Parry) ChangeParryState();
     }
 
     public void ChangeIdleState() => ChangeState(false, false);
