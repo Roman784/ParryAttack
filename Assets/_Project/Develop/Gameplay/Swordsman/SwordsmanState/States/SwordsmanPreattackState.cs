@@ -7,7 +7,7 @@ public class SwordsmanPreattackState : SwordsmanState
     private bool _isFinished;
     private Coroutine _coroutine;
 
-    public SwordsmanPreattackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
+    public SwordsmanPreattackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, SwordsmanStateName.Preattack, swordsman)
     {
     }
 
@@ -21,7 +21,7 @@ public class SwordsmanPreattackState : SwordsmanState
 
     private IEnumerator Preattack()
     {
-        Debug.Log("Preattack");
+        // Debug.Log("Preattack");
 
         Swordsman.Animation.SetPreattack();
         Swordsman.AttackIndicator.Activate(_duration);

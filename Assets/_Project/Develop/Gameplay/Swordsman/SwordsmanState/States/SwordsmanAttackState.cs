@@ -6,7 +6,7 @@ public class SwordsmanAttackState : SwordsmanState
     private float _duration;
     private bool _isFinished;
 
-    public SwordsmanAttackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
+    public SwordsmanAttackState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, SwordsmanStateName.Attack, swordsman)
     {
     }
 
@@ -20,7 +20,7 @@ public class SwordsmanAttackState : SwordsmanState
 
     private IEnumerator Attack()
     {
-        Debug.Log("Attack");
+        // Debug.Log("Attack");
 
         Swordsman.Animation.SetAttack();
 

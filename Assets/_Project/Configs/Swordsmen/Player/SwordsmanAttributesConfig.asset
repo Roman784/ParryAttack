@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da591ee11b3804692b322af999b5f5, type: 3}
   m_Name: SwordsmanAttributesConfig
   m_EditorClassIdentifier: 
-  PreattackDuration: 0.5
+  PreattackDuration: 1
   AttackDuration: 0.5

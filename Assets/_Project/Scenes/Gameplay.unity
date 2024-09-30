@@ -876,7 +876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1482663103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482663102}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7cf5a4a2a2b8f4e80c4ed5fe64cbb0, type: 3}
   m_Name: 
@@ -923,6 +923,7 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: 08b3c05b57595d3449d54762d37f77d9, type: 2}
   _spriteRenderer: {fileID: 1665631647}
   _attackIndicator: {fileID: 1482663103}
+  _player: {fileID: 1463443448}
 --- !u!1 &1624599988
 GameObject:
   m_ObjectHideFlags: 0

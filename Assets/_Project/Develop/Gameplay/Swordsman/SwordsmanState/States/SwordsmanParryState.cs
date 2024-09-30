@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class SwordsmanParryState : SwordsmanState
 {
-    public SwordsmanParryState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, swordsman)
+    public SwordsmanParryState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, SwordsmanStateName.Parry, swordsman)
     {
     }
 
     public override void Enter()
     {
-        Debug.Log("Parry");
+        // Debug.Log("Parry");
 
         Swordsman.Animation.SetParry();
     }
@@ -19,7 +19,7 @@ public class SwordsmanParryState : SwordsmanState
         {
             StateHandler.SetPreattackState();
         }
-        else
+        else if (!isParrying)
         {
             StateHandler.SetIdleState();
         }
