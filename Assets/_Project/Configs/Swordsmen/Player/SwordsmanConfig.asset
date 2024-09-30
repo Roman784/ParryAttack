@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f06cf406bba9f4e96e41b99bcd12d3, type: 3}
   m_Name: SwordsmanConfig
   m_EditorClassIdentifier: 
-  AttributesConfig: {fileID: 11400000, guid: 504a345f7ea525148b1af06606ee4a08, type: 2}
-  SpritesConfig: {fileID: 11400000, guid: 9770771a20a107341862410580be40d6, type: 2}
+  <AttributesConfig>k__BackingField: {fileID: 11400000, guid: 504a345f7ea525148b1af06606ee4a08, type: 2}
+  <AnimationConfig>k__BackingField: {fileID: 11400000, guid: 9770771a20a107341862410580be40d6, type: 2}

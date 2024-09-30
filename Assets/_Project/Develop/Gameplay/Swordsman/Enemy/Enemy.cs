@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Enemy : Swordsman
 {
-    [SerializeField] private Player _player;
-    private SwordsmanStateName _playerStateName;
+    [Space]
 
-    private float _stateUpdateColdown;
+    [SerializeField] private EnemyConfig _enemyConfig;
+
+    private float _stateUpdateCooldown;
     private float _attackProbability;
     private float _parryProbability;
+
+    [SerializeField] private Player _player;
+    private SwordsmanStateName _playerStateName;
 
     private new void Awake()
     {
         base.Awake();
+
+        _stateUpdateCooldown = _enemyConfig.StateUpdateCooldown;
+        _attackProbability = _enemyConfig.AttackProbability;
+        _parryProbability = _enemyConfig.ParryProbability;
 
         _player.StateHandler.OnStateChanged.AddListener(OnPlayerStateChanged);
 
@@ -22,18 +30,19 @@ public class Enemy : Swordsman
 
     private IEnumerator StateUpdate()
     {
+        yield return new WaitForSeconds(1.5f);
+
         while (true)
         {
             DetermineState();
 
-            yield return new WaitForSeconds(_stateUpdateColdown);
+            yield return new WaitForSeconds(_stateUpdateCooldown);
         }
     }
 
     private void OnPlayerStateChanged(SwordsmanStateName stateName)
     {
         _playerStateName = stateName;
-        DetermineState();
     }
 
     private void DetermineState()

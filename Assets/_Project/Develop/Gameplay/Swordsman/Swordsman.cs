@@ -3,10 +3,10 @@ using UnityEngine;
 public class Swordsman : MonoBehaviour
 {
     [SerializeField] private SwordsmanConfig _config;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [Space]
 
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private AttackIndicator _attackIndicator;
 
     private SwordsmanStateHandler _stateHandler;
@@ -14,7 +14,7 @@ public class Swordsman : MonoBehaviour
 
     protected void Awake()
     {
-        _animation = new SwordsmanAnimation(_config.SpritesConfig, _spriteRenderer);
+        _animation = new SwordsmanAnimation(_config.AnimationConfig, _spriteRenderer);
         _stateHandler = new SwordsmanStateHandler(this);
 
         _stateHandler.SetIdleState();

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SwordsmanConfig", menuName = "Configs/Swordsman/Main")]
+[CreateAssetMenu(fileName = "SwordsmanConfig", menuName = "Configs/Swordsman/Swordsman")]
 public class SwordsmanConfig : ScriptableObject
 {
-    [field: SerializeField] public SwordsmanAttributesConfig AttributesConfig;
-    [field: SerializeField] public SwordsmanSpritesConfig SpritesConfig;
+    [field: SerializeField] public SwordsmanAttributesConfig AttributesConfig { get; private set; }
+    [field: SerializeField] public SwordsmanAnimationConfig AnimationConfig { get; private set; }
 }
