@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class SwordsmanIdleState : SwordsmanState
 {
     public SwordsmanIdleState(SwordsmanStateHandler stateHandler, Swordsman swordsman) : base(stateHandler, SwordsmanStateName.Idle, swordsman)
@@ -8,18 +6,16 @@ public class SwordsmanIdleState : SwordsmanState
 
     public override void Enter()
     {
-        // Debug.Log("Idle");
-
         Swordsman.Animation.SetIdle();
     }
 
-    public override void ChangeState(bool isAttacking, bool isParrying)
+    public override void ChangeState(SwordsmanStateName stateName)
     {
-        if (isAttacking)
+        if (stateName == SwordsmanStateName.Attack)
         {
             StateHandler.SetPreattackState();
         }
-        else if (isParrying)
+        else if (stateName == SwordsmanStateName.Parry)
         {
             StateHandler.SetParryState();
         }

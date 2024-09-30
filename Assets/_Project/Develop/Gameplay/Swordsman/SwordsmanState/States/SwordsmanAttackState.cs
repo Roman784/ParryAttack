@@ -20,25 +20,24 @@ public class SwordsmanAttackState : SwordsmanState
 
     private IEnumerator Attack()
     {
-        // Debug.Log("Attack");
-
         Swordsman.Animation.SetAttack();
 
         yield return new WaitForSeconds(_duration);
 
         _isFinished = true;
-        ChangeState(Swordsman.IsAttacking, Swordsman.IsParrying);
+
+        StateHandler.ChangeState(Swordsman.IsAttacking, Swordsman.IsParrying);
     }
 
-    public override void ChangeState(bool isAttacking, bool isParrying)
+    public override void ChangeState(SwordsmanStateName stateName)
     {
         if (!_isFinished) return;
 
-        if (isAttacking)
+        if (stateName == SwordsmanStateName.Attack)
         {
             StateHandler.SetPreattackState();
         }
-        else if (isParrying)
+        else if (stateName == SwordsmanStateName.Parry)
         {
             StateHandler.SetParryState();
         }

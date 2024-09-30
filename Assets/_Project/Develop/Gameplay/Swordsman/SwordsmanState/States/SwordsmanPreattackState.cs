@@ -21,20 +21,19 @@ public class SwordsmanPreattackState : SwordsmanState
 
     private IEnumerator Preattack()
     {
-        // Debug.Log("Preattack");
-
         Swordsman.Animation.SetPreattack();
         Swordsman.AttackIndicator.Activate(_duration);
 
         yield return new WaitForSeconds(_duration);
 
         _isFinished = true;
-        ChangeState(false, false);
+
+        ChangeState(SwordsmanStateName.Attack);
     }
 
-    public override void ChangeState(bool isAttacking, bool isParrying)
+    public override void ChangeState(SwordsmanStateName stateName)
     {
-        if (isParrying)
+        if (stateName == SwordsmanStateName.Parry)
         {
             StateHandler.SetParryState();
         }

@@ -38,20 +38,26 @@ public class SwordsmanStateHandler
         }).Invoke();
     }
 
-    public void ChangeState(SwordsmanStateName stateName)
-    {
-        if (stateName == SwordsmanStateName.Idle) ChangeIdleState();
-        else if (stateName == SwordsmanStateName.Attack) ChangeAttackState();
-        else if (stateName == SwordsmanStateName.Parry) ChangeParryState();
-    }
-
-    public void ChangeIdleState() => ChangeState(false, false);
-    public void ChangeAttackState() => ChangeState(true, false);
-    public void ChangeParryState() => ChangeState(false, true);
+    public void ChangeIdleState() => ChangeState(SwordsmanStateName.Idle);
+    public void ChangeAttackState() => ChangeState(SwordsmanStateName.Attack);
+    public void ChangeParryState() => ChangeState(SwordsmanStateName.Parry);
 
     public void ChangeState(bool isAttacking, bool isParrying)
     {
-        _currentState?.ChangeState(isAttacking, isParrying);
+        var stateTransitions = new Dictionary<(bool, bool), SwordsmanStateName>()
+        {
+            { (false, false), SwordsmanStateName.Idle },
+            { (true, false) , SwordsmanStateName.Attack },
+            { (false, true), SwordsmanStateName.Parry }
+        };
+
+        if (stateTransitions.TryGetValue((isAttacking, isParrying), out var transition))
+            ChangeState(transition);
+    }
+
+    public void ChangeState(SwordsmanStateName stateName)
+    {
+        _currentState?.ChangeState(stateName);
     }
 
     public void SetIdleState()
