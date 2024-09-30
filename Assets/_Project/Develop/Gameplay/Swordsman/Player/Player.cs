@@ -4,13 +4,12 @@ using Zenject;
 
 public class Player : Swordsman
 {
-    private bool _isAttacking;
-    private bool _isParrying;
+    private PlayerInput _input;
 
     [Inject]
     private void Construct(PlayerInput input)
     {
-        Input = input;
+        _input = input;
 
         input.OnAttackTrigger.AddListener(SetIsAttacking);
         input.OnParryTrigger.AddListener(SetIsParrying);
@@ -19,34 +18,31 @@ public class Player : Swordsman
     private new void Awake()
     {
         base.Awake();
-
-        _isAttacking = false;
-        _isParrying = false;
     }
 
     private void Update()
     {
-        Input?.Update();
+        _input?.Handle();
     }
 
     private void SetIsAttacking(bool isKeyPressed)
     {
-        if (isKeyPressed == _isAttacking) return;
+        if (isKeyPressed == IsAttacking) return;
 
-        _isAttacking = isKeyPressed;
+        IsAttacking = isKeyPressed;
         ChangeState();
     }
 
     private void SetIsParrying(bool isKeyPressed)
     {
-        if (isKeyPressed == _isParrying) return;
+        if (isKeyPressed == IsParrying) return;
 
-        _isParrying = isKeyPressed;
+        IsParrying = isKeyPressed;
         ChangeState();
     }
 
     private void ChangeState()
     {
-        StateHandler.ChangeState(_isAttacking, _isParrying);
+        StateHandler.ChangeState(IsAttacking, IsParrying);
     }
 }

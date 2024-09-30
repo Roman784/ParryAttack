@@ -61,6 +61,8 @@ public class SwordsmanStateHandler
 
     private void SetState(SwordsmanState newState)
     {
+        if (newState == _currentState) return;
+
         _currentState?.Exit();
 
         _currentState = newState;

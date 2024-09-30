@@ -9,9 +9,7 @@ public class Swordsman : MonoBehaviour
 
     [SerializeField] private AttackIndicator _attackIndicator;
 
-    protected PlayerInput Input;
     protected SwordsmanStateHandler StateHandler;
-
     private SwordsmanAnimation _animation;
 
     protected void Awake()
@@ -21,6 +19,9 @@ public class Swordsman : MonoBehaviour
 
         StateHandler.SetIdleState();
     }
+
+    public bool IsAttacking { get; protected set; }
+    public bool IsParrying { get; protected set; }
 
     public SwordsmanConfig Config => _config;
     public SwordsmanAnimation Animation => _animation;
