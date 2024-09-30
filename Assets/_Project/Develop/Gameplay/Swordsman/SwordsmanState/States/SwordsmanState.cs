@@ -1,5 +1,7 @@
 public abstract class SwordsmanState
 {
+    public bool IsFinished;
+
     protected readonly SwordsmanStateHandler StateHandler;
     protected readonly Swordsman Swordsman;
 
@@ -15,6 +17,5 @@ public abstract class SwordsmanState
     public SwordsmanStateName Name => _name;
 
     public abstract void Enter();
-    public abstract void ChangeState(SwordsmanStateName stateName);
     public virtual void Exit() { }
 }

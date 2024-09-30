@@ -7,17 +7,7 @@ public class SwordsmanIdleState : SwordsmanState
     public override void Enter()
     {
         Swordsman.Animation.SetIdle();
-    }
 
-    public override void ChangeState(SwordsmanStateName stateName)
-    {
-        if (stateName == SwordsmanStateName.Attack)
-        {
-            StateHandler.SetPreattackState();
-        }
-        else if (stateName == SwordsmanStateName.Parry)
-        {
-            StateHandler.SetParryState();
-        }
+        IsFinished = true;
     }
 }

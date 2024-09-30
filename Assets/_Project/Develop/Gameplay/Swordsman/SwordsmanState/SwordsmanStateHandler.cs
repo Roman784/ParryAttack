@@ -6,7 +6,9 @@ public class SwordsmanStateHandler
 {
     public UnityEvent<SwordsmanStateName> OnStateChanged = new();
 
-    private Dictionary<SwordsmanStateName, SwordsmanState> _statesMap;
+    private Dictionary<SwordsmanStateName, SwordsmanState> _statesMap = new();
+    private Dictionary<SwordsmanStateName, List<SwordsmanStateName>> _stateTransitions = new();
+
     private SwordsmanState _currentState;
 
     private Swordsman _swordsman;
@@ -16,16 +18,37 @@ public class SwordsmanStateHandler
         _swordsman = swordsman;
 
         InitStates();
+        InitStateTransitions();
+
+        DefaultState();
     }
 
     private void InitStates()
     {
-        _statesMap = new Dictionary<SwordsmanStateName, SwordsmanState>();
-
         _statesMap[SwordsmanStateName.Idle] = new SwordsmanIdleState(this, _swordsman);
         _statesMap[SwordsmanStateName.Preattack] = new SwordsmanPreattackState(this, _swordsman);
         _statesMap[SwordsmanStateName.Attack] = new SwordsmanAttackState(this, _swordsman);
         _statesMap[SwordsmanStateName.Parry] = new SwordsmanParryState(this, _swordsman);
+    }
+
+    private void InitStateTransitions()
+    {
+        _stateTransitions[SwordsmanStateName.Idle] = new()
+        {
+            SwordsmanStateName.Preattack, SwordsmanStateName.Parry
+        };
+        _stateTransitions[SwordsmanStateName.Preattack] = new()
+        {
+            SwordsmanStateName.Attack, SwordsmanStateName.Parry
+        };
+        _stateTransitions[SwordsmanStateName.Attack] = new()
+        {
+            SwordsmanStateName.Idle, SwordsmanStateName.Preattack, SwordsmanStateName.Parry
+        };
+        _stateTransitions[SwordsmanStateName.Parry] = new()
+        {
+            SwordsmanStateName.Idle, SwordsmanStateName.Attack
+        };
     }
 
     public void ChangeRandomState()
@@ -33,60 +56,53 @@ public class SwordsmanStateHandler
         Randomizer.GetRandomValue<Action>(new() 
         {
             ChangeIdleState,
-            ChangeAttackState,
+            ChangePreattackState,
             ChangeParryState
         }).Invoke();
     }
 
     public void ChangeIdleState() => ChangeState(SwordsmanStateName.Idle);
-    public void ChangeAttackState() => ChangeState(SwordsmanStateName.Attack);
+    public void ChangePreattackState() => ChangeState(SwordsmanStateName.Preattack);
     public void ChangeParryState() => ChangeState(SwordsmanStateName.Parry);
 
     public void ChangeState(bool isAttacking, bool isParrying)
     {
-        var stateTransitions = new Dictionary<(bool, bool), SwordsmanStateName>()
+        var stateNamesByInput = new Dictionary<(bool, bool), SwordsmanStateName>()
         {
             { (false, false), SwordsmanStateName.Idle },
-            { (true, false) , SwordsmanStateName.Attack },
+            { (true, false) , SwordsmanStateName.Preattack },
             { (false, true), SwordsmanStateName.Parry }
         };
 
-        if (stateTransitions.TryGetValue((isAttacking, isParrying), out var transition))
+        if (stateNamesByInput.TryGetValue((isAttacking, isParrying), out var transition))
             ChangeState(transition);
     }
 
-    public void ChangeState(SwordsmanStateName stateName)
+    public void ChangeState(SwordsmanStateName newStateName)
     {
-        _currentState?.ChangeState(stateName);
+        if (!CanTransition(_currentState.Name, newStateName)) return;
+
+        var state = GetState(newStateName);
+        SetState(state);
     }
 
-    public void SetIdleState()
+    private void DefaultState()
     {
         var State = GetState(SwordsmanStateName.Idle);
         SetState(State);
     }
 
-    public void SetPreattackState()
+    private bool CanTransition(SwordsmanStateName from, SwordsmanStateName to)
     {
-        var State = GetState(SwordsmanStateName.Preattack);
-        SetState(State);
-    }
+        if (!_currentState.IsFinished) 
+            return false;
 
-    public void SetAttackState()
-    {
-        var State = GetState(SwordsmanStateName.Attack);
-        SetState(State);
+        return _stateTransitions[from].Contains(to);
     }
-
-    public void SetParryState()
+    
+    private SwordsmanState GetState(SwordsmanStateName name)
     {
-        var State = GetState(SwordsmanStateName.Parry);
-        SetState(State);
-    }
-
-    private SwordsmanState GetState(SwordsmanStateName state)
-    {
-        return _statesMap[state];
+        return _statesMap[name];
     }
 
     private void SetState(SwordsmanState newState)

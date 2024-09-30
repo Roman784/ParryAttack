@@ -50,10 +50,10 @@ public class Enemy : Swordsman
         // Define state transitions with their corresponding probabilities.
         var stateTransitions = new Dictionary<SwordsmanStateName, (SwordsmanStateName, float)>
         {
-            { SwordsmanStateName.Idle, (SwordsmanStateName.Attack, _attackProbability) },
+            { SwordsmanStateName.Idle, (SwordsmanStateName.Preattack, _attackProbability) },
             { SwordsmanStateName.Preattack, (SwordsmanStateName.Parry, _parryProbability) },
             { SwordsmanStateName.Attack, (SwordsmanStateName.Parry, _parryProbability) },
-            { SwordsmanStateName.Parry, (SwordsmanStateName.Attack, _attackProbability) }
+            { SwordsmanStateName.Parry, (SwordsmanStateName.Preattack, _attackProbability) }
         };
 
         // Check if a transition exists for the current state.

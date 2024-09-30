@@ -16,8 +16,6 @@ public class Swordsman : MonoBehaviour
     {
         _animation = new SwordsmanAnimation(_config.AnimationConfig, _spriteRenderer);
         _stateHandler = new SwordsmanStateHandler(this);
-
-        _stateHandler.SetIdleState();
     }
 
     public bool IsAttacking { get; protected set; }
