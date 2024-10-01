@@ -34,9 +34,9 @@ public abstract class Swordsman : MonoBehaviour
     public bool IsParrying { get; protected set; }
 
     public SwordsmanConfig Config => _config;
-    public SwordsmanStateHandler StateHandler => _stateHandler;
     public SwordsmanAnimation Animation => _animation;
     public AttackIndicator AttackIndicator => _attackIndicator;
+    public SwordsmanStateHandler StateHandler => _stateHandler;
 
     public abstract void PerformAttack();
     public void TakeDamage()

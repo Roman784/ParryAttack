@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Events;
 
 public class SwordsmanStateHandler
 {
-    public UnityEvent<SwordsmanStateName> OnStateChanged = new();
-
     private Dictionary<SwordsmanStateName, SwordsmanState> _statesMap = new();
     private Dictionary<SwordsmanStateName, List<SwordsmanStateName>> _stateTransitions = new();
     private List<SwordsmanStateName> _stateNames = new();
@@ -59,11 +56,12 @@ public class SwordsmanStateHandler
         _stateNames = Enum.GetValues(typeof(SwordsmanStateName)).Cast<SwordsmanStateName>().ToList();
     }
 
-    public bool IsParrying => _currentState.Name == SwordsmanStateName.Parry;
+    public bool IsParrying => CurrentStateName == SwordsmanStateName.Parry;
+    public SwordsmanStateName CurrentStateName => _currentState.Name;
 
     public void ChangeRandomState()
     {
-        var name = GetRandomStateNameForTransition(_stateNames);
+        var name = GetRandomStateNameForChanging(_stateNames);
         ChangeState(name);
     }
 
@@ -77,7 +75,7 @@ public class SwordsmanStateHandler
                 names.Remove(exemptName);
         }
 
-        var name = GetRandomStateNameForTransition(names);
+        var name = GetRandomStateNameForChanging(names);
         ChangeState(name);
     }
 
@@ -106,7 +104,7 @@ public class SwordsmanStateHandler
         SetState(state);
     }
 
-    private SwordsmanStateName GetRandomStateNameForTransition(List<SwordsmanStateName> origin)
+    private SwordsmanStateName GetRandomStateNameForChanging(List<SwordsmanStateName> origin)
     {
         var names = new List<SwordsmanStateName>(origin);
         names.Remove(SwordsmanStateName.Attack);
@@ -141,7 +139,5 @@ public class SwordsmanStateHandler
 
         _currentState = newState;
         _currentState.Enter();
-
-        OnStateChanged.Invoke(_currentState.Name);
     }
 }

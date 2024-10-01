@@ -14,11 +14,9 @@ public class BootEntryPoint : EntryPoint
 
     public override IEnumerator Run()
     {
-        Debug.Log("Game boot");
-
         SetupGame();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         Debug.Log("Boot scene loaded");
 

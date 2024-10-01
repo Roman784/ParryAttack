@@ -3,11 +3,13 @@ using Zenject;
 public class Player : Swordsman
 {
     private PlayerInput _input;
+    private Enemy _enemy;
 
     [Inject]
-    private void Construct(PlayerInput input)
+    private void Construct(PlayerInput input, Enemy enemy)
     {
         _input = input;
+        _enemy = enemy;
 
         input.OnAttackTrigger.AddListener(SetIsAttacking);
         input.OnParryTrigger.AddListener(SetIsParrying);
@@ -25,9 +27,7 @@ public class Player : Swordsman
 
     public override void PerformAttack()
     {
-        Enemy enemy = FindAnyObjectByType<Enemy>(); // <- Сделать через DI.
-
-        enemy.TakeDamage();
+        _enemy.TakeDamage();
     }
 
     private void SetIsAttacking(bool isKeyPressed)
