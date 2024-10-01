@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Events;
 
 public class SwordsmanStateHandler
@@ -8,6 +9,7 @@ public class SwordsmanStateHandler
 
     private Dictionary<SwordsmanStateName, SwordsmanState> _statesMap = new();
     private Dictionary<SwordsmanStateName, List<SwordsmanStateName>> _stateTransitions = new();
+    private List<SwordsmanStateName> _stateNames = new();
 
     private SwordsmanState _currentState;
 
@@ -19,6 +21,7 @@ public class SwordsmanStateHandler
 
         InitStates();
         InitStateTransitions();
+        InitStateNames();
 
         DefaultState();
     }
@@ -51,16 +54,31 @@ public class SwordsmanStateHandler
         };
     }
 
+    private void InitStateNames()
+    {
+        _stateNames = Enum.GetValues(typeof(SwordsmanStateName)).Cast<SwordsmanStateName>().ToList();
+    }
+
     public bool IsParrying => _currentState.Name == SwordsmanStateName.Parry;
 
     public void ChangeRandomState()
     {
-        Randomizer.GetRandomValue<Action>(new() 
+        var name = GetRandomStateNameForTransition(_stateNames);
+        ChangeState(name);
+    }
+
+    public void ChangeRandomStateWithout(params SwordsmanStateName[] exemptNames)
+    {
+        var names = new List<SwordsmanStateName>(_stateNames);
+
+        foreach (var exemptName in exemptNames)
         {
-            ChangeIdleState,
-            ChangePreattackState,
-            ChangeParryState
-        }).Invoke();
+            if (names.Contains(exemptName))
+                names.Remove(exemptName);
+        }
+
+        var name = GetRandomStateNameForTransition(names);
+        ChangeState(name);
     }
 
     public void ChangeIdleState() => ChangeState(SwordsmanStateName.Idle);
@@ -86,6 +104,14 @@ public class SwordsmanStateHandler
 
         var state = GetState(newStateName);
         SetState(state);
+    }
+
+    private SwordsmanStateName GetRandomStateNameForTransition(List<SwordsmanStateName> origin)
+    {
+        var names = new List<SwordsmanStateName>(origin);
+        names.Remove(SwordsmanStateName.Attack);
+
+        return Randomizer.GetRandomValue(names);
     }
 
     private void DefaultState()

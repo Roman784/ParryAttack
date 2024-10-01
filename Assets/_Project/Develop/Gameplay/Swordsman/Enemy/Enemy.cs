@@ -55,6 +55,7 @@ public class Enemy : Swordsman
     private void DetermineState()
     {
         // Define state transitions with their corresponding probabilities.
+        // <Player state, (enemy response, probability)>
         var stateTransitions = new Dictionary<SwordsmanStateName, (SwordsmanStateName, float)>
         {
             { SwordsmanStateName.Idle, (SwordsmanStateName.Preattack, _attackProbability) },
@@ -71,9 +72,14 @@ public class Enemy : Swordsman
                 StateHandler.ChangeState(transition.Item1);
                 return;
             }
+            else
+            {
+                StateHandler.ChangeRandomStateWithout(transition.Item1);
+                return;
+            }
         }
 
         // If no transition exists, change to a random state.
-        StateHandler.ChangeRandomState();
+        StateHandler.ChangeRandomStateWithout();
     }
 }
