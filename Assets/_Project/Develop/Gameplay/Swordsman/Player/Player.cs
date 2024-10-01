@@ -23,6 +23,13 @@ public class Player : Swordsman
         _input?.Handle();
     }
 
+    public override void PerformAttack()
+    {
+        Enemy enemy = FindAnyObjectByType<Enemy>(); // <- Сделать через DI.
+
+        enemy.TakeDamage();
+    }
+
     private void SetIsAttacking(bool isKeyPressed)
     {
         if (isKeyPressed == IsAttacking) return;

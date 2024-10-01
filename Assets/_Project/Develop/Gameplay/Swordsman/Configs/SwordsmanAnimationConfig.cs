@@ -1,10 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SwordsmanSpritesConfig", menuName = "Configs/Swordsman/Sprites")]
+[CreateAssetMenu(fileName = "SwordsmanAnimationConfig", menuName = "Configs/Swordsman/Animation")]
 public class SwordsmanAnimationConfig : ScriptableObject
 {
-    [field: SerializeField] public Sprite Idle { get; private set; }
-    [field: SerializeField] public Sprite Preattack { get; private set; }
-    [field: SerializeField] public Sprite Attack { get; private set; }
-    [field: SerializeField] public Sprite Parry { get; private set; }
+    [field: SerializeField] public SwordsmanSpritesConfig SpritesConfig { get; private set; }
+
+    [field: Space, SerializeField] public Color DamageColor { get; private set; }
+    [field: SerializeField] public int DamageTickCount { get; private set; }
+    [field: SerializeField] public float DamageTickRate {  get; private set; }
 }

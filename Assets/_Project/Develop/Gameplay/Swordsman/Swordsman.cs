@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Swordsman : MonoBehaviour
+public abstract class Swordsman : MonoBehaviour
 {
     [SerializeField] private SwordsmanConfig _config;
 
@@ -25,4 +25,12 @@ public class Swordsman : MonoBehaviour
     public SwordsmanStateHandler StateHandler => _stateHandler;
     public SwordsmanAnimation Animation => _animation;
     public AttackIndicator AttackIndicator => _attackIndicator;
+
+    public abstract void PerformAttack();
+    public void TakeDamage()
+    {
+        if (StateHandler.IsParrying) return;
+
+        Animation.SetDamage();
+    }
 }

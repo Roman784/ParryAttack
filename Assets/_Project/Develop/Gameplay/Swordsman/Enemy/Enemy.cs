@@ -28,6 +28,13 @@ public class Enemy : Swordsman
         Coroutines.StartRoutine(StateUpdate());
     }
 
+    public override void PerformAttack()
+    {
+        Player player = FindAnyObjectByType<Player>(); // <- Сделать через DI.
+
+        player.TakeDamage();
+    }
+
     private IEnumerator StateUpdate()
     {
         yield return new WaitForSeconds(1.5f);

@@ -51,6 +51,8 @@ public class SwordsmanStateHandler
         };
     }
 
+    public bool IsParrying => _currentState.Name == SwordsmanStateName.Parry;
+
     public void ChangeRandomState()
     {
         Randomizer.GetRandomValue<Action>(new() 

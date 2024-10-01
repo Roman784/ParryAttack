@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a499a624ea2ee44ba5d458d775e88e8, type: 3}
   m_Name: SwordsmanAnimationConfig
   m_EditorClassIdentifier: 
-  <Idle>k__BackingField: {fileID: 2077281617, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Preattack>k__BackingField: {fileID: -1344984559, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Attack>k__BackingField: {fileID: 2000804994, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Parry>k__BackingField: {fileID: -818998267, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <SpritesConfig>k__BackingField: {fileID: 11400000, guid: d259f2b36e3f16f4288955f604dd3fae, type: 2}
+  <DamageColor>k__BackingField: {r: 1, g: 0.2584905, b: 0.2584905, a: 1}
+  <DamageTickCount>k__BackingField: 3
+  <DamageTickRate>k__BackingField: 0.075

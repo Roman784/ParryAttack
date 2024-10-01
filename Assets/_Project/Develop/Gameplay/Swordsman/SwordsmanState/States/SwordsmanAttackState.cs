@@ -15,6 +15,7 @@ public class SwordsmanAttackState : SwordsmanState
 
         _duration = Swordsman.Config.AttributesConfig.AttackDuration;
 
+        Swordsman.PerformAttack();
         Coroutines.StartRoutine(Attack());
     }
 
