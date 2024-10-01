@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <StateUpdateCooldown>k__BackingField: 0.5
   <AttackProbability>k__BackingField: 0.5
-  <ParryProbability>k__BackingField: 0.5
+  <ParryProbability>k__BackingField: 0

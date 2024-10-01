@@ -1,17 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class SwordsmanAnimation
+public class SwordsmanAnimation : MonoBehaviour
 {
-    private SwordsmanAnimationConfig _config;
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    private SwordsmanAnimationConfig _config;
     private Coroutine _tickingDamageCoroutine;
 
-    public SwordsmanAnimation(SwordsmanAnimationConfig config, SpriteRenderer spriteRenderer)
+    public void Init(SwordsmanAnimationConfig config)
     {
         _config = config;
-        _spriteRenderer = spriteRenderer;
     }
 
     public void SetIdle()

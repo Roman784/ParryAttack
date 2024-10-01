@@ -9,11 +9,6 @@ public class AttackIndicator : MonoBehaviour
 
     private Coroutine _fillingCoroutine;
 
-    private void Awake()
-    {
-        Deactivate();
-    }
-
     public void Activate(float fillingTime)
     {
         _indicatorContainer.SetActive(true);
