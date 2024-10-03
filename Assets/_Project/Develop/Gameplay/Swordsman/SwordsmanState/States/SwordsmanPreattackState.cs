@@ -14,7 +14,7 @@ public class SwordsmanPreattackState : SwordsmanState
     {
         IsFinished = true; // You can change from this state to another state at runtime, so it is always finished.
 
-        _duration = Swordsman.Config.AttributesConfig.PreattackDuration;
+        _duration = Swordsman.Config.FeaturesConfig.PreattackDuration;
 
         _coroutine = Coroutines.StartRoutine(Preattack());
     }

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 08b3c05b57595d3449d54762d37f77d9, type: 2}
+  _spritesConfig: {fileID: 11400000, guid: d259f2b36e3f16f4288955f604dd3fae, type: 2}
 --- !u!114 &1375319322127711997
 MonoBehaviour:
   m_ObjectHideFlags: 0

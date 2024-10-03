@@ -7,4 +7,12 @@ public class SwordsmanSpritesConfig : ScriptableObject
     [field: SerializeField] public Sprite Preattack { get; private set; }
     [field: SerializeField] public Sprite Attack { get; private set; }
     [field: SerializeField] public Sprite Parry { get; private set; }
+
+    public SwordsmanSpritesConfig(Sprite idle, Sprite preattack, Sprite attack, Sprite parry)
+    {
+        Idle = idle;
+        Preattack = preattack;
+        Attack = attack;
+        Parry = parry;
+    }
 }

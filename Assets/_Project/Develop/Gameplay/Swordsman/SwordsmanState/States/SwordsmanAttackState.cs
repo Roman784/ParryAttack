@@ -13,7 +13,7 @@ public class SwordsmanAttackState : SwordsmanState
     {
         IsFinished = false;
 
-        _duration = Swordsman.Config.AttributesConfig.AttackDuration;
+        _duration = Swordsman.Config.FeaturesConfig.AttackDuration;
 
         Swordsman.PerformAttack();
         Coroutines.StartRoutine(Attack());

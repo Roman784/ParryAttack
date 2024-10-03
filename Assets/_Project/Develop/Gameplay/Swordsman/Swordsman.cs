@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent (typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(AttackIndicator))]
 public abstract class Swordsman : MonoBehaviour
 {
-    [SerializeField] private SwordsmanConfig _config;
+    private SwordsmanConfig _config;
 
     private SwordsmanHealth _health;
     private SwordsmanAnimation _animation;
@@ -11,10 +11,12 @@ public abstract class Swordsman : MonoBehaviour
 
     private SwordsmanStateHandler _stateHandler;
 
-    protected void Awake()
+    protected void Init(SwordsmanConfig config)
     {
+        _config = config;
+
         _health = GetComponent<SwordsmanHealth>();
-        _health.Init(_config.AttributesConfig.HeartsCount);
+        _health.Init(_config.FeaturesConfig.HeartsCount);
 
         _animation = GetComponent<SwordsmanAnimation>();
         _animation.Init(_config.AnimationConfig);

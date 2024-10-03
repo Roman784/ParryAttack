@@ -21,9 +21,9 @@ public class Enemy : Swordsman
         _player = player;
     }
 
-    private new void Awake()
+    public void Init(EnemyConfig config)
     {
-        base.Awake();
+        base.Init(config.SwordsmanConfig);
 
         _stateUpdateCooldown = _enemyConfig.StateUpdateCooldown;
         _attackProbability = _enemyConfig.AttackProbability;

@@ -6,31 +6,34 @@ public class SwordsmanAnimation : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private SwordsmanAnimationConfig _config;
+    private SwordsmanSpritesConfig _spritesConfig;
+
     private Coroutine _tickingDamageCoroutine;
 
     public void Init(SwordsmanAnimationConfig config)
     {
         _config = config;
+        _spritesConfig = config.SpritesConfig;
     }
 
     public void SetIdle()
     {
-        _spriteRenderer.sprite = _config.SpritesConfig.Idle;
+        _spriteRenderer.sprite = _spritesConfig.Idle;
     }
 
     public void SetPreattack()
     {
-        _spriteRenderer.sprite = _config.SpritesConfig.Preattack;
+        _spriteRenderer.sprite = _spritesConfig.Preattack;
     }
 
     public void SetAttack()
     {
-        _spriteRenderer.sprite = _config.SpritesConfig.Attack;
+        _spriteRenderer.sprite = _spritesConfig.Attack;
     }
 
     public void SetParry()
     {
-        _spriteRenderer.sprite = _config.SpritesConfig.Parry;
+        _spriteRenderer.sprite = _spritesConfig.Parry;
     }
 
     public void SetDamage()

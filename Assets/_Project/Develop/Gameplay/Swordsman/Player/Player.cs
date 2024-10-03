@@ -15,9 +15,9 @@ public class Player : Swordsman
         input.OnParryTrigger.AddListener(SetIsParrying);
     }
 
-    private new void Awake()
+    public void Init(PlayerConfig config)
     {
-        base.Awake();
+        base.Init(config.SwordsmanConfig);
     }
 
     private void Update()

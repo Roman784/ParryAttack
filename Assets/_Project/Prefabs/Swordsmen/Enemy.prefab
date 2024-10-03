@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 08b3c05b57595d3449d54762d37f77d9, type: 2}
+  _spritesConfig: {fileID: 11400000, guid: d259f2b36e3f16f4288955f604dd3fae, type: 2}
   _enemyConfig: {fileID: 11400000, guid: 12ebf70afa4b1a645b8b6a809b70405a, type: 2}
-  _player: {fileID: 0}
 --- !u!114 &6670387134501110428
 MonoBehaviour:
   m_ObjectHideFlags: 0

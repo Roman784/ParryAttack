@@ -339,6 +339,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 5577996011266343818, guid: 3c38ee74b5e5cbd45a4cc88675e68fc4, type: 3}
   _enemyPrefab: {fileID: 7905148010213599097, guid: e06215d97524be0499a835e57c442357, type: 3}
+--- !u!1 &1477747794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1477747796}
+  - component: {fileID: 1477747795}
+  m_Layer: 0
+  m_Name: Levels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1477747795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477747794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2285f1fec83a147a727d5c6567a907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelsList:
+  - EnemyName: Enemy1
+    EnemyHeartCount: 2
+    EnemySprites: {fileID: 11400000, guid: d259f2b36e3f16f4288955f604dd3fae, type: 2}
+    DifficultyChanges: {fileID: 11400000, guid: 8ae15277a66106b42bd063ad33aed60e, type: 2}
+--- !u!4 &1477747796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477747794}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98879606, y: 1.1753039, z: -0.02419633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1490005545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490005547}
+  - component: {fileID: 1490005546}
+  m_Layer: 0
+  m_Name: BUilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490005546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490005545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 067992dca9a42914cb6ad9a83c931db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyChangesConfig: {fileID: 11400000, guid: 8ae15277a66106b42bd063ad33aed60e, type: 2}
+  _defaultEnemyConfig: {fileID: 11400000, guid: e36ca2949116a244d8ba9139a27fdfcf, type: 2}
+  _defaultSwordsmanConfig: {fileID: 11400000, guid: 91e6faef06953b6408a05caa4371e5e2, type: 2}
+--- !u!4 &1490005547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490005545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98879606, y: 1.1753039, z: -0.02419633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574775798
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee81a25cefc0434798509146e68913c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _swordsmanConfigBuilder: {fileID: 1490005546}
   _playerSpawnPoint: {fileID: 505638991}
   _enemySpawnPoint: {fileID: 1574775799}
 --- !u!4 &2020548212
@@ -425,3 +522,5 @@ SceneRoots:
   - {fileID: 760003257}
   - {fileID: 505638991}
   - {fileID: 1574775799}
+  - {fileID: 1477747796}
+  - {fileID: 1490005547}

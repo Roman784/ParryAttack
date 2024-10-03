@@ -4,6 +4,8 @@ using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
+    [SerializeField] private SwordsmanConfigBuilder _swordsmanConfigBuilder;
+
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private Transform _enemySpawnPoint;
     
@@ -34,6 +36,9 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitSwordsmen()
     {
+        _player.Init(_swordsmanConfigBuilder.BuildPlayer());
+        _enemy.Init(_swordsmanConfigBuilder.BuildEnemy());
+
         PositionSwordsmen();
     }
 
