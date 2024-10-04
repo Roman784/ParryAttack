@@ -8,10 +8,16 @@ public class DifficultyInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindConfigs();
+        BindAdjuster();
     }
 
     private void BindConfigs()
     {
         Container.Bind<DifficultyChangesConfig>().FromInstance(_changesConfig).AsTransient();
+    }
+
+    private void BindAdjuster()
+    {
+        Container.BindInterfacesAndSelfTo<DifficultyAdjuster>().AsSingle();
     }
 }

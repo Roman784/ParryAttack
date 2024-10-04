@@ -4,8 +4,6 @@ using Zenject;
 public class SwordsmanConfigBuilder
 {
     private InitialSwordsmenConfig _initialConfig;
-    private DifficultyChangesConfig _difficultyChangesConfig;
-
     private DifficultyAdjuster _difficultyAdjuster;
 
     private PlayerConfig InitialPlayerConfig => _initialConfig.PlayerConfig;
@@ -15,12 +13,10 @@ public class SwordsmanConfigBuilder
     private SwordsmanAnimationConfig InitialAnimationConfig => InitialSwordsmanConfig.AnimationConfig;
 
     [Inject]
-    private void Construct(InitialSwordsmenConfig initialConfig, DifficultyChangesConfig difficultyChangesConfig)
+    private void Construct(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster)
     {
         _initialConfig = initialConfig;
-        _difficultyChangesConfig = difficultyChangesConfig;
-
-        _difficultyAdjuster = new DifficultyAdjuster();
+        _difficultyAdjuster = difficultyAdjuster;
     }
 
     public PlayerConfig BuildPlayer()
@@ -34,9 +30,9 @@ public class SwordsmanConfigBuilder
     public EnemyConfig BuildEnemy()
     {
         SwordsmanConfig swordsmanConfig = BuildSwordsman();
-        float stateUpdateCooldown = _difficultyAdjuster.Adjust(InitialEnemyConfig.StateUpdateCooldown, _difficultyChangesConfig.StateUpdateCooldown);
-        float attackProbability = _difficultyAdjuster.Adjust(InitialEnemyConfig.AttackProbability, _difficultyChangesConfig.AttackProbability);
-        float parryProbability = _difficultyAdjuster.Adjust(InitialEnemyConfig.ParryProbability, _difficultyChangesConfig.ParryProbability);
+        float stateUpdateCooldown = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.StateUpdateCooldown, InitialEnemyConfig.StateUpdateCooldown);
+        float attackProbability = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.AttackProbability, InitialEnemyConfig.AttackProbability);
+        float parryProbability = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.ParryProbability, InitialEnemyConfig.ParryProbability);
 
         EnemyConfig enemyConfig = new(swordsmanConfig, stateUpdateCooldown, attackProbability, parryProbability);
 
@@ -56,8 +52,8 @@ public class SwordsmanConfigBuilder
     private SwordsmanFeaturesConfig BuildFeatures()
     {
         int heartsCount = InitialFeaturesConfig.HeartsCount;
-        float preattackDuration = _difficultyAdjuster.Adjust(InitialFeaturesConfig.PreattackDuration, _difficultyChangesConfig.PreattackDuration);
-        float attackDuration = _difficultyAdjuster.Adjust(InitialFeaturesConfig.AttackDuration, _difficultyChangesConfig.AttackDuration);
+        float preattackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.PreattackDuration, InitialFeaturesConfig.PreattackDuration);
+        float attackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.AttackDuration, InitialFeaturesConfig.AttackDuration);
 
         SwordsmanFeaturesConfig featuresConfig = new(heartsCount, preattackDuration, attackDuration);
 
