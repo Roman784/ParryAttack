@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f06cf406bba9f4e96e41b99bcd12d3, type: 3}
-  m_Name: DefaultSwordsmanConfig
+  m_Name: InitialSwordsmanConfig
   m_EditorClassIdentifier: 
   <FeaturesConfig>k__BackingField: {fileID: 11400000, guid: e39176a9256e4cb40b740a28086f0114, type: 2}
   <AnimationConfig>k__BackingField: {fileID: 11400000, guid: ef9bf954e6811cd439ba6ee8d0e9698d, type: 2}

@@ -36,6 +36,7 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitSwordsmen()
     {
+        Debug.Log("init");
         _player.Init(_swordsmanConfigBuilder.BuildPlayer());
         _enemy.Init(_swordsmanConfigBuilder.BuildEnemy());
 

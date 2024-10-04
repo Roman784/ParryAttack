@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a499a624ea2ee44ba5d458d775e88e8, type: 3}
-  m_Name: DefaultSwordsmanAnimationConfig
+  m_Name: InitialSwordsmanAnimationConfig
   m_EditorClassIdentifier: 
   <SpritesConfig>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
   <DamageColor>k__BackingField: {r: 1, g: 0.2584905, b: 0.2584905, a: 1}

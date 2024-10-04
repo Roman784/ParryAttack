@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47e2a394ef8fd34ba6f113025cbdc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialConfig: {fileID: 11400000, guid: 21a1fe5ab5b34a1498bc70859489d8e3, type: 2}
   _playerPrefab: {fileID: 5577996011266343818, guid: 3c38ee74b5e5cbd45a4cc88675e68fc4, type: 3}
   _enemyPrefab: {fileID: 7905148010213599097, guid: e06215d97524be0499a835e57c442357, type: 3}
 --- !u!1 &1477747794
@@ -417,9 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067992dca9a42914cb6ad9a83c931db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _difficultyChangesConfig: {fileID: 11400000, guid: 8ae15277a66106b42bd063ad33aed60e, type: 2}
-  _defaultEnemyConfig: {fileID: 11400000, guid: e36ca2949116a244d8ba9139a27fdfcf, type: 2}
-  _defaultSwordsmanConfig: {fileID: 11400000, guid: 91e6faef06953b6408a05caa4371e5e2, type: 2}
 --- !u!4 &1490005547
 Transform:
   m_ObjectHideFlags: 0

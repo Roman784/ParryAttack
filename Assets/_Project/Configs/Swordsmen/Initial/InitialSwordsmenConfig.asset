@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3726eec88e1bf4184e76a62de952e1, type: 3}
-  m_Name: DefaultEnemyConfig
+  m_Script: {fileID: 11500000, guid: a9896095492871d4aba14edd0798edc5, type: 3}
+  m_Name: InitialSwordsmenConfig
   m_EditorClassIdentifier: 
+  <PlayerConfig>k__BackingField: {fileID: 11400000, guid: a8352a7fbcde75849a83a86bfbcea496, type: 2}
+  <EnemyConfig>k__BackingField: {fileID: 11400000, guid: e36ca2949116a244d8ba9139a27fdfcf, type: 2}
   <SwordsmanConfig>k__BackingField: {fileID: 11400000, guid: 91e6faef06953b6408a05caa4371e5e2, type: 2}
-  <StateUpdateCooldown>k__BackingField: 0.5
-  <AttackProbability>k__BackingField: 0.5
-  <ParryProbability>k__BackingField: 0.5
