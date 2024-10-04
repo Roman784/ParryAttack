@@ -13,12 +13,18 @@ public class SwordsmenInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindConfigs();
+        BindConfigBuilder();
         BindSwordsmen();
     }
 
     private void BindConfigs()
     {
         Container.Bind<InitialSwordsmenConfig>().FromInstance(_initialConfig).AsTransient();
+    }
+
+    private void BindConfigBuilder()
+    {
+        Container.BindInterfacesAndSelfTo<SwordsmanConfigBuilder>().AsSingle();
     }
 
     private void BindSwordsmen()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class SwordsmanConfigBuilder : MonoBehaviour
+public class SwordsmanConfigBuilder
 {
     private InitialSwordsmenConfig _initialConfig;
 
@@ -18,7 +18,6 @@ public class SwordsmanConfigBuilder : MonoBehaviour
     [Inject]
     private void Construct(InitialSwordsmenConfig initialConfig)
     {
-        Debug.Log("inject");
         _initialConfig = initialConfig;
     }
 

@@ -4,21 +4,22 @@ using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
-    [SerializeField] private SwordsmanConfigBuilder _swordsmanConfigBuilder;
-
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private Transform _enemySpawnPoint;
     
     private Player _player;
     private Enemy _enemy;
 
+    private SwordsmanConfigBuilder _swordsmanConfigBuilder;
+
     private GameplayUI _gameplayUI;
 
     [Inject]
-    private void Construct(Player player, Enemy enemy, GameplayUI gameplayUI)
+    private void Construct(Player player, Enemy enemy, SwordsmanConfigBuilder swordsmanConfigBuilder, GameplayUI gameplayUI)
     {
         _player = player;
         _enemy = enemy;
+        _swordsmanConfigBuilder = swordsmanConfigBuilder;
         _gameplayUI = gameplayUI;
     }
 
@@ -36,7 +37,6 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitSwordsmen()
     {
-        Debug.Log("init");
         _player.Init(_swordsmanConfigBuilder.BuildPlayer());
         _enemy.Init(_swordsmanConfigBuilder.BuildEnemy());
 
