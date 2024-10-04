@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent (typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(AttackIndicator))]
 public abstract class Swordsman : MonoBehaviour
 {
+    protected bool CanFight = false;
+
     private SwordsmanConfig _config;
 
     private SwordsmanHealth _health;
@@ -47,5 +49,10 @@ public abstract class Swordsman : MonoBehaviour
 
         Animation.SetDamage();
         _health.SpendHeart();
+    }
+
+    public void AllowFight()
+    {
+        CanFight = true;
     }
 }

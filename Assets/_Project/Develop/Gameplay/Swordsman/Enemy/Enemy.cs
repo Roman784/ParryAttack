@@ -38,7 +38,7 @@ public class Enemy : Swordsman
 
     private IEnumerator StateUpdate()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => CanFight);
 
         while (true)
         {

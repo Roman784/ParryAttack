@@ -22,7 +22,8 @@ public class Player : Swordsman
 
     private void Update()
     {
-        _input?.Handle();
+        if (CanFight)
+            _input?.Handle();
     }
 
     public override void PerformAttack()

@@ -13,26 +13,32 @@ public class GameplayEntryPoint : EntryPoint
     private SwordsmanConfigBuilder _swordsmanConfigBuilder;
 
     private GameplayUI _gameplayUI;
+    private GameplayUI _gameplayUIPrefab;
 
     [Inject]
-    private void Construct(Player player, Enemy enemy, SwordsmanConfigBuilder swordsmanConfigBuilder, GameplayUI gameplayUI)
+    private void Construct(Player player, Enemy enemy, SwordsmanConfigBuilder swordsmanConfigBuilder, GameplayUI gameplayUIPrefab)
     {
         _player = player;
         _enemy = enemy;
         _swordsmanConfigBuilder = swordsmanConfigBuilder;
-        _gameplayUI = gameplayUI;
+        _gameplayUIPrefab = gameplayUIPrefab;
     }
 
     public override IEnumerator Run()
     {
-        GameplayUI gameplayUI = Instantiate(_gameplayUI);
-        UIRoot.AttachSceneUI(gameplayUI.transform);
-
+        CreateUI();
         InitSwordsmen();
+        StartCountdownTimer();
 
         yield return null;
 
         Debug.Log("Gameplay scene loaded");
+    }
+
+    private void CreateUI()
+    {
+        _gameplayUI = Instantiate(_gameplayUIPrefab);
+        UIRoot.AttachSceneUI(_gameplayUI.transform);
     }
 
     private void InitSwordsmen()
@@ -47,5 +53,17 @@ public class GameplayEntryPoint : EntryPoint
     {
         _player.transform.position = _playerSpawnPoint.position;
         _enemy.transform.position = _enemySpawnPoint.position;
+    }
+
+    private void StartCountdownTimer()
+    {
+        CountdownTimer countdownTimer = new(_gameplayUI.CountdownTimer);
+        countdownTimer.Start(3);
+
+        countdownTimer.OnTimerElapsed.AddListener(() =>
+        {
+            _player.AllowFight();
+            _enemy.AllowFight();
+        });
     }
 }
