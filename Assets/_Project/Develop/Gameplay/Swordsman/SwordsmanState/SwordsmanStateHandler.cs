@@ -47,7 +47,7 @@ public class SwordsmanStateHandler
         };
         _stateTransitions[SwordsmanStateName.Parry] = new()
         {
-            SwordsmanStateName.Idle, SwordsmanStateName.Attack
+            SwordsmanStateName.Idle, SwordsmanStateName.Preattack
         };
     }
 

@@ -5,10 +5,7 @@ using Zenject;
 
 public class Enemy : Swordsman
 {
-    [Space]
-
-    [SerializeField] private EnemyConfig _enemyConfig;
-
+    private EnemyConfig _enemyConfig;
     private float _stateUpdateCooldown;
     private float _attackProbability;
     private float _parryProbability;
@@ -24,6 +21,8 @@ public class Enemy : Swordsman
     public void Init(EnemyConfig config)
     {
         base.Init(config.SwordsmanConfig);
+
+        _enemyConfig = config;
 
         _stateUpdateCooldown = _enemyConfig.StateUpdateCooldown;
         _attackProbability = _enemyConfig.AttackProbability;
@@ -73,6 +72,7 @@ public class Enemy : Swordsman
             }
             else
             {
+                Debug.Log("NO");
                 StateHandler.ChangeRandomStateWithout(transition.Item1);
                 return;
             }

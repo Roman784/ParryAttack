@@ -4,7 +4,6 @@ using UnityEngine;
 public class DifficultyChangesConfig : ScriptableObject
 {
     [field: Header("Enemy")]
-    [field: SerializeField] public AnimationCurve HeartsCount { get; private set; }
     [field: SerializeField] public AnimationCurve StateUpdateCooldown { get; private set; }
     [field: SerializeField] public AnimationCurve AttackProbability {  get; private set; }
     [field: SerializeField] public AnimationCurve ParryProbability { get; private set; }

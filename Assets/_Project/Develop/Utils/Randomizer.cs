@@ -5,8 +5,7 @@ public static class Randomizer
 {
     public static bool TryProbability(float probability)
     {
-        if (probability < 0 || probability > 1)
-            throw new System.ArgumentOutOfRangeException($"Probability {probability} is outside the range (0; 1).");
+        probability = Mathf.Clamp01(probability);
 
         return Random.Range(0f, 1f) <= probability;
     }
