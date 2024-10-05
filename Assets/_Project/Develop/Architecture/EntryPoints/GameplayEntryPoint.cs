@@ -15,13 +15,17 @@ public class GameplayEntryPoint : EntryPoint
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
 
+    private LevelTracker _levelTracker;
+
     [Inject]
-    private void Construct(Player player, Enemy enemy, SwordsmanConfigBuilder swordsmanConfigBuilder, GameplayUI gameplayUIPrefab)
+    private void Construct(Player player, Enemy enemy, SwordsmanConfigBuilder swordsmanConfigBuilder, 
+                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker)
     {
         _player = player;
         _enemy = enemy;
         _swordsmanConfigBuilder = swordsmanConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
+        _levelTracker = levelTracker;
     }
 
     public override IEnumerator Run()
@@ -39,6 +43,8 @@ public class GameplayEntryPoint : EntryPoint
     {
         _gameplayUI = Instantiate(_gameplayUIPrefab);
         UIRoot.AttachSceneUI(_gameplayUI.transform);
+
+        _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 
     private void InitSwordsmen()

@@ -4,17 +4,16 @@ using Zenject;
 
 public class DifficultyAdjuster
 {
-    private int _maxLevel = 4;
-    private int _currentLevel = 4;
-    private float LevelProgress => _currentLevel / _maxLevel;
-
     private Dictionary<FieldsChangedByDifficulty, AnimationCurve> _changesByCurveMap;
     private DifficultyChangesConfig _changesConfig;
 
+    private LevelTracker _levelTracker;
+
     [Inject]
-    private void Construct(DifficultyChangesConfig changesConfig)
+    private void Construct(DifficultyChangesConfig changesConfig, LevelTracker levelTracker)
     {
         _changesConfig = changesConfig;
+        _levelTracker = levelTracker;
 
         InitChangesMap();
     }
@@ -37,6 +36,6 @@ public class DifficultyAdjuster
 
     private float Adjust(float value, AnimationCurve curve)
     {
-        return value * curve.Evaluate(LevelProgress);
+        return value * curve.Evaluate(_levelTracker.Progress);
     }
 }
