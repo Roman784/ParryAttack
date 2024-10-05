@@ -24,7 +24,7 @@ public class SwordsmenInstaller : MonoInstaller
 
     private void BindConfigBuilder()
     {
-        Container.BindInterfacesAndSelfTo<SwordsmanConfigBuilder>().AsSingle();
+        Container.BindInterfacesAndSelfTo<SwordsmenConfigBuilder>().AsSingle();
     }
 
     private void BindSwordsmen()

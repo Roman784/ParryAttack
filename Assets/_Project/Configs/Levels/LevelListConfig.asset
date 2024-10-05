@@ -17,5 +17,5 @@ MonoBehaviour:
     <EnemySprites>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
   - <EnemyName>k__BackingField: Enemy 2
     <EnemySprites>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
-  - <EnemyName>k__BackingField: Enemy 2
+  - <EnemyName>k__BackingField: Enemy 3
     <EnemySprites>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
