@@ -29,7 +29,7 @@ public class Enemy : Swordsman
         _parryProbability = _enemyConfig.ParryProbability;
 
         Positioning.SetPosition(arenaPositions.EnemyPosition);
-        _player.Positioning.OnMovedBack.AddListener(Positioning.Move);
+        _player.Positioning.OnMovedBack.AddListener(Positioning.MoveForward);
 
         Coroutines.StartRoutine(StateUpdate());
     }

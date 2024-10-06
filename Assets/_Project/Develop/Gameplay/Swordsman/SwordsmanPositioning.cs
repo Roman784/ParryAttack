@@ -11,7 +11,7 @@ public class SwordsmanPositioning : MonoBehaviour
     private ArenaPositions _arenaPositions;
     private Vector2 _arenaPosition;
 
-    [HideInInspector] public UnityEvent<int> OnMovedBack = new();
+    [HideInInspector] public UnityEvent OnMovedBack = new();
 
     private Coroutine _smoothlyMove;
 
@@ -36,15 +36,15 @@ public class SwordsmanPositioning : MonoBehaviour
         _smoothlyMove = Coroutines.StartRoutine(MoveSmoothly(position));
     }
 
+    public void MoveForward()
+    {
+        TryMove(_forwardMotionStep);
+    }
+
     public void MoveBack()
     {
         if (TryMove(-_forwardMotionStep))
-            OnMovedBack?.Invoke(-_forwardMotionStep);
-    }
-
-    public void Move(int step)
-    {
-        TryMove(step);
+            OnMovedBack?.Invoke();
     }
 
     private bool TryMove(int step)

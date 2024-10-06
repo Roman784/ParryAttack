@@ -15,7 +15,7 @@ MonoBehaviour:
   Levels:
   - <EnemyName>k__BackingField: Enemy 1
     <EnemySprites>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
-    <ArenaWidth>k__BackingField: 4
+    <ArenaWidth>k__BackingField: 6
   - <EnemyName>k__BackingField: Enemy 2
     <EnemySprites>k__BackingField: {fileID: 11400000, guid: bd533f4a7b9cb7e4589cab4700f7b10e, type: 2}
     <ArenaWidth>k__BackingField: 8

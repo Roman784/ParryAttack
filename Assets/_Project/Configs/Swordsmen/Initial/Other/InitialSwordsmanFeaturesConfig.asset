@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da591ee11b3804692b322af999b5f5, type: 3}
   m_Name: InitialSwordsmanFeaturesConfig
   m_EditorClassIdentifier: 
-  <HeartsCount>k__BackingField: 2
+  <HeartsCount>k__BackingField: 3
   <PreattackDuration>k__BackingField: 0.5
   <AttackDuration>k__BackingField: 0.5

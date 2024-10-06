@@ -21,7 +21,7 @@ public class Player : Swordsman
         _input.OnParryTrigger.AddListener(SetIsParrying);
 
         Positioning.SetPosition(arenaPositions.PlayerPosition);
-        _enemy.Positioning.OnMovedBack.AddListener(Positioning.Move);
+        _enemy.Positioning.OnMovedBack.AddListener(Positioning.MoveForward);
     }
 
     private void Update()
