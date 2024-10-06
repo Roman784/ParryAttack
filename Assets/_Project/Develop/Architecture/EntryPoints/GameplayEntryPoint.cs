@@ -12,23 +12,22 @@ public class GameplayEntryPoint : EntryPoint
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
 
-    private ThemeData _themeData;
     private ArenaPositions _arenaPositions;
 
     private SwordsmenConfigBuilder _swordsmenConfigBuilder;
     private LevelTracker _levelTracker;
-    private ThemeCreator _themeCreator;
+    private LevelCreator _levelCreator;
 
     [Inject]
     private void Construct(Player player, Enemy enemy, SwordsmenConfigBuilder swordsmenConfigBuilder, 
-                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, ThemeCreator themeCreator)
+                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator)
     {
         _player = player;
         _enemy = enemy;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
         _levelTracker = levelTracker;
-        _themeCreator = themeCreator;
+        _levelCreator = levelCreator;
     }
 
     public override IEnumerator Run()
@@ -36,8 +35,7 @@ public class GameplayEntryPoint : EntryPoint
         yield return null;
 
         CreateUI();
-        CreateTheme();
-        CreateArena();
+        CreateLevel();
         InitSwordsmen();
         InitCamera();
         StartCountdownTimer();
@@ -55,23 +53,15 @@ public class GameplayEntryPoint : EntryPoint
         _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 
-    private void CreateTheme()
+    private void CreateLevel()
     {
-        _themeData = _themeCreator.Create();
-    }
-
-    private void CreateArena()
-    {
-        int width = _levelTracker.CurrentLevelData.ArenaWidth;
-
-        ArenaCreator creator = new ArenaCreator(width, _themeData);
-        _arenaPositions = creator.Create();
+        _levelCreator.Create();
     }
 
     private void InitSwordsmen()
     {
-        _player.Init(_swordsmenConfigBuilder.BuildPlayer(), _arenaPositions);
-        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), _arenaPositions);
+        _player.Init(_swordsmenConfigBuilder.BuildPlayer());
+        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy());
     }
 
     private void InitCamera()

@@ -1,13 +1,11 @@
 using System.Linq;
 using UnityEngine;
-using Zenject;
 
 public class ThemeCreator
 {
     private ThemesConfig _config;
 
-    [Inject]
-    private void Construct(ThemesConfig config)
+    public ThemeCreator(ThemesConfig config)
     {
         _config = config;
     }

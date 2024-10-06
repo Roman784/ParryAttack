@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
 
 public class SwordsmanPositioning : MonoBehaviour
 {
@@ -15,9 +16,24 @@ public class SwordsmanPositioning : MonoBehaviour
 
     private Coroutine _smoothlyMove;
 
-    public void Init(ArenaPositions arenaPositions)
+    [Inject]
+    private void Construct(LevelCreator levelCreator)
     {
-        _arenaPositions = arenaPositions;
+        _arenaPositions = levelCreator.ArenaPositions;
+    }
+
+    public void Init()
+    {
+    }
+
+    public void SetInitialPositionForPlayer()
+    {
+        SetPosition(_arenaPositions.PlayerPosition);
+    }
+
+    public void SetInitialPositionForEnemy()
+    {
+        SetPosition(_arenaPositions.EnemyPosition);
     }
 
     public void SetPosition(Vector2 position, bool isInstantly = true)

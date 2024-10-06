@@ -18,9 +18,9 @@ public class Enemy : Swordsman
         _player = player;
     }
 
-    public void Init(EnemyConfig config, ArenaPositions arenaPositions)
+    public void Init(EnemyConfig config)
     {
-        base.Init(config.SwordsmanConfig, arenaPositions);
+        base.Init(config.SwordsmanConfig);
 
         _enemyConfig = config;
 
@@ -28,7 +28,7 @@ public class Enemy : Swordsman
         _attackProbability = _enemyConfig.AttackProbability;
         _parryProbability = _enemyConfig.ParryProbability;
 
-        Positioning.SetPosition(arenaPositions.EnemyPosition);
+        Positioning.SetInitialPositionForEnemy();
         _player.Positioning.OnMovedBack.AddListener(Positioning.MoveForward);
 
         Coroutines.StartRoutine(StateUpdate());

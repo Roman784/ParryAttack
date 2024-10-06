@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(SwordsmanPositioning))]
 [RequireComponent(typeof(AttackIndicator))]
@@ -23,13 +24,13 @@ public abstract class Swordsman : MonoBehaviour
         _attackIndicator = GetComponent<AttackIndicator>();
     }
 
-    protected void Init(SwordsmanConfig config, ArenaPositions arenaPositions)
+    protected void Init(SwordsmanConfig config)
     {
         _config = config;
 
         _health.Init(_config.FeaturesConfig.HeartsCount);
         _animation.Init(_config.AnimationConfig);
-        _positioning.Init(arenaPositions);
+        _positioning.Init();
         _attackIndicator.Deactivate();
 
         _stateHandler = new SwordsmanStateHandler(this);

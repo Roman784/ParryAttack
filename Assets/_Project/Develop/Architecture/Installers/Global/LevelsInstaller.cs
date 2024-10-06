@@ -9,6 +9,7 @@ public class LevelsInstaller : MonoInstaller
     {
         BindConfigs();
         BindLevelTracker();
+        BindCreator();
     }
 
     private void BindConfigs()
@@ -19,5 +20,10 @@ public class LevelsInstaller : MonoInstaller
     private void BindLevelTracker()
     {
         Container.BindInterfacesAndSelfTo<LevelTracker>().AsSingle();
+    }
+
+    private void BindCreator()
+    {
+        Container.Bind<LevelCreator>().AsSingle();
     }
 }
