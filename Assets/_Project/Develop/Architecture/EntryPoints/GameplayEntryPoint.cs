@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
+    [SerializeField] private CameraMovement _cameraMovement;
     [SerializeField] private ThemeConfig[] _themeConfigs;
 
     private ArenaPositions _arenaPositions;
@@ -37,6 +37,7 @@ public class GameplayEntryPoint : EntryPoint
         CreateUI();
         GenerateArena();
         InitSwordsmen();
+        InitCamera();
         StartCountdownTimer();
 
         yield return null;
@@ -67,6 +68,11 @@ public class GameplayEntryPoint : EntryPoint
     {
         _player.Init(_swordsmenConfigBuilder.BuildPlayer(), _arenaPositions);
         _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), _arenaPositions);
+    }
+
+    private void InitCamera()
+    {
+        _cameraMovement.Init(_player.transform, _enemy.transform);
     }
 
     private void StartCountdownTimer()

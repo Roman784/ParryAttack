@@ -38,18 +38,25 @@ public class SwordsmanPositioning : MonoBehaviour
 
     public void MoveBack()
     {
-        Move(-_forwardMotionStep);
-        OnMovedBack?.Invoke(-_forwardMotionStep);
+        if (TryMove(-_forwardMotionStep))
+            OnMovedBack?.Invoke(-_forwardMotionStep);
     }
 
     public void Move(int step)
     {
+        TryMove(step);
+    }
+
+    private bool TryMove(int step)
+    {
         int newPositionIndex = _arenaPositions.GetIndexByPosition(_arenaPosition) + step;
 
-        if (!_arenaPositions.IsWithin(newPositionIndex)) return;
+        if (!_arenaPositions.IsWithin(newPositionIndex)) return false;
 
         Vector2 position = _arenaPositions.GetPosition(newPositionIndex);
         SetPosition(position, false);
+
+        return true;
     }
 
     private IEnumerator MoveSmoothly(Vector2 position)
