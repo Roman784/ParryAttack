@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[RequireComponent (typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(AttackIndicator))]
+[RequireComponent(typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(SwordsmanPositioning))]
+[RequireComponent(typeof(AttackIndicator))]
 public abstract class Swordsman : MonoBehaviour
 {
     protected bool CanFight = false;
@@ -9,21 +10,26 @@ public abstract class Swordsman : MonoBehaviour
 
     private SwordsmanHealth _health;
     private SwordsmanAnimation _animation;
+    private SwordsmanPositioning _positioning;
     private AttackIndicator _attackIndicator;
 
     private SwordsmanStateHandler _stateHandler;
 
-    protected void Init(SwordsmanConfig config)
+    private void Awake()
+    {
+        _health = GetComponent<SwordsmanHealth>();
+        _animation = GetComponent<SwordsmanAnimation>();
+        _positioning = GetComponent<SwordsmanPositioning>();
+        _attackIndicator = GetComponent<AttackIndicator>();
+    }
+
+    protected void Init(SwordsmanConfig config, ArenaPositions arenaPositions)
     {
         _config = config;
 
-        _health = GetComponent<SwordsmanHealth>();
         _health.Init(_config.FeaturesConfig.HeartsCount);
-
-        _animation = GetComponent<SwordsmanAnimation>();
         _animation.Init(_config.AnimationConfig);
-
-        _attackIndicator = GetComponent<AttackIndicator>();
+        _positioning.Init(arenaPositions);
         _attackIndicator.Deactivate();
 
         _stateHandler = new SwordsmanStateHandler(this);
@@ -39,20 +45,25 @@ public abstract class Swordsman : MonoBehaviour
 
     public SwordsmanConfig Config => _config;
     public SwordsmanAnimation Animation => _animation;
+    public SwordsmanPositioning Positioning => _positioning;
     public AttackIndicator AttackIndicator => _attackIndicator;
     public SwordsmanStateHandler StateHandler => _stateHandler;
 
-    public abstract void PerformAttack();
-    public void TakeDamage()
-    {
-        if (StateHandler.IsParrying) return;
+    public void AllowFight() => CanFight = true;
 
-        Animation.SetDamage();
-        _health.SpendHeart();
+    public abstract void PerformAttack();
+
+    public void TakeHit()
+    {
+        if (StateHandler.IsParrying)
+            Positioning.MoveBack();
+        else
+            TakeDamage();
     }
 
-    public void AllowFight()
+    private void TakeDamage()
     {
-        CanFight = true;
+        Animation.SetDamage();
+        _health.SpendHeart();
     }
 }

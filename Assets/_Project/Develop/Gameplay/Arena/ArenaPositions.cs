@@ -14,4 +14,21 @@ public class ArenaPositions
 
     public Vector2 PlayerPosition => _positions[_positions.Count / 2 - 1];
     public Vector2 EnemyPosition => _positions[_positions.Count / 2];
+
+    public Vector2 GetPosition(int i)
+    {
+        if (!IsWithin(i)) return Vector2.zero;
+
+        return _positions[i];
+    }
+
+    public bool IsWithin(int i)
+    {
+        return i >= 0 && i < _positions.Count;
+    }
+
+    public int GetIndexByPosition(Vector2 position)
+    {
+        return _positions.IndexOf(position);
+    }
 }

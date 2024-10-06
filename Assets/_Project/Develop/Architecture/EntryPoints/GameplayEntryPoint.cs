@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -64,16 +65,8 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitSwordsmen()
     {
-        _player.Init(_swordsmenConfigBuilder.BuildPlayer());
-        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy());
-
-        PositionSwordsmen();
-    }
-
-    private void PositionSwordsmen()
-    {
-        _player.transform.position = _arenaPositions.PlayerPosition;
-        _enemy.transform.position = _arenaPositions.EnemyPosition;
+        _player.Init(_swordsmenConfigBuilder.BuildPlayer(), _arenaPositions);
+        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), _arenaPositions);
     }
 
     private void StartCountdownTimer()

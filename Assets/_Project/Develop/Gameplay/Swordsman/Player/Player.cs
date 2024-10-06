@@ -1,3 +1,4 @@
+using UnityEngine;
 using Zenject;
 
 public class Player : Swordsman
@@ -10,14 +11,17 @@ public class Player : Swordsman
     {
         _input = input;
         _enemy = enemy;
-
-        input.OnAttackTrigger.AddListener(SetIsAttacking);
-        input.OnParryTrigger.AddListener(SetIsParrying);
     }
 
-    public void Init(PlayerConfig config)
+    public void Init(PlayerConfig config, ArenaPositions arenaPositions)
     {
-        base.Init(config.SwordsmanConfig);
+        base.Init(config.SwordsmanConfig, arenaPositions);
+
+        _input.OnAttackTrigger.AddListener(SetIsAttacking);
+        _input.OnParryTrigger.AddListener(SetIsParrying);
+
+        Positioning.SetPosition(arenaPositions.PlayerPosition);
+        _enemy.Positioning.OnMovedBack.AddListener(Positioning.Move);
     }
 
     private void Update()
@@ -28,7 +32,7 @@ public class Player : Swordsman
 
     public override void PerformAttack()
     {
-        _enemy.TakeDamage();
+        _enemy.TakeHit();
     }
 
     private void SetIsAttacking(bool isKeyPressed)

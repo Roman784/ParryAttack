@@ -18,9 +18,9 @@ public class Enemy : Swordsman
         _player = player;
     }
 
-    public void Init(EnemyConfig config)
+    public void Init(EnemyConfig config, ArenaPositions arenaPositions)
     {
-        base.Init(config.SwordsmanConfig);
+        base.Init(config.SwordsmanConfig, arenaPositions);
 
         _enemyConfig = config;
 
@@ -28,12 +28,15 @@ public class Enemy : Swordsman
         _attackProbability = _enemyConfig.AttackProbability;
         _parryProbability = _enemyConfig.ParryProbability;
 
+        Positioning.SetPosition(arenaPositions.EnemyPosition);
+        _player.Positioning.OnMovedBack.AddListener(Positioning.Move);
+
         Coroutines.StartRoutine(StateUpdate());
     }
 
     public override void PerformAttack()
     {
-        _player.TakeDamage();
+        _player.TakeHit();
     }
 
     private IEnumerator StateUpdate()
@@ -72,7 +75,6 @@ public class Enemy : Swordsman
             }
             else
             {
-                Debug.Log("NO");
                 StateHandler.ChangeRandomStateWithout(transition.Item1);
                 return;
             }
