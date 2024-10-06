@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4183442666286848579}
   - component: {fileID: 1638823851166662612}
+  - component: {fileID: 8920664129424380031}
   m_Layer: 0
   m_Name: Bg1
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4138871181192348476}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.69708836, y: -1.53, z: 0}
+  m_LocalPosition: {x: 0, y: -1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,6 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8920664129424380031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138871181192348476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad2c445c6b39964198c487eebfe8a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _strength: 0.2
+  _freezeX: 0
+  _freezeY: 1
 --- !u!1 &6083931476368490557
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8229525521569391377}
   - component: {fileID: 24080932677466020}
+  - component: {fileID: 2312033900304203806}
   m_Layer: 0
   m_Name: Bg2
   m_TagString: Untagged
@@ -168,6 +185,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2312033900304203806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083931476368490557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad2c445c6b39964198c487eebfe8a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _strength: 0.5
+  _freezeX: 0
+  _freezeY: 1
 --- !u!1 &6150061657859847919
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7164686247679044464}
   - component: {fileID: 4507467260770287527}
+  - component: {fileID: 4007859920176255736}
   m_Layer: 0
   m_Name: Bg3
   m_TagString: Untagged
@@ -252,6 +285,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4007859920176255736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150061657859847919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad2c445c6b39964198c487eebfe8a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _strength: 0.85
+  _freezeX: 0
+  _freezeY: 1
 --- !u!1 &8294141408697331923
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9145485262189586634}
   m_Layer: 0
-  m_Name: Theme1
+  m_Name: Theme1Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

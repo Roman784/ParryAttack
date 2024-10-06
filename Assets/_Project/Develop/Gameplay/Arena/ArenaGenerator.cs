@@ -3,52 +3,48 @@ using UnityEngine;
 
 public class ArenaGenerator
 {
-    private SpriteRenderer _renderer;
     private int _tileCount;
     private Vector2 _tileSize;
 
-    private ArenaPositions _positions;
+    private ThemeData _themeData;
 
-    private ThemeConfig _themeConfig;
-
-    public ArenaGenerator(int width, ThemeConfig themeConfig)
+    public ArenaGenerator(int width, ThemeData themeData)
     {
         _tileCount = width;
-        _themeConfig = themeConfig;
-        _tileSize = themeConfig.ArenaTileSize;
+        _themeData = themeData;
+        _tileSize = themeData.ArenaTileSize;
     }
 
-    public void Generate()
+    public ArenaPositions Generate()
     {
         CreateRenderer();
-        SetArenaSize();
-        InitPositions();
         CreateProps();
+        return CreatePositions();
     }
-
-    public ArenaPositions Positions => _positions;
 
     private float LeftEdge => _tileCount / 2f * _tileSize.x * -1f;
     private float RightEdge => _tileCount / 2f * _tileSize.x;
 
     private void CreateRenderer()
     {
-        _renderer = new GameObject("Arena").AddComponent<SpriteRenderer>();
-        _renderer.transform.position = Vector2.zero;
-        _renderer.sprite = _themeConfig.ArenaTile;
+        SpriteRenderer renderer = new GameObject("Arena").AddComponent<SpriteRenderer>();
+        renderer.transform.position = Vector2.zero;
+        renderer.sprite = _themeData.ArenaTile;
+
+        SetArenaSize(renderer);
     }
 
-    private void SetArenaSize()
+    private void SetArenaSize(SpriteRenderer renderer)
     {
         float width = _tileCount * _tileSize.x;
         float height = _tileSize.y;
         Vector2 size = new Vector2(width, height);
 
-        _renderer.drawMode = SpriteDrawMode.Tiled;
-        _renderer.size = size;
+        renderer.drawMode = SpriteDrawMode.Tiled;
+        renderer.size = size;
     }
 
-    private void InitPositions()
+    private ArenaPositions CreatePositions()
     {
         List<Vector2> positions = new();
 
@@ -60,13 +56,13 @@ public class ArenaGenerator
             positions.Add(position);
         }
 
-        _positions = new ArenaPositions(positions);
+        return new ArenaPositions(positions);
     }
 
     private void CreateProps()
     {
-        GameObject lefPropsPrefab = _themeConfig.GetRandomArenaProps();
-        GameObject rightPropsPrefab = _themeConfig.GetRandomArenaProps();
+        GameObject lefPropsPrefab = _themeData.GetRandomArenaProps();
+        GameObject rightPropsPrefab = _themeData.GetRandomArenaProps();
 
         GameObject leftProps = Object.Instantiate(lefPropsPrefab);
         leftProps.transform.position = new Vector2(LeftEdge, 0f);

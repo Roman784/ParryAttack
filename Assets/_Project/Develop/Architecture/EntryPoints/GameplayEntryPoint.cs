@@ -5,29 +5,30 @@ using Zenject;
 public class GameplayEntryPoint : EntryPoint
 {
     [SerializeField] private CameraMovement _cameraMovement;
-    [SerializeField] private ThemeConfig[] _themeConfigs;
-
-    private ArenaPositions _arenaPositions;
 
     private Player _player;
     private Enemy _enemy;
 
-    private SwordsmenConfigBuilder _swordsmenConfigBuilder;
-
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
 
+    private ThemeData _themeData;
+    private ArenaPositions _arenaPositions;
+
+    private SwordsmenConfigBuilder _swordsmenConfigBuilder;
     private LevelTracker _levelTracker;
+    private ThemeCreator _themeCreator;
 
     [Inject]
     private void Construct(Player player, Enemy enemy, SwordsmenConfigBuilder swordsmenConfigBuilder, 
-                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker)
+                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, ThemeCreator themeCreator)
     {
         _player = player;
         _enemy = enemy;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
         _levelTracker = levelTracker;
+        _themeCreator = themeCreator;
     }
 
     public override IEnumerator Run()
@@ -35,7 +36,8 @@ public class GameplayEntryPoint : EntryPoint
         yield return null;
 
         CreateUI();
-        GenerateArena();
+        CreateTheme();
+        CreateArena();
         InitSwordsmen();
         InitCamera();
         StartCountdownTimer();
@@ -53,15 +55,17 @@ public class GameplayEntryPoint : EntryPoint
         _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 
-    private void GenerateArena()
+    private void CreateTheme()
+    {
+        _themeData = _themeCreator.Create();
+    }
+
+    private void CreateArena()
     {
         int width = _levelTracker.CurrentLevelData.ArenaWidth;
-        ThemeConfig themeConfig = _themeConfigs[Random.Range(0, _themeConfigs.Length)];
 
-        ArenaGenerator generator = new ArenaGenerator(width, themeConfig);
-        generator.Generate();
-
-        _arenaPositions = generator.Positions;
+        ArenaGenerator generator = new ArenaGenerator(width, _themeData);
+        _arenaPositions = generator.Generate();
     }
 
     private void InitSwordsmen()
