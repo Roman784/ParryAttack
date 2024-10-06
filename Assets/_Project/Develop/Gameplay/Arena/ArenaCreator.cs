@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArenaGenerator
+public class ArenaCreator
 {
     private int _tileCount;
     private Vector2 _tileSize;
 
     private ThemeData _themeData;
 
-    public ArenaGenerator(int width, ThemeData themeData)
+    public ArenaCreator(int width, ThemeData themeData)
     {
         _tileCount = width;
         _themeData = themeData;
         _tileSize = themeData.ArenaTileSize;
     }
 
-    public ArenaPositions Generate()
+    public ArenaPositions Create()
     {
         CreateRenderer();
         CreateProps();

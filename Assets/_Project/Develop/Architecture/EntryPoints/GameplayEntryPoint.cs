@@ -64,8 +64,8 @@ public class GameplayEntryPoint : EntryPoint
     {
         int width = _levelTracker.CurrentLevelData.ArenaWidth;
 
-        ArenaGenerator generator = new ArenaGenerator(width, _themeData);
-        _arenaPositions = generator.Generate();
+        ArenaCreator creator = new ArenaCreator(width, _themeData);
+        _arenaPositions = creator.Create();
     }
 
     private void InitSwordsmen()

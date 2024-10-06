@@ -33,11 +33,6 @@ public class ThemeCreator
         Camera.main.backgroundColor = theme.SkyColor;
     }
 
-    private void DestroyCurrentTheme()
-    {
-
-    }
-
     private ThemeData GetRandomTheme()
     {
         int i = Random.Range(0, _config.Themes.Count());
