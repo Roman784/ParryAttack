@@ -1,12 +1,16 @@
+using UnityEngine;
+
 public class EnemyConfigBuilder : SwordsmanConfigBuilder
 {
     private EnemyConfig _initialEnemyConfig;
     private DifficultyAdjuster _difficultyAdjuster;
+    private LevelData _currentLevelData;
 
-    public EnemyConfigBuilder(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster) : base(initialConfig)
+    public EnemyConfigBuilder(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster, LevelData currentLevelData) : base(initialConfig)
     {
         _initialEnemyConfig = initialConfig.EnemyConfig;
         _difficultyAdjuster = difficultyAdjuster;
+        _currentLevelData = currentLevelData;
     }
 
     public EnemyConfig Build()
@@ -30,5 +34,17 @@ public class EnemyConfigBuilder : SwordsmanConfigBuilder
         SwordsmanFeaturesConfig featuresConfig = new(heartsCount, preattackDuration, attackDuration);
 
         return featuresConfig;
+    }
+
+    protected override SwordsmanSpritesConfig BuildSprites()
+    {
+        Sprite idle = _currentLevelData.EnemySprites.Idle;
+        Sprite preattack = _currentLevelData.EnemySprites.Preattack;
+        Sprite attack = _currentLevelData.EnemySprites.Attack;
+        Sprite parry = _currentLevelData.EnemySprites.Parry;
+
+        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry);
+
+        return spritesConfig;
     }
 }

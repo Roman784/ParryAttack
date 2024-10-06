@@ -6,10 +6,10 @@ public sealed class SwordsmenConfigBuilder
     private EnemyConfigBuilder _enemyBuilder;
 
     [Inject]
-    private void Construct(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster)
+    private void Construct(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster, LevelTracker levelTracker)
     {
         _playerBuilder = new PlayerConfigBuilder(initialConfig);
-        _enemyBuilder = new EnemyConfigBuilder(initialConfig, difficultyAdjuster);
+        _enemyBuilder = new EnemyConfigBuilder(initialConfig, difficultyAdjuster, levelTracker.CurrentLevelData);
     }
 
     public PlayerConfig BuildPlayer()
