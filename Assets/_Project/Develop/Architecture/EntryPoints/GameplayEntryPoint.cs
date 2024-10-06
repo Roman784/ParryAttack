@@ -4,9 +4,10 @@ using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
-    [SerializeField] private Transform _playerSpawnPoint;
-    [SerializeField] private Transform _enemySpawnPoint;
-    
+    [SerializeField] private ThemeConfig[] _themeConfigs;
+
+    private ArenaPositions _arenaPositions;
+
     private Player _player;
     private Enemy _enemy;
 
@@ -30,7 +31,10 @@ public class GameplayEntryPoint : EntryPoint
 
     public override IEnumerator Run()
     {
+        yield return null;
+
         CreateUI();
+        GenerateArena();
         InitSwordsmen();
         StartCountdownTimer();
 
@@ -47,6 +51,17 @@ public class GameplayEntryPoint : EntryPoint
         _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 
+    private void GenerateArena()
+    {
+        int width = _levelTracker.CurrentLevelData.ArenaWidth;
+        ThemeConfig themeConfig = _themeConfigs[Random.Range(0, _themeConfigs.Length)];
+
+        ArenaGenerator generator = new ArenaGenerator(width, themeConfig);
+        generator.Generate();
+
+        _arenaPositions = generator.Positions;
+    }
+
     private void InitSwordsmen()
     {
         _player.Init(_swordsmenConfigBuilder.BuildPlayer());
@@ -57,8 +72,8 @@ public class GameplayEntryPoint : EntryPoint
 
     private void PositionSwordsmen()
     {
-        _player.transform.position = _playerSpawnPoint.position;
-        _enemy.transform.position = _enemySpawnPoint.position;
+        _player.transform.position = _arenaPositions.PlayerPosition;
+        _enemy.transform.position = _arenaPositions.EnemyPosition;
     }
 
     private void StartCountdownTimer()
