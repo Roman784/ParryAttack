@@ -12,17 +12,12 @@ public class Enemy : Swordsman
 
     private Player _player;
 
-    [Inject]
-    private void Construct(Player player)
-    {
-        _player = player;
-    }
-
-    public void Init(EnemyConfig config)
+    public void Init(EnemyConfig config, Player player)
     {
         base.Init(config.SwordsmanConfig);
 
         _enemyConfig = config;
+        _player = player;
 
         _stateUpdateCooldown = _enemyConfig.StateUpdateCooldown;
         _attackProbability = _enemyConfig.AttackProbability;
@@ -82,5 +77,9 @@ public class Enemy : Swordsman
 
         // If no transition exists, change to a random state.
         StateHandler.ChangeRandomStateWithout();
+    }
+
+    public class Factory : PlaceholderFactory<Enemy>
+    {
     }
 }

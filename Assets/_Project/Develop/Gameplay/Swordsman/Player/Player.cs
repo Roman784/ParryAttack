@@ -7,15 +7,16 @@ public class Player : Swordsman
     private Enemy _enemy;
 
     [Inject]
-    private void Construct(PlayerInput input, Enemy enemy)
+    private void Construct(PlayerInput input)
     {
         _input = input;
-        _enemy = enemy;
     }
 
-    public void Init(PlayerConfig config)
+    public void Init(PlayerConfig config, Enemy enemy)
     {
         base.Init(config.SwordsmanConfig);
+
+        _enemy = enemy;
 
         _input.OnAttackTrigger.AddListener(SetIsAttacking);
         _input.OnParryTrigger.AddListener(SetIsParrying);
@@ -54,5 +55,9 @@ public class Player : Swordsman
     private void ChangeState()
     {
         StateHandler.ChangeState(IsAttacking, IsParrying);
+    }
+
+    public class Factory : PlaceholderFactory<Player>
+    {
     }
 }

@@ -14,7 +14,7 @@ public class SwordsmenInstaller : MonoInstaller
     {
         BindConfigs();
         BindConfigBuilder();
-        BindSwordsmen();
+        BindFactory();
     }
 
     private void BindConfigs()
@@ -27,9 +27,11 @@ public class SwordsmenInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<SwordsmenConfigBuilder>().AsSingle();
     }
 
-    private void BindSwordsmen()
+    private void BindFactory()
     {
-        Container.Bind<Player>().FromComponentInNewPrefab(_playerPrefab).AsSingle();
-        Container.Bind<Enemy>().FromComponentInNewPrefab(_enemyPrefab).AsSingle();
+        Container.BindFactory<Player, Player.Factory>().FromComponentInNewPrefab(_playerPrefab);
+        Container.BindFactory<Enemy, Enemy.Factory>().FromComponentInNewPrefab(_enemyPrefab);
+
+        Container.Bind<SwordsmanFactory>().AsSingle();
     }
 }

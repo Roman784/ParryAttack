@@ -6,24 +6,22 @@ public class GameplayEntryPoint : EntryPoint
 {
     [SerializeField] private CameraMovement _cameraMovement;
 
-    private Player _player;
-    private Enemy _enemy;
-
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
 
-    private ArenaPositions _arenaPositions;
-
+    private SwordsmanFactory _swordsmanFactory;
     private SwordsmenConfigBuilder _swordsmenConfigBuilder;
+    private Player _player;
+    private Enemy _enemy;
+
     private LevelTracker _levelTracker;
     private LevelCreator _levelCreator;
 
     [Inject]
-    private void Construct(Player player, Enemy enemy, SwordsmenConfigBuilder swordsmenConfigBuilder, 
+    private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
                            GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator)
     {
-        _player = player;
-        _enemy = enemy;
+        _swordsmanFactory = swordsmanFactory;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
         _levelTracker = levelTracker;
@@ -36,7 +34,7 @@ public class GameplayEntryPoint : EntryPoint
 
         CreateUI();
         CreateLevel();
-        InitSwordsmen();
+        CreateSwordsmen();
         InitCamera();
         StartCountdownTimer();
 
@@ -58,10 +56,13 @@ public class GameplayEntryPoint : EntryPoint
         _levelCreator.Create();
     }
 
-    private void InitSwordsmen()
+    private void CreateSwordsmen()
     {
-        _player.Init(_swordsmenConfigBuilder.BuildPlayer());
-        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy());
+        _player = _swordsmanFactory.CreatePlayer();
+        _enemy = _swordsmanFactory.CreateEnemy();
+
+        _player.Init(_swordsmenConfigBuilder.BuildPlayer(), _enemy);
+        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), _player);
     }
 
     private void InitCamera()
