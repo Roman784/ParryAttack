@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 61468991
+    locked: 0
+  - name: Arena
+    uniqueID: 3685139619
+    locked: 0
+  - name: Swordsman
+    uniqueID: 1507555351
+    locked: 0
+  - name: SwordsmanUI
+    uniqueID: 2987938295
+    locked: 0
