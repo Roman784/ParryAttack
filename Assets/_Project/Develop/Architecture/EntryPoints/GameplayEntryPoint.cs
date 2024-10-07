@@ -17,6 +17,8 @@ public class GameplayEntryPoint : EntryPoint
 
     private GameplayCamera _camera;
 
+    private ArenaPositions _arenaPositions;
+
     [Inject]
     private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
                            GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator,
@@ -37,6 +39,7 @@ public class GameplayEntryPoint : EntryPoint
         CreateUI();
         CreateLevel();
         CreateSwordsmen();
+        CreateArenaPositionIndicator();
         InitCamera();
         StartCountdownTimer();
 
@@ -56,6 +59,12 @@ public class GameplayEntryPoint : EntryPoint
     private void CreateLevel()
     {
         _levelCreator.Create();
+        _arenaPositions = _levelCreator.ArenaPositions;
+    }
+
+    private void CreateArenaPositionIndicator()
+    {
+        ArenaPositionIndicator indicator = new(_gameplayUI.ArenaPositionIndicatorView, _arenaPositions, _player, _enemy);
     }
 
     private void CreateSwordsmen()

@@ -36,8 +36,6 @@ public class Enemy : Swordsman
 
     private IEnumerator StateUpdate()
     {
-        yield return new WaitUntil(() => CanFight);
-
         while (true)
         {
             DetermineState();
@@ -48,6 +46,8 @@ public class Enemy : Swordsman
 
     private void DetermineState()
     {
+        if (!CanFight) return;
+
         var playerState = _player.StateHandler.CurrentStateName;
 
         // Define state transitions with their corresponding probabilities.

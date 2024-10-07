@@ -26,6 +26,8 @@ public class SwordsmanPositioning : MonoBehaviour
     {
     }
 
+    public Vector2 ArenaPosition => _arenaPosition;
+
     public bool InArena()
     {
         return _arenaPositions.InArena(_arenaPosition);
