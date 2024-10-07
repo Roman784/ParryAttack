@@ -17,7 +17,7 @@ public class GameplayCamera : MonoBehaviour
     public void Init(Transform player, Transform enemy)
     {
         _movement = new CameraMovement(_config, transform, player, enemy);
-        _shaker = new CameraShaker();
+        _shaker = new CameraShaker(_config);
     }
 
     private void Update()

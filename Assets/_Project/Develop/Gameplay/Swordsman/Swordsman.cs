@@ -13,8 +13,15 @@ public abstract class Swordsman : MonoBehaviour
     private SwordsmanAnimation _animation;
     private SwordsmanPositioning _positioning;
     private AttackIndicator _attackIndicator;
-
     private SwordsmanStateHandler _stateHandler;
+
+    private GameplayCamera _camera;
+
+    [Inject]
+    private void Construct(GameplayCamera camera)
+    {
+        _camera = camera;
+    }
 
     private void Awake()
     {
@@ -57,13 +64,20 @@ public abstract class Swordsman : MonoBehaviour
     public void TakeHit()
     {
         if (StateHandler.IsParrying)
-            Positioning.MoveBack();
+            ParryHit();
         else
             TakeDamage();
     }
 
+    private void ParryHit()
+    {
+        Positioning.MoveBack();
+    }
+
     private void TakeDamage()
     {
+        _camera.Shaker.ShakeWeakly(Vector2.down);
+
         Animation.SetDamage();
         _health.SpendHeart();
     }
