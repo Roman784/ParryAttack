@@ -9,11 +9,11 @@ public class CameraMovement
     private Transform _player;
     private Transform _enemy;
 
-    public CameraMovement(Transform transfrom, float moveSpeed, Vector3 offset, Transform player, Transform enemy)
+    public CameraMovement(CameraConfig config, Transform transfrom, Transform player, Transform enemy)
     {
         _transform = transfrom;
-        _moveSpeed = moveSpeed;
-        _offset = offset;
+        _moveSpeed = config.MoveSpeed;
+        _offset = config.Offset;
         _player = player;
         _enemy = enemy;
     }

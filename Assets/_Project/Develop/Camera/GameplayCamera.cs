@@ -1,17 +1,22 @@
 using UnityEngine;
+using Zenject;
 
 public class GameplayCamera : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private Vector3 _offset;
+    private CameraConfig _config;
 
     private CameraMovement _movement;
     private CameraShaker _shaker;
 
+    [Inject]
+    private void Construct(CameraConfig config)
+    {
+        _config = config;
+    }
+
     public void Init(Transform player, Transform enemy)
     {
-        _movement = new CameraMovement(transform, _moveSpeed, _offset, player, enemy);
+        _movement = new CameraMovement(_config, transform, player, enemy);
         _shaker = new CameraShaker();
     }
 

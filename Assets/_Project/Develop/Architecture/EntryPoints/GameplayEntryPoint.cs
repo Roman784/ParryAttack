@@ -4,8 +4,6 @@ using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
-    [SerializeField] private GameplayCamera _camera;
-
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
 
@@ -17,15 +15,19 @@ public class GameplayEntryPoint : EntryPoint
     private LevelTracker _levelTracker;
     private LevelCreator _levelCreator;
 
+    private GameplayCamera _camera;
+
     [Inject]
     private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
-                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator)
+                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator,
+                           GameplayCamera camera)
     {
         _swordsmanFactory = swordsmanFactory;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
         _levelTracker = levelTracker;
         _levelCreator = levelCreator;
+        _camera = camera;
     }
 
     public override IEnumerator Run()
