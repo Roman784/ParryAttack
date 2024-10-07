@@ -42,8 +42,9 @@ public class EnemyConfigBuilder : SwordsmanConfigBuilder
         Sprite preattack = _currentLevelData.EnemySprites.Preattack;
         Sprite attack = _currentLevelData.EnemySprites.Attack;
         Sprite parry = _currentLevelData.EnemySprites.Parry;
+        Sprite defeat = _currentLevelData.EnemySprites.Defeat;
 
-        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry);
+        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry, defeat);
 
         return spritesConfig;
     }

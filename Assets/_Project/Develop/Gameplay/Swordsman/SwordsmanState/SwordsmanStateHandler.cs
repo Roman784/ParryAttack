@@ -29,6 +29,7 @@ public class SwordsmanStateHandler
         _statesMap[SwordsmanStateName.Preattack] = new SwordsmanPreattackState(this, _swordsman);
         _statesMap[SwordsmanStateName.Attack] = new SwordsmanAttackState(this, _swordsman);
         _statesMap[SwordsmanStateName.Parry] = new SwordsmanParryState(this, _swordsman);
+        _statesMap[SwordsmanStateName.Defeat] = new SwordsmanDefeatState(this, _swordsman);
     }
 
     private void InitStateTransitions()
@@ -58,6 +59,12 @@ public class SwordsmanStateHandler
 
     public bool IsParrying => CurrentStateName == SwordsmanStateName.Parry;
     public SwordsmanStateName CurrentStateName => _currentState.Name;
+
+    public void SetDefeatState()
+    {
+        var state = GetState(SwordsmanStateName.Defeat);
+        SetState(state);
+    }
 
     public void ChangeRandomState()
     {

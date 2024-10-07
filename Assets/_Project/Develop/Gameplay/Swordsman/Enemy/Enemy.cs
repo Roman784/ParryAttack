@@ -57,7 +57,8 @@ public class Enemy : Swordsman
             { SwordsmanStateName.Idle, (SwordsmanStateName.Preattack, _attackProbability) },
             { SwordsmanStateName.Preattack, (SwordsmanStateName.Parry, _parryProbability) },
             { SwordsmanStateName.Attack, (SwordsmanStateName.Parry, _parryProbability) },
-            { SwordsmanStateName.Parry, (SwordsmanStateName.Preattack, _attackProbability) }
+            { SwordsmanStateName.Parry, (SwordsmanStateName.Preattack, _attackProbability) },
+            { SwordsmanStateName.Defeat, (SwordsmanStateName.Idle, 1f) }
         };
 
         // Check if a transition exists for the current state.

@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 425014731576457280}
   - component: {fileID: 1032170614335274469}
   - component: {fileID: 2356744466655466662}
+  - component: {fileID: -7241289114383342876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -139,9 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heartPrefab: {fileID: 1020818047985943546, guid: 7eb0f7d4f79da9b43bbd2995f269ca5e, type: 3}
   _heartsContainer: {fileID: 8286477212206914210}
-  OnAllHeartsSpent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &425014731576457280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +208,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _indicatorContainer: {fileID: 7875645307712343535}
   _progressBar: {fileID: 3801826270925311188}
+--- !u!95 &-7241289114383342876
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978025840771830340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d7a89537d9f43f4fa793d954fd9cf12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2235519238394160987
 GameObject:
   m_ObjectHideFlags: 0

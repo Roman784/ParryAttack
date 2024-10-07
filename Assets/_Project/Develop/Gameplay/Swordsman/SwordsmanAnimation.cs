@@ -44,6 +44,11 @@ public class SwordsmanAnimation : MonoBehaviour
         Coroutines.StartRoutine(TickingDamage());
     }
 
+    public void SetDefeat()
+    {
+        _spriteRenderer.sprite = _spritesConfig.Defeat;
+    }
+
     private IEnumerator TickingDamage()
     {
         Color initialColor = _spriteRenderer.color;

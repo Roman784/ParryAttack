@@ -15,12 +15,12 @@ public class SwordsmanAttackState : SwordsmanState
 
         _duration = Swordsman.Config.FeaturesConfig.AttackDuration;
 
-        Swordsman.PerformAttack();
         Coroutines.StartRoutine(Attack());
     }
 
     private IEnumerator Attack()
     {
+        Swordsman.PerformAttack();
         Swordsman.Animation.SetAttack();
 
         yield return new WaitForSeconds(_duration);

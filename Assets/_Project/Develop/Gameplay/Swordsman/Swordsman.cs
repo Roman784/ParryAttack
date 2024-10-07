@@ -41,11 +41,6 @@ public abstract class Swordsman : MonoBehaviour
         _attackIndicator.Deactivate();
 
         _stateHandler = new SwordsmanStateHandler(this);
-
-        _health.OnAllHeartsSpent.AddListener(() => 
-        {
-            Debug.Log("Death");
-        });
     }
 
     public bool IsAttacking { get; protected set; }
@@ -58,12 +53,13 @@ public abstract class Swordsman : MonoBehaviour
     public SwordsmanStateHandler StateHandler => _stateHandler;
 
     public void AllowFight() => CanFight = true;
+    public void ForbidFight() => CanFight = false;
 
     public abstract void PerformAttack();
 
     public void TakeHit()
     {
-        if (StateHandler.IsParrying)
+        if (_stateHandler.IsParrying)
             ParryHit();
         else
             TakeDamage();
@@ -71,14 +67,22 @@ public abstract class Swordsman : MonoBehaviour
 
     private void ParryHit()
     {
-        Positioning.MoveBack();
+        _positioning.MoveBack();
     }
 
     private void TakeDamage()
     {
         _camera.Shaker.ShakeWeakly(Vector2.down);
 
-        Animation.SetDamage();
-        _health.SpendHeart();
+        _animation.SetDamage();
+        int fullHeartsCount = _health.SpendHeart();
+
+        if (fullHeartsCount == 0)
+            Defeat();
+    }
+
+    private void Defeat()
+    {
+        _stateHandler.SetDefeatState();
     }
 }

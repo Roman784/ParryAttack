@@ -52,8 +52,9 @@ public abstract class SwordsmanConfigBuilder
         Sprite preattack = InitialAnimationConfig.SpritesConfig.Preattack;
         Sprite attack = InitialAnimationConfig.SpritesConfig.Attack;
         Sprite parry = InitialAnimationConfig.SpritesConfig.Parry;
+        Sprite defeat = InitialAnimationConfig.SpritesConfig.Defeat;
 
-        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry);
+        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry, defeat);
 
         return spritesConfig;
     }

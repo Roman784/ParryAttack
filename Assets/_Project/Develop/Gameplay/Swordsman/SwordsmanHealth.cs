@@ -7,8 +7,6 @@ public class SwordsmanHealth : MonoBehaviour
     [SerializeField] private Heart _heartPrefab;
     [SerializeField] private Transform _heartsContainer;
 
-    [HideInInspector] public UnityEvent OnAllHeartsSpent = new();
-
     private List<Heart> _hearts = new();
 
     public void Init(int heartsCount)
@@ -23,7 +21,7 @@ public class SwordsmanHealth : MonoBehaviour
         _hearts.Add(newHeart);
     }
 
-    public void SpendHeart()
+    public int SpendHeart()
     {
         for (int i = _hearts.Count-1; i >= 0; i--)
         {
@@ -36,13 +34,7 @@ public class SwordsmanHealth : MonoBehaviour
             break;
         }
 
-        HandleFullHeartsCount();
-    }
-
-    private void HandleFullHeartsCount()
-    {
-        if (GetFullHeartsCount() == 0)
-            OnAllHeartsSpent.Invoke();
+        return GetFullHeartsCount();
     }
 
     private int GetFullHeartsCount() => GetHeartsCount(false);
