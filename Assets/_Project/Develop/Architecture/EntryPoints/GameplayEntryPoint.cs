@@ -4,7 +4,7 @@ using Zenject;
 
 public class GameplayEntryPoint : EntryPoint
 {
-    [SerializeField] private CameraMovement _cameraMovement;
+    [SerializeField] private GameplayCamera _camera;
 
     private GameplayUI _gameplayUI;
     private GameplayUI _gameplayUIPrefab;
@@ -67,7 +67,7 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitCamera()
     {
-        _cameraMovement.Init(_player.transform, _enemy.transform);
+        _camera.Init(_player.transform, _enemy.transform);
     }
 
     private void StartCountdownTimer()
