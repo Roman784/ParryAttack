@@ -163,9 +163,9 @@ TextureImporter:
         x: 0
         y: 65
         width: 67
-        height: 63
+        height: 56
       alignment: 9
-      pivot: {x: 0.3283582, y: 0.8571429}
+      pivot: {x: 0.3283582, y: 0.96428573}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,9 +184,9 @@ TextureImporter:
         x: 68
         y: 46
         width: 56
-        height: 82
+        height: 75
       alignment: 9
-      pivot: {x: 0.19642858, y: 0.8902439}
+      pivot: {x: 0.19642858, y: 0.97333336}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: Theme1_3
       rect:
         serializedVersion: 2
-        x: 126
+        x: 131
         y: 0
         width: 512
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: Theme1_4
       rect:
         serializedVersion: 2
-        x: 126
+        x: 131
         y: 257
         width: 512
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,6 +236,27 @@ TextureImporter:
       bones: []
       spriteID: 923ed6101462f924c8eb2ed1be31efb6
       internalID: -1550246333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Theme1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5045f167c2cc4e04f898f00b1bcd89e3
+      internalID: 1090465023
       vertices: []
       indices: 
       edges: []
@@ -256,6 +277,7 @@ TextureImporter:
       Theme1_2: 1859090701
       Theme1_3: 386906895
       Theme1_4: -1550246333
+      Theme1_5: 1090465023
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
