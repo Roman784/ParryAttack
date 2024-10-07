@@ -31,4 +31,10 @@ public class ArenaPositions
     {
         return _positions.IndexOf(position);
     }
+
+    public bool InArena(Vector2 position)
+    {
+        int i = GetIndexByPosition(position);
+        return i > 0 && i < _positions.Count - 1;
+    }
 }

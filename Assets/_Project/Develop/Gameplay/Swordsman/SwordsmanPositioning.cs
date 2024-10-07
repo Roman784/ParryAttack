@@ -26,6 +26,11 @@ public class SwordsmanPositioning : MonoBehaviour
     {
     }
 
+    public bool InArena()
+    {
+        return _arenaPositions.InArena(_arenaPosition);
+    }
+
     public void SetInitialPositionForPlayer()
     {
         SetPosition(_arenaPositions.PlayerPosition);
@@ -43,36 +48,33 @@ public class SwordsmanPositioning : MonoBehaviour
         if (isInstantly)
         {
             transform.position = position;
-            return;
         }
+        else
+        {
+            if (_smoothlyMove != null)
+                Coroutines.StopRoutine(_smoothlyMove);
 
-        if (_smoothlyMove != null)
-            Coroutines.StopRoutine(_smoothlyMove);
-
-        _smoothlyMove = Coroutines.StartRoutine(MoveSmoothly(position));
+            _smoothlyMove = Coroutines.StartRoutine(MoveSmoothly(position));
+        }
     }
 
     public void MoveForward()
     {
-        TryMove(_forwardMotionStep);
+        Move(_forwardMotionStep);
     }
 
     public void MoveBack()
     {
-        if (TryMove(-_forwardMotionStep))
-            OnMovedBack?.Invoke();
+        Move(-_forwardMotionStep);
+        OnMovedBack?.Invoke();
     }
 
-    private bool TryMove(int step)
+    private void Move(int step)
     {
         int newPositionIndex = _arenaPositions.GetIndexByPosition(_arenaPosition) + step;
 
-        if (!_arenaPositions.IsWithin(newPositionIndex)) return false;
-
         Vector2 position = _arenaPositions.GetPosition(newPositionIndex);
         SetPosition(position, false);
-
-        return true;
     }
 
     private IEnumerator MoveSmoothly(Vector2 position)

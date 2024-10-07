@@ -49,7 +49,10 @@ public class ArenaCreator
     {
         List<Vector2> positions = new();
 
-        for (int i = 0; i < _tileCount; i++)
+        int startIndex = -1;
+        int lastIndex = _tileCount;
+
+        for (int i = startIndex; i <= lastIndex; i++)
         {
             float x = LeftEdge + _tileSize.x * (i + 0.5f);
             Vector2 position = new Vector2(x, 0f);

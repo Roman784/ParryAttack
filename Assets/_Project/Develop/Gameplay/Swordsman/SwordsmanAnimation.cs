@@ -1,14 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class SwordsmanAnimation : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private SwordsmanAnimationConfig _config;
     private SwordsmanSpritesConfig _spritesConfig;
 
     private Coroutine _tickingDamageCoroutine;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void Init(SwordsmanAnimationConfig config)
     {
@@ -47,6 +54,7 @@ public class SwordsmanAnimation : MonoBehaviour
     public void SetDefeat()
     {
         _spriteRenderer.sprite = _spritesConfig.Defeat;
+        _animator.SetTrigger("Defeat");
     }
 
     private IEnumerator TickingDamage()

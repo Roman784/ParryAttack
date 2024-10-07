@@ -41,6 +41,12 @@ public abstract class Swordsman : MonoBehaviour
         _attackIndicator.Deactivate();
 
         _stateHandler = new SwordsmanStateHandler(this);
+
+        _positioning.OnMovedBack.AddListener(() =>
+        {
+            if (!_positioning.InArena())
+                Defeat();
+        });
     }
 
     public bool IsAttacking { get; protected set; }
