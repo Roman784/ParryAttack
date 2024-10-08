@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 [RequireComponent(typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(SwordsmanPositioning))]
 [RequireComponent(typeof(AttackIndicator))]
 public abstract class Swordsman : MonoBehaviour
 {
+    public UnityEvent OnDefeated = new();
+
     protected bool CanFight = false;
 
     private SwordsmanConfig _config;
@@ -90,5 +93,6 @@ public abstract class Swordsman : MonoBehaviour
     private void Defeat()
     {
         _stateHandler.SetDefeatState();
+        OnDefeated.Invoke();
     }
 }

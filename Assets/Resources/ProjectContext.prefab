@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiRoot: {fileID: 5807412076554899150, guid: 738e973d99a045a40b4aee11474e892b, type: 3}
   _gameplayUI: {fileID: 6108827986113304289, guid: c6b9b7166e445fa40832fe31f8d93341, type: 3}
+  _enemySelectionUI: {fileID: 2709694883445768773, guid: 5c99334c39329a74990fcf90d6b530c9, type: 3}
 --- !u!114 &8693643034549218363
 MonoBehaviour:
   m_ObjectHideFlags: 0

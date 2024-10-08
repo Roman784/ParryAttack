@@ -27,4 +27,9 @@ public sealed class Coroutines : MonoBehaviour
     {
         instance.StopCoroutine(routine);
     }
+
+    public static void StopAllRoutines()
+    {
+        instance.StopAllCoroutines();
+    }
 }

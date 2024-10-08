@@ -41,11 +41,10 @@ public class GameplayEntryPoint : EntryPoint
         CreateSwordsmen();
         CreateArenaPositionIndicator();
         InitCamera();
+        InitFightResultHandler();
         StartCountdownTimer();
 
         yield return null;
-
-        Debug.Log("Gameplay scene loaded");
     }
 
     private void CreateUI()
@@ -79,6 +78,11 @@ public class GameplayEntryPoint : EntryPoint
     private void InitCamera()
     {
         _camera.Init(_player.transform, _enemy.transform);
+    }
+
+    private void InitFightResultHandler()
+    {
+        FightResultHandler handler = new(_player, _enemy);
     }
 
     private void StartCountdownTimer()

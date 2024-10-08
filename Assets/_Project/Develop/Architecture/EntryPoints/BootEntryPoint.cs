@@ -18,8 +18,6 @@ public class BootEntryPoint : EntryPoint
 
         yield return new WaitForSeconds(0.5f);
 
-        Debug.Log("Boot scene loaded");
-
         LoadStartScene();
     }
 
