@@ -31,9 +31,7 @@ public class SwordsmanPreattackState : SwordsmanState
 
     public override void Exit()
     {
-        if (_coroutine != null)
-            Coroutines.StopRoutine(_coroutine);
-
+        Coroutines.StopRoutine(_coroutine);
         Swordsman.AttackIndicator.Deactivate();
     }
 }

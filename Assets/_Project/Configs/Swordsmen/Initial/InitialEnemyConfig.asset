@@ -15,4 +15,4 @@ MonoBehaviour:
   <SwordsmanConfig>k__BackingField: {fileID: 11400000, guid: 91e6faef06953b6408a05caa4371e5e2, type: 2}
   <StateUpdateCooldown>k__BackingField: 0.5
   <AttackProbability>k__BackingField: 0.5
-  <ParryProbability>k__BackingField: 1
+  <ParryProbability>k__BackingField: 0.5

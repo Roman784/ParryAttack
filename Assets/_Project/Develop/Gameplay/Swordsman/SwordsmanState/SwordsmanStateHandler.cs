@@ -4,9 +4,12 @@ using System.Linq;
 
 public class SwordsmanStateHandler
 {
+    // All states.
     private Dictionary<SwordsmanStateName, SwordsmanState> _statesMap = new();
+    // A graph of possible transitions, from which state it is possible to change to another state.
     private Dictionary<SwordsmanStateName, List<SwordsmanStateName>> _stateTransitions = new();
-    private List<SwordsmanStateName> _stateNames = new();
+    // States to which you can change from any other state.
+    private List<SwordsmanStateName> _statesForChanging = new();
 
     private SwordsmanState _currentState;
 
@@ -18,9 +21,9 @@ public class SwordsmanStateHandler
 
         InitStates();
         InitStateTransitions();
-        InitStateNames();
+        InitStatesForChanging();
 
-        DefaultState();
+        SetDefaultState();
     }
 
     private void InitStates()
@@ -52,29 +55,27 @@ public class SwordsmanStateHandler
         };
     }
 
-    private void InitStateNames()
+    private void InitStatesForChanging()
     {
-        _stateNames = Enum.GetValues(typeof(SwordsmanStateName)).Cast<SwordsmanStateName>().ToList();
+        _statesForChanging.Add(SwordsmanStateName.Idle);
+        _statesForChanging.Add(SwordsmanStateName.Parry);
+        _statesForChanging.Add(SwordsmanStateName.Preattack);
     }
 
     public bool IsParrying => CurrentStateName == SwordsmanStateName.Parry;
     public SwordsmanStateName CurrentStateName => _currentState.Name;
 
+    // It is possible to go to a defeat state instantly from any other state.
+    // Therefore, it is not in the transition graph.
     public void SetDefeatState()
     {
         var state = GetState(SwordsmanStateName.Defeat);
         SetState(state);
     }
 
-    public void ChangeRandomState()
-    {
-        var name = GetRandomStateNameForChanging(_stateNames);
-        ChangeState(name);
-    }
-
     public void ChangeRandomStateWithout(params SwordsmanStateName[] exemptNames)
     {
-        var names = new List<SwordsmanStateName>(_stateNames);
+        var names = new List<SwordsmanStateName>(_statesForChanging);
 
         foreach (var exemptName in exemptNames)
         {
@@ -82,13 +83,9 @@ public class SwordsmanStateHandler
                 names.Remove(exemptName);
         }
 
-        var name = GetRandomStateNameForChanging(names);
+        var name = Randomizer.GetRandomValue(names);
         ChangeState(name);
     }
-
-    public void ChangeIdleState() => ChangeState(SwordsmanStateName.Idle);
-    public void ChangePreattackState() => ChangeState(SwordsmanStateName.Preattack);
-    public void ChangeParryState() => ChangeState(SwordsmanStateName.Parry);
 
     public void ChangeState(bool isAttacking, bool isParrying)
     {
@@ -111,15 +108,7 @@ public class SwordsmanStateHandler
         SetState(state);
     }
 
-    private SwordsmanStateName GetRandomStateNameForChanging(List<SwordsmanStateName> origin)
-    {
-        var names = new List<SwordsmanStateName>(origin);
-        names.Remove(SwordsmanStateName.Attack);
-
-        return Randomizer.GetRandomValue(names);
-    }
-
-    private void DefaultState()
+    private void SetDefaultState()
     {
         var State = GetState(SwordsmanStateName.Idle);
         SetState(State);

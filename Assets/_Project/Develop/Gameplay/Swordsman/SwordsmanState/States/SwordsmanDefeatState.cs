@@ -6,7 +6,6 @@ public class SwordsmanDefeatState : SwordsmanState
 
     public override void Enter()
     {
-        Swordsman.ForbidFight();
         Swordsman.Animation.SetDefeat();
     }
 }
