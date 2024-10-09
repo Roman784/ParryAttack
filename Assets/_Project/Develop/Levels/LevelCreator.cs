@@ -1,4 +1,3 @@
-using UnityEngine;
 using Zenject;
 
 public class LevelCreator
@@ -17,10 +16,12 @@ public class LevelCreator
 
     public ArenaPositions ArenaPositions => _arenaPositions;
 
-    public void Create()
+    public ArenaPositions Create()
     {
         ThemeData theme = CreateTheme();
         _arenaPositions = CreateArena(theme);
+
+        return _arenaPositions;
     }
 
     private ThemeData CreateTheme()

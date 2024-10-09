@@ -57,13 +57,12 @@ public class GameplayEntryPoint : EntryPoint
 
     private void CreateLevel()
     {
-        _levelCreator.Create();
-        _arenaPositions = _levelCreator.ArenaPositions;
+        _arenaPositions = _levelCreator.Create();
     }
 
     private void CreateArenaPositionIndicator()
     {
-        ArenaPositionIndicator indicator = new(_gameplayUI.ArenaPositionIndicatorView, _arenaPositions, _player, _enemy);
+        new ArenaPositionIndicator(_gameplayUI.ArenaPositionIndicatorView, _arenaPositions, _player, _enemy);
     }
 
     private void CreateSwordsmen()

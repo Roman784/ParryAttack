@@ -16,7 +16,7 @@ public class BootEntryPoint : EntryPoint
 
     public override IEnumerator Run()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
 
         SetupGame();
         SetCurrentLevel();

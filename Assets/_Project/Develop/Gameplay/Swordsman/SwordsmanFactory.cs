@@ -2,23 +2,25 @@ using Zenject;
 
 public class SwordsmanFactory
 {
-    private Player.Factory _playerFactory;
-    private Enemy.Factory _enemyFactory;
+    private DiContainer _diContainer;
+    private Player _playerPrefab;
+    private Enemy _enemyPrefab;
 
     [Inject]
-    private void Construct(Player.Factory playerFactory, Enemy.Factory enemyFactory)
+    private void Construct(DiContainer diContainer, Player playerPrefab, Enemy enemyPrefab)
     {
-        _playerFactory = playerFactory;
-        _enemyFactory = enemyFactory;
+        _diContainer = diContainer;
+        _playerPrefab = playerPrefab;
+        _enemyPrefab = enemyPrefab;
     }
 
     public Player CreatePlayer()
     {
-        return _playerFactory.Create();
+        return _diContainer.InstantiatePrefab(_playerPrefab).GetComponent<Player>();
     }
 
     public Enemy CreateEnemy()
     {
-        return _enemyFactory.Create();
+        return _diContainer.InstantiatePrefab(_enemyPrefab).GetComponent<Enemy>();
     }
 }

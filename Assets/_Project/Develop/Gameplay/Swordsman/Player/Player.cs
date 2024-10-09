@@ -55,8 +55,4 @@ public class Player : Swordsman
     {
         StateHandler.ChangeState(IsAttacking, IsParrying);
     }
-
-    public class Factory : PlaceholderFactory<Player>
-    {
-    }
 }

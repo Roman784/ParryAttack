@@ -45,6 +45,19 @@ public class ArenaCreator
         renderer.size = size;
     }
 
+    private void CreateProps()
+    {
+        GameObject lefPropsPrefab = _themeData.GetRandomArenaProps();
+        GameObject rightPropsPrefab = _themeData.GetRandomArenaProps();
+
+        GameObject leftProps = Object.Instantiate(lefPropsPrefab);
+        leftProps.transform.position = new Vector2(LeftEdge, 0f);
+
+        GameObject rightProps = Object.Instantiate(rightPropsPrefab);
+        rightProps.transform.position = new Vector2(RightEdge, 0f);
+        rightProps.transform.localScale = new Vector2(-1, 1);
+    }
+
     private ArenaPositions CreatePositions()
     {
         List<Vector2> positions = new();
@@ -61,18 +74,5 @@ public class ArenaCreator
         }
 
         return new ArenaPositions(positions);
-    }
-
-    private void CreateProps()
-    {
-        GameObject lefPropsPrefab = _themeData.GetRandomArenaProps();
-        GameObject rightPropsPrefab = _themeData.GetRandomArenaProps();
-
-        GameObject leftProps = Object.Instantiate(lefPropsPrefab);
-        leftProps.transform.position = new Vector2(LeftEdge, 0f);
-
-        GameObject rightProps = Object.Instantiate(rightPropsPrefab);
-        rightProps.transform.position = new Vector2(RightEdge, 0f);
-        rightProps.transform.localScale = new Vector2(-1, 1);
     }
 }

@@ -78,8 +78,4 @@ public class Enemy : Swordsman
         // If no transition exists, change to a random state.
         StateHandler.ChangeRandomStateWithout();
     }
-
-    public class Factory : PlaceholderFactory<Enemy>
-    {
-    }
 }
