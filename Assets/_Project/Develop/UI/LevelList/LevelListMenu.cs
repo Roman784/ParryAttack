@@ -4,11 +4,26 @@ public class LevelListMenu
 {
     private LevelListUI _ui;
     private LevelListConfig _config;
+    private SceneLoader _sceneLoader;
+    private LevelTracker _levelTracker;
 
-    public LevelListMenu(LevelListUI ui, LevelListConfig config)
+    public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker)
     {
         _ui = ui;
         _config = config;
+        _sceneLoader = sceneLoader;
+        _levelTracker = levelTracker;
+    }
+
+    public void OpenLevel(int number)
+    {
+        _levelTracker.SetCurrentLevelNumber(number);
+        OpenGameplayScene();
+    }
+
+    public void OpenGameplayScene()
+    {
+        _sceneLoader.LoadGameplay();
     }
 
     public void CreateButtons()
@@ -28,6 +43,6 @@ public class LevelListMenu
         string enemyName = levelData.EnemyName;
         Sprite enemyProfile = levelData.EnemySprites.Profile;
 
-        button.Init(number, enemyName, enemyProfile);
+        button.Init(this, number, enemyName, enemyProfile);
     }
 }

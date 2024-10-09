@@ -5,26 +5,34 @@ using Zenject;
 public class BootEntryPoint : EntryPoint
 {
     private SceneLoader _sceneLoader;
+    private LevelTracker _levelTracker;
 
     [Inject]
-    private void Construct(SceneLoader sceneLoader)
+    private void Construct(SceneLoader sceneLoader, LevelTracker levelTracker)
     {
         _sceneLoader = sceneLoader;
+        _levelTracker = levelTracker;
     }
 
     public override IEnumerator Run()
     {
-        SetupGame();
+        yield return null;
 
-        yield return new WaitForSeconds(0.5f);
+        SetupGame();
+        SetCurrentLevel();
 
         LoadStartScene();
     }
 
-    private static void SetupGame()
+    private void SetupGame()
     {
         Application.targetFrameRate = 60;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
+    private void SetCurrentLevel()
+    {
+        _levelTracker.SetCurrentLevelNumber(1); // <- From storage.
     }
 
     // The scene where the game begins.
