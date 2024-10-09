@@ -20,11 +20,11 @@ public class SceneLoader
             LoadScene<GameplayEntryPoint>(Scenes.GAMEPLAY));
     }
 
-    public void LoadEnenmySelection()
+    public void LoadLevelList()
     {
         Coroutines.StopAllRoutines();
         Coroutines.StartRoutine(
-            LoadScene<EnemySelectionEntryPoint>(Scenes.ENEMY_SELECTION));
+            LoadScene<LevelListEntryPoint>(Scenes.LEVEL_LIST));
     }
 
     private IEnumerator LoadScene<T>(string sceneName) where T : EntryPoint

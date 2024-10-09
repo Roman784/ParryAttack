@@ -5,13 +5,13 @@ public class UIInstaller : MonoInstaller
 {
     [SerializeField] private UIRoot _uiRoot;
     [SerializeField] private GameplayUI _gameplayUI;
-    [SerializeField] private EnemySelectionUI _enemySelectionUI;
+    [SerializeField] private LevelListUI _levelListUI;
 
     public override void InstallBindings()
     {
         BindUIRoot();
         BindGameplayUI();
-        BindEnemySelectionUI();
+        BindLevelListUI();
     }
 
     private void BindUIRoot()
@@ -24,8 +24,8 @@ public class UIInstaller : MonoInstaller
         Container.Bind<GameplayUI>().FromInstance(_gameplayUI).AsTransient();
     }
 
-    private void BindEnemySelectionUI()
+    private void BindLevelListUI()
     {
-        Container.Bind<EnemySelectionUI>().FromInstance(_enemySelectionUI).AsTransient();
+        Container.Bind<LevelListUI>().FromInstance(_levelListUI).AsTransient();
     }
 }

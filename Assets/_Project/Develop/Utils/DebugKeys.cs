@@ -27,7 +27,7 @@ public class DebugKeys : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                _sceneLoader.LoadEnenmySelection();
+                _sceneLoader.LoadLevelList();
             }
         }
     }

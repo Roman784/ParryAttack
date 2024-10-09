@@ -1,15 +1,15 @@
 using System.Collections;
 using Zenject;
 
-public class EnemySelectionEntryPoint : EntryPoint
+public class LevelListEntryPoint : EntryPoint
 {
-    private EnemySelectionUI _enemySelectionUI;
-    private EnemySelectionUI _enemySelectionUIPrefab;
+    private LevelListUI _levelListUI;
+    private LevelListUI _levelListUIPrefab;
 
     [Inject]
-    private void Construct(EnemySelectionUI enemySelectionUIPrefab)
+    private void Construct(LevelListUI levelListUIPrefab)
     {
-        _enemySelectionUIPrefab = enemySelectionUIPrefab;
+        _levelListUIPrefab = levelListUIPrefab;
     }
 
     public override IEnumerator Run()
@@ -21,7 +21,7 @@ public class EnemySelectionEntryPoint : EntryPoint
 
     private void CreateUI()
     {
-        _enemySelectionUI = Instantiate(_enemySelectionUIPrefab);
-        UIRoot.AttachSceneUI(_enemySelectionUI.transform);
+        _levelListUI = Instantiate(_levelListUIPrefab);
+        UIRoot.AttachSceneUI(_levelListUI.transform);
     }
 }
