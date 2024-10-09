@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2ded2bf1c7863488bbe21e97a2a14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selectionButtonPrefab: {fileID: 4542882020142154117, guid: 08f1c320f913fdc4881c1b126984f99d, type: 3}
+  _selectionButtonContainer: {fileID: 5982990428836884206}
 --- !u!1 &5541041492134037156
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +326,7 @@ GameObject:
   - component: {fileID: 7258103924861251973}
   - component: {fileID: 9046941995939416594}
   m_Layer: 5
-  m_Name: ButtonsContainer
+  m_Name: SelectionButtonsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
