@@ -7,7 +7,7 @@ public class CameraConfig : ScriptableObject
     [field: SerializeField] public float MoveSpeed { get; private set; }
     [field: SerializeField] public Vector3 Offset { get; private set; }
 
-    [field: Header("Shaker")]
-    [field: SerializeField] public float WeakShakeDuration { get; private set; }
-    [field: SerializeField] public AnimationCurve WeakShakeOverTime { get; private set; }
+    [field: Header("Shaking")]
+    [field: SerializeField] public float ShakeDuration { get; private set; }
+    [field: SerializeField] public AnimationCurve ShakeOverTime { get; private set; }
 }

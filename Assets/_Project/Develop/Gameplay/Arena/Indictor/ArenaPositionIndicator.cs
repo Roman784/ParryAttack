@@ -11,7 +11,7 @@ public class ArenaPositionIndicator
     private SwordsmanPositioning _player;
     private SwordsmanPositioning _enemy;
 
-    private List<Transform> _cells = new();
+    private List<ArenaIndicatorCell> _cells = new();
 
     public ArenaPositionIndicator(ArenaPositionIndicatorView view, ArenaPositions arenaPositions, Player player, Enemy enemy)
     {
@@ -32,8 +32,8 @@ public class ArenaPositionIndicator
 
         for (int i = 0; i < count; i++)
         {
-            GameObject cell = _view.CreateCell();
-            _cells.Add(cell.transform);
+            ArenaIndicatorCell cell = _view.CreateCell();
+            _cells.Add(cell);
         }
     }
 
@@ -69,6 +69,6 @@ public class ArenaPositionIndicator
         if (i < 0 || i >= _cells.Count)
             throw new ArgumentOutOfRangeException("The index is out of the arena cell list.");
 
-        return _cells[i].position;
+        return _cells[i].transform.position;
     }
 }

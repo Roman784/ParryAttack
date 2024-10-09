@@ -81,7 +81,7 @@ public abstract class Swordsman : MonoBehaviour
 
     private void TakeDamage()
     {
-        _camera.Shaker.ShakeWeakly(Vector2.down);
+        _camera.Shake(Vector2.down);
 
         _animation.SetDamage();
         int fullHeartsCount = _health.SpendHeart();

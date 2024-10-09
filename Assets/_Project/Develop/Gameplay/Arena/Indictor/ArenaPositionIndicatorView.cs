@@ -7,12 +7,15 @@ public class ArenaPositionIndicatorView : MonoBehaviour
 
     [Space]
 
-    [SerializeField] private GameObject _cellPrefab;
+    [SerializeField] private ArenaIndicatorCell _cellPrefab;
     [SerializeField] private Transform _cellContainer;
 
-    public GameObject CreateCell()
+    public ArenaIndicatorCell CreateCell()
     {
-        return Instantiate(_cellPrefab, transform.position, Quaternion.identity, _cellContainer);
+        ArenaIndicatorCell cell = Instantiate(_cellPrefab);
+        cell.transform.SetParent(_cellContainer, false);
+
+        return cell;
     }
 
     public void SetPlayerTrackerPosition(Vector2 position)

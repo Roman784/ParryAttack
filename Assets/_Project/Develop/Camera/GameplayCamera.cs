@@ -25,5 +25,5 @@ public class GameplayCamera : MonoBehaviour
         _movement?.Move(Time.deltaTime);
     }
 
-    public CameraShaker Shaker => _shaker;
+    public void Shake(Vector2 direction) => _shaker.Shake(direction);
 }

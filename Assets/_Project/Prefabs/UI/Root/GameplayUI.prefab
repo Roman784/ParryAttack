@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTracker: {fileID: 39180531157510217}
   _enemyTracker: {fileID: 1223960431881517016}
-  _cellPrefab: {fileID: 4545056502807536470, guid: 3573d3a2e40477142b9632d0bef60122, type: 3}
+  _cellPrefab: {fileID: -1944911069361231249, guid: 3573d3a2e40477142b9632d0bef60122, type: 3}
   _cellContainer: {fileID: 5835089029038950015}
 --- !u!1 &1163735423575668051
 GameObject:
