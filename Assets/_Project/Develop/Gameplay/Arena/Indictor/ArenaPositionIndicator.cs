@@ -20,15 +20,16 @@ public class ArenaPositionIndicator
         _player = player.Positioning;
         _enemy = enemy.Positioning;
 
-        //_player.OnMovedBack.AddListener(() => MovePlayerTracker());
-        //_enemy.OnMovedBack.AddListener(() => MoveEnemyTracker());
+        _player.OnMovedBack.AddListener(() => MoveTrackers());
+        _enemy.OnMovedBack.AddListener(() => MoveTrackers());
 
         CreateCells();
+        HideEdgeCells();
     }
 
     private void CreateCells()
     {
-        int count = _arenaPositions.Positions.Count() - 2;
+        int count = _arenaPositions.Positions.Count();
 
         for (int i = 0; i < count; i++)
         {
@@ -37,28 +38,17 @@ public class ArenaPositionIndicator
         }
     }
 
-    /*private void MovePlayerTracker()
+    // These cells will display positions outside of the arena.
+    private void HideEdgeCells()
     {
-        int positionIndex = _arenaPositions.GetIndexByPosition(_player.ArenaPosition) - 1;
-
-        if (positionIndex < 0) return;
-
-        MoveTrackers(positionIndex, positionIndex + 1);
+        _cells[0].Hide();
+        _cells[_cells.Count - 1].Hide();
     }
 
-    private void MoveEnemyTracker()
+    private void MoveTrackers()
     {
-        int positionIndex = _arenaPositions.GetIndexByPosition(_enemy.ArenaPosition) - 1;
-
-        if (positionIndex >= _cells.Count) return;
-
-        MoveTrackers(positionIndex - 1, positionIndex);
-    }
-
-    private void MoveTrackers(int playerIndex, int enemyIndex)
-    {
-        Vector2 playerTrackerPosition = GetCellPosition(playerIndex);
-        Vector2 enemyTrackerPosition = GetCellPosition(enemyIndex);
+        Vector2 playerTrackerPosition = GetCellPosition(_player.PositionIndex);
+        Vector2 enemyTrackerPosition = GetCellPosition(_enemy.PositionIndex);
 
         _view.SetPlayerTrackerPosition(playerTrackerPosition);
         _view.SetEnemyTrackerPosition(enemyTrackerPosition);
@@ -70,5 +60,5 @@ public class ArenaPositionIndicator
             throw new ArgumentOutOfRangeException("The index is out of the arena cell list.");
 
         return _cells[i].transform.position;
-    }*/
+    }
 }
