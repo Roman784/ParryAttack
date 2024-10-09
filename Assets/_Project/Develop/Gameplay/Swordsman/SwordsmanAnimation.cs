@@ -10,7 +10,7 @@ public class SwordsmanAnimation : MonoBehaviour
     private SwordsmanAnimationConfig _config;
     private SwordsmanSpritesConfig _spritesConfig;
 
-    private Coroutine _tickingDamageCoroutine;
+    private Coroutine _tickingDamage;
 
     private void Awake()
     {
@@ -45,10 +45,8 @@ public class SwordsmanAnimation : MonoBehaviour
 
     public void SetDamage()
     {
-        if (_tickingDamageCoroutine != null)
-            Coroutines.StopRoutine(_tickingDamageCoroutine);
-
-        Coroutines.StartRoutine(TickingDamage());
+        Coroutines.StopRoutine(_tickingDamage);
+        _tickingDamage = Coroutines.StartRoutine(TickingDamage());
     }
 
     public void SetDefeat()

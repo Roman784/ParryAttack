@@ -13,7 +13,7 @@ public class AttackIndicator : MonoBehaviour
     {
         _indicatorContainer.SetActive(true);
 
-        if (_fillingCoroutine != null) Coroutines.StopRoutine(_fillingCoroutine);
+        Coroutines.StopRoutine(_fillingCoroutine);
         _fillingCoroutine = Coroutines.StartRoutine(FillProgressBar(fillingTime));
     }
 

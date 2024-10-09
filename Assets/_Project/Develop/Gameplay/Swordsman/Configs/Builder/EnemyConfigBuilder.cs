@@ -27,11 +27,11 @@ public class EnemyConfigBuilder : SwordsmanConfigBuilder
 
     protected override SwordsmanFeaturesConfig BuildFeatures()
     {
-        int heartsCount = InitialFeaturesConfig.HeartsCount;
+        int healthAmount = InitialFeaturesConfig.HealthAmount;
         float preattackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.PreattackDuration, InitialFeaturesConfig.PreattackDuration);
         float attackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.AttackDuration, InitialFeaturesConfig.AttackDuration);
 
-        SwordsmanFeaturesConfig featuresConfig = new(heartsCount, preattackDuration, attackDuration);
+        SwordsmanFeaturesConfig featuresConfig = new(healthAmount, preattackDuration, attackDuration);
 
         return featuresConfig;
     }

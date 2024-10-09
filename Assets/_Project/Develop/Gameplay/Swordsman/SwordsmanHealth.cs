@@ -1,54 +1,28 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class SwordsmanHealth : MonoBehaviour
+public class SwordsmanHealth
 {
-    [SerializeField] private Heart _heartPrefab;
-    [SerializeField] private Transform _heartsContainer;
+    private HealthView _view;
 
-    private List<Heart> _hearts = new();
+    private int _maxAmount;
+    private int _currentAmount;
 
-    public void Init(int heartsCount)
+    public SwordsmanHealth(HealthView view, int amount)
     {
-        for (int i = 0; i < heartsCount; i++)
-            CreateHeart();
+        _view = view;
+        _maxAmount = amount;
+        _currentAmount = _maxAmount;
+
+        _view.CreateBar(_maxAmount);
     }
 
-    private void CreateHeart()
+    public int Reduce()
     {
-        Heart newHeart = Object.Instantiate(_heartPrefab, Vector3.zero, Quaternion.identity, _heartsContainer);
-        _hearts.Add(newHeart);
-    }
+        _currentAmount -= 1;
+        _currentAmount = Mathf.Clamp(_currentAmount, 0, _maxAmount);
 
-    public int SpendHeart()
-    {
-        for (int i = _hearts.Count-1; i >= 0; i--)
-        {
-            Heart heart = _hearts[i];
+        _view.UpdateBar(_currentAmount);
 
-            if (heart.IsEmpty)
-                continue;
-
-            heart.Spend();
-            break;
-        }
-
-        return GetFullHeartsCount();
-    }
-
-    private int GetFullHeartsCount() => GetHeartsCount(false);
-    private int GetEmptyHeartsCount() => GetHeartsCount(true);
-
-    private int GetHeartsCount(bool isEmpty)
-    {
-        int count = 0;
-        foreach (var heart in _hearts)
-        {
-            if (heart.IsEmpty == isEmpty)
-                count += 1;
-        }
-
-        return count;
+        return _currentAmount;
     }
 }

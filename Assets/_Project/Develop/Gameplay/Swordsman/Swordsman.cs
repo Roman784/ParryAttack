@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-[RequireComponent(typeof(SwordsmanHealth), typeof(SwordsmanAnimation), typeof(SwordsmanPositioning))]
-[RequireComponent(typeof(AttackIndicator))]
+[RequireComponent(typeof(AttackIndicator), typeof(SwordsmanAnimation), typeof(SwordsmanPositioning))]
 public abstract class Swordsman : MonoBehaviour
 {
-    public UnityEvent OnDefeated = new();
+    [SerializeField] private HealthView _healthView;
+
+    [HideInInspector] public UnityEvent OnDefeated = new();
 
     protected bool CanFight = false;
 
@@ -28,7 +29,6 @@ public abstract class Swordsman : MonoBehaviour
 
     private void Awake()
     {
-        _health = GetComponent<SwordsmanHealth>();
         _animation = GetComponent<SwordsmanAnimation>();
         _positioning = GetComponent<SwordsmanPositioning>();
         _attackIndicator = GetComponent<AttackIndicator>();
@@ -38,11 +38,11 @@ public abstract class Swordsman : MonoBehaviour
     {
         _config = config;
 
-        _health.Init(_config.FeaturesConfig.HeartsCount);
         _animation.Init(_config.AnimationConfig);
         _positioning.Init(positionIndex);
         _attackIndicator.Deactivate();
 
+        _health = new SwordsmanHealth(_healthView, _config.FeaturesConfig.HealthAmount);
         _stateHandler = new SwordsmanStateHandler(this);
 
         _positioning.OnDroppedOutOfArena.AddListener(Defeat);
@@ -80,9 +80,9 @@ public abstract class Swordsman : MonoBehaviour
         _camera.Shake(Vector2.down);
 
         _animation.SetDamage();
-        int fullHeartsCount = _health.SpendHeart();
+        int healthAmount = _health.Reduce();
 
-        if (fullHeartsCount == 0)
+        if (healthAmount == 0)
             Defeat();
     }
 

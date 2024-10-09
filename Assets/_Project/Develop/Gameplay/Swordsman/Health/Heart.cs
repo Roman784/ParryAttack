@@ -12,17 +12,22 @@ public class Heart : MonoBehaviour
     private void Awake()
     {
         _isEmpty = false;
+        UpdateSprite();
+    }
 
-        SetSprite();
+    public void Repair()
+    {
+        _isEmpty = false;
+        UpdateSprite();
     }
 
     public void Spend()
     {
         _isEmpty = true;
-        SetSprite();
+        UpdateSprite();
     }
 
-    private void SetSprite()
+    private void UpdateSprite()
     {
         if (_isEmpty) _renderer.sprite = _emptySprite;
         else _renderer.sprite = _fullSprite;

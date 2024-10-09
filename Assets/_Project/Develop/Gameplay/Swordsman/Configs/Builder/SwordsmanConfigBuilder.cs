@@ -25,11 +25,11 @@ public abstract class SwordsmanConfigBuilder
 
     protected virtual SwordsmanFeaturesConfig BuildFeatures()
     {
-        int heartsCount = InitialFeaturesConfig.HeartsCount;
+        int healthAmount = InitialFeaturesConfig.HealthAmount;
         float preattackDuration = InitialFeaturesConfig.PreattackDuration;
         float attackDuration = InitialFeaturesConfig.AttackDuration;
 
-        SwordsmanFeaturesConfig featuresConfig = new(heartsCount, preattackDuration, attackDuration);
+        SwordsmanFeaturesConfig featuresConfig = new(healthAmount, preattackDuration, attackDuration);
 
         return featuresConfig;
     }

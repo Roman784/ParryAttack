@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3369528275229604102}
   - component: {fileID: 7905148010213599097}
-  - component: {fileID: 6670387134501110428}
   - component: {fileID: 4245587735014335110}
   - component: {fileID: 466535964130447833}
   - component: {fileID: 6612495636079486713}
@@ -162,20 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7cf5a4a2a2b8f4e80c4ed5fe64cbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6670387134501110428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394388245668157106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec55b9e1f553b5f46981837e49db3582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heartPrefab: {fileID: 1020818047985943546, guid: 7eb0f7d4f79da9b43bbd2995f269ca5e, type: 3}
-  _heartsContainer: {fileID: 2588755826870829950}
+  _healthView: {fileID: 9097837568840531789}
+  OnDefeated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4245587735014335110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +217,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   _moveSpeed: 25
   OnMovedBack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDroppedOutOfArena:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6612495636079486713
@@ -470,6 +462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4364175544108400513}
+  - component: {fileID: 9097837568840531789}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -497,6 +490,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9097837568840531789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910791642957341212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549fff9837912e04d88ff2679817b44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heartPrefab: {fileID: 1020818047985943546, guid: 7eb0f7d4f79da9b43bbd2995f269ca5e, type: 3}
+  _heartsContainer: {fileID: 2588755826870829950}
 --- !u!1 &8863542757161050137
 GameObject:
   m_ObjectHideFlags: 0
