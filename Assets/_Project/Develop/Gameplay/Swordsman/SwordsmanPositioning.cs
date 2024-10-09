@@ -10,9 +10,10 @@ public class SwordsmanPositioning : MonoBehaviour
     [SerializeField] private float _moveSpeed;
 
     private ArenaPositions _arenaPositions;
-    private Vector2 _arenaPosition;
+    private int _positionIndex;
 
     [HideInInspector] public UnityEvent OnMovedBack = new();
+    [HideInInspector] public UnityEvent OnDroppedOutOfArena = new();
 
     private Coroutine _smoothlyMove;
 
@@ -22,50 +23,19 @@ public class SwordsmanPositioning : MonoBehaviour
         _arenaPositions = levelCreator.ArenaPositions;
     }
 
-    public void Init()
+    public void Init(int positionIndex)
     {
+        SetPosition(positionIndex, true);
     }
 
-    public Vector2 ArenaPosition => _arenaPosition;
-
-    public bool InArena()
-    {
-        return _arenaPositions.InArena(_arenaPosition);
-    }
-
-    public void SetInitialPositionForPlayer()
-    {
-        SetPosition(_arenaPositions.PlayerPosition);
-    }
-
-    public void SetInitialPositionForEnemy()
-    {
-        SetPosition(_arenaPositions.EnemyPosition);
-    }
-
-    public void SetPosition(Vector2 position, bool isInstantly = true)
-    {
-        _arenaPosition = position;
-
-        if (isInstantly)
-        {
-            transform.position = position;
-        }
-        else
-        {
-            if (_smoothlyMove != null)
-                Coroutines.StopRoutine(_smoothlyMove);
-
-            _smoothlyMove = Coroutines.StartRoutine(MoveSmoothly(position));
-        }
-    }
+    public int PositionIndex => _positionIndex;
 
     public void MoveForward()
     {
         Move(_forwardMotionStep);
     }
 
-    public void MoveBack()
+    public void MoveBackward()
     {
         Move(-_forwardMotionStep);
         OnMovedBack?.Invoke();
@@ -73,13 +43,27 @@ public class SwordsmanPositioning : MonoBehaviour
 
     private void Move(int step)
     {
-        int newPositionIndex = _arenaPositions.GetIndexByPosition(_arenaPosition) + step;
-
-        Vector2 position = _arenaPositions.GetPosition(newPositionIndex);
-        SetPosition(position, false);
+        SetPosition(_positionIndex + step);
     }
 
-    private IEnumerator MoveSmoothly(Vector2 position)
+    public void SetPosition(int newPositionIndex, bool isInstantly = false)
+    {
+        _positionIndex = newPositionIndex;
+        Vector2 position = _arenaPositions.GetPosition(_positionIndex);
+
+        CheckForPresenceInArena();
+
+        if (isInstantly)
+        {
+            transform.position = position;
+            return;
+        }
+
+        Coroutines.StopRoutine(_smoothlyMove);
+        _smoothlyMove = Coroutines.StartRoutine(MoveSmoothly(position));
+    }
+
+    private IEnumerator MoveSmoothly(Vector3 position)
     {
         float initialDistance = Mathf.Abs(position.x - transform.position.x);
 
@@ -89,10 +73,16 @@ public class SwordsmanPositioning : MonoBehaviour
             float progress = 1f - (distance / initialDistance);
             float speed = _moveSpeed * _moveSpeedOverTime.Evaluate(progress);
 
-            transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, position, speed * Time.deltaTime);
 
             yield return null;
         }
-        while (Vector2.Distance(transform.position, position) > 0.05f);
+        while (transform.position != position);
+    }
+
+    private void CheckForPresenceInArena()
+    {
+        if (!_arenaPositions.IsInArena(_positionIndex))
+            OnDroppedOutOfArena.Invoke();
     }
 }

@@ -12,9 +12,9 @@ public class Enemy : Swordsman
 
     private Player _player;
 
-    public void Init(EnemyConfig config, Player player)
+    public void Init(EnemyConfig config, int positionIndex, Player player)
     {
-        base.Init(config.SwordsmanConfig);
+        base.Init(config.SwordsmanConfig, positionIndex);
 
         _enemyConfig = config;
         _player = player;
@@ -23,7 +23,6 @@ public class Enemy : Swordsman
         _attackProbability = _enemyConfig.AttackProbability;
         _parryProbability = _enemyConfig.ParryProbability;
 
-        Positioning.SetInitialPositionForEnemy();
         _player.Positioning.OnMovedBack.AddListener(Positioning.MoveForward);
 
         Coroutines.StartRoutine(StateUpdate());

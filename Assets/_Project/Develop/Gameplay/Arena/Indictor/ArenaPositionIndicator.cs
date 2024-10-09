@@ -20,8 +20,8 @@ public class ArenaPositionIndicator
         _player = player.Positioning;
         _enemy = enemy.Positioning;
 
-        _player.OnMovedBack.AddListener(() => MovePlayerTracker());
-        _enemy.OnMovedBack.AddListener(() => MoveEnemyTracker());
+        //_player.OnMovedBack.AddListener(() => MovePlayerTracker());
+        //_enemy.OnMovedBack.AddListener(() => MoveEnemyTracker());
 
         CreateCells();
     }
@@ -37,7 +37,7 @@ public class ArenaPositionIndicator
         }
     }
 
-    private void MovePlayerTracker()
+    /*private void MovePlayerTracker()
     {
         int positionIndex = _arenaPositions.GetIndexByPosition(_player.ArenaPosition) - 1;
 
@@ -70,5 +70,5 @@ public class ArenaPositionIndicator
             throw new ArgumentOutOfRangeException("The index is out of the arena cell list.");
 
         return _cells[i].transform.position;
-    }
+    }*/
 }

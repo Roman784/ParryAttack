@@ -71,8 +71,11 @@ public class GameplayEntryPoint : EntryPoint
         _player = _swordsmanFactory.CreatePlayer();
         _enemy = _swordsmanFactory.CreateEnemy();
 
-        _player.Init(_swordsmenConfigBuilder.BuildPlayer(), _enemy);
-        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), _player);
+        int playerPositionIndex = _arenaPositions.Count / 2 - 1;
+        int enemyPositionIndex = _arenaPositions.Count / 2;
+
+        _player.Init(_swordsmenConfigBuilder.BuildPlayer(), playerPositionIndex, _enemy);
+        _enemy.Init(_swordsmenConfigBuilder.BuildEnemy(), enemyPositionIndex, _player);
     }
 
     private void InitCamera()

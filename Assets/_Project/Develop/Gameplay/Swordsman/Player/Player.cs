@@ -12,16 +12,15 @@ public class Player : Swordsman
         _input = input;
     }
 
-    public void Init(PlayerConfig config, Enemy enemy)
+    public void Init(PlayerConfig config, int positionIndex, Enemy enemy)
     {
-        base.Init(config.SwordsmanConfig);
+        base.Init(config.SwordsmanConfig, positionIndex);
 
         _enemy = enemy;
 
         _input.OnAttackTrigger.AddListener(SetIsAttacking);
         _input.OnParryTrigger.AddListener(SetIsParrying);
 
-        Positioning.SetInitialPositionForPlayer();
         _enemy.Positioning.OnMovedBack.AddListener(Positioning.MoveForward);
     }
 

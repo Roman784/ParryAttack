@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,30 +12,17 @@ public class ArenaPositions
     }
 
     public IEnumerable<Vector2> Positions => _positions;
+    public int Count => _positions.Count;
 
-    public Vector2 PlayerPosition => _positions[_positions.Count / 2 - 1];
-    public Vector2 EnemyPosition => _positions[_positions.Count / 2];
-
-    public Vector2 GetPosition(int i)
+    public Vector2 GetPosition(int positionIndex)
     {
-        if (!IsWithin(i)) return Vector2.zero;
-
-        return _positions[i];
+        positionIndex = Mathf.Clamp(positionIndex, 0, _positions.Count - 1);
+        return _positions[positionIndex];
     }
 
-    public bool IsWithin(int i)
+    // It doesn't take into account the 2 points on the edges where there is a chasm in the arena.
+    public bool IsInArena(int positionIndex)
     {
-        return i >= 0 && i < _positions.Count;
-    }
-
-    public int GetIndexByPosition(Vector2 position)
-    {
-        return _positions.IndexOf(position);
-    }
-
-    public bool InArena(Vector2 position)
-    {
-        int i = GetIndexByPosition(position);
-        return i > 0 && i < _positions.Count - 1;
+        return positionIndex > 0 && positionIndex < _positions.Count - 1;
     }
 }

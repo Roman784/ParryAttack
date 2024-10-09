@@ -34,22 +34,18 @@ public abstract class Swordsman : MonoBehaviour
         _attackIndicator = GetComponent<AttackIndicator>();
     }
 
-    protected void Init(SwordsmanConfig config)
+    protected void Init(SwordsmanConfig config, int positionIndex)
     {
         _config = config;
 
         _health.Init(_config.FeaturesConfig.HeartsCount);
         _animation.Init(_config.AnimationConfig);
-        _positioning.Init();
+        _positioning.Init(positionIndex);
         _attackIndicator.Deactivate();
 
         _stateHandler = new SwordsmanStateHandler(this);
 
-        _positioning.OnMovedBack.AddListener(() =>
-        {
-            if (!_positioning.InArena())
-                Defeat();
-        });
+        _positioning.OnDroppedOutOfArena.AddListener(Defeat);
     }
 
     public bool IsAttacking { get; protected set; }
@@ -76,7 +72,7 @@ public abstract class Swordsman : MonoBehaviour
 
     private void ParryHit()
     {
-        _positioning.MoveBack();
+        _positioning.MoveBackward();
     }
 
     private void TakeDamage()
