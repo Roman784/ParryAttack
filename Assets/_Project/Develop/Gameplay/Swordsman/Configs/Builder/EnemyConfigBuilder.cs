@@ -1,51 +1,44 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyConfigBuilder : SwordsmanConfigBuilder
 {
-    private EnemyConfig _initialEnemyConfig;
-    private DifficultyAdjuster _difficultyAdjuster;
-    private LevelData _currentLevelData;
+    private readonly EnemyConfig _initial;
+    private readonly EnemyProgressionConfig _progression;
 
-    public EnemyConfigBuilder(InitialSwordsmenConfig initialConfig, DifficultyAdjuster difficultyAdjuster, LevelData currentLevelData) : base(initialConfig)
+    private readonly float _levelProgress;
+
+    public EnemyConfigBuilder(EnemyConfig initial, EnemyProgressionConfig progression, float levelProgress) : 
+        base(initial.SwordsmanConfig, progression.SwordsmanProgressionConfig, levelProgress)
     {
-        _initialEnemyConfig = initialConfig.EnemyConfig;
-        _difficultyAdjuster = difficultyAdjuster;
-        _currentLevelData = currentLevelData;
+        _initial = initial;
+        _progression = progression;
+        _levelProgress = levelProgress;
     }
+
+    private SwordsmanSpritesConfig Sprites => _initial.SwordsmanConfig.SpritesConfig;
 
     public EnemyConfig Build()
     {
-        SwordsmanConfig swordsmanConfig = BuildSwordsman();
-        float stateUpdateCooldown = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.StateUpdateCooldown, _initialEnemyConfig.StateUpdateCooldown);
-        float attackProbability = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.AttackProbability, _initialEnemyConfig.AttackProbability);
-        float parryProbability = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.ParryProbability, _initialEnemyConfig.ParryProbability);
+        var swordsman = BuildSwordsman();
+        var stateUpdateCooldown = _initial.StateUpdateCooldown * _progression.StateUpdateCooldownOverLevel.Evaluate(_levelProgress);
+        var attackProbability = _initial.AttackProbability * _progression.AttackProbabilityOverLevel.Evaluate(_levelProgress);
+        var parryProbability = _initial.ParryProbability * _progression.ParryProbabilityOverLevel.Evaluate(_levelProgress);
 
-        EnemyConfig enemyConfig = new(swordsmanConfig, stateUpdateCooldown, attackProbability, parryProbability);
-
-        return enemyConfig;
-    }
-
-    protected override SwordsmanFeaturesConfig BuildFeatures()
-    {
-        int healthAmount = InitialFeaturesConfig.HealthAmount;
-        float preattackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.PreattackDuration, InitialFeaturesConfig.PreattackDuration);
-        float attackDuration = _difficultyAdjuster.Resolve(FieldsChangedByDifficulty.AttackDuration, InitialFeaturesConfig.AttackDuration);
-
-        SwordsmanFeaturesConfig featuresConfig = new(healthAmount, preattackDuration, attackDuration);
-
-        return featuresConfig;
+        var enemy = new EnemyConfig(swordsman, stateUpdateCooldown, attackProbability, parryProbability);
+        return enemy;
     }
 
     protected override SwordsmanSpritesConfig BuildSprites()
     {
-        Sprite idle = _currentLevelData.EnemySprites.Idle;
-        Sprite preattack = _currentLevelData.EnemySprites.Preattack;
-        Sprite attack = _currentLevelData.EnemySprites.Attack;
-        Sprite parry = _currentLevelData.EnemySprites.Parry;
-        Sprite defeat = _currentLevelData.EnemySprites.Defeat;
+        var idle = Sprites.Idle;
+        var preattack = Sprites.Preattack;
+        var attack = Sprites.Attack;
+        var parry = Sprites.Parry;
+        var defeat = Sprites.Defeat;
+        var profile = Sprites.Profile;
 
-        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry, defeat);
-
-        return spritesConfig;
+        var sprites = new SwordsmanSpritesConfig(idle, preattack, attack, parry, defeat, profile);
+        return sprites;
     }
 }

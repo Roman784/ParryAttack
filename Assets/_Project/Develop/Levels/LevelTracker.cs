@@ -12,7 +12,7 @@ public class LevelTracker
         _levelListConfig = levelListConfig;
     }
 
-    public float Progress => _currentNumber / _levelListConfig.Levels.Count;
+    public float Progress => (_currentNumber - 1f) / (_levelListConfig.Levels.Count - 1f);
     public LevelData CurrentLevelData => _levelListConfig.Levels[_currentNumber - 1];
 
     public void SetCurrentLevelNumber(int newNumber)

@@ -17,10 +17,10 @@ public class SwordsmanAnimation : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Init(SwordsmanAnimationConfig config)
+    public void Init(SwordsmanAnimationConfig config, SwordsmanSpritesConfig spritesConfig)
     {
         _config = config;
-        _spritesConfig = config.SpritesConfig;
+        _spritesConfig = spritesConfig;
     }
 
     public void SetIdle()

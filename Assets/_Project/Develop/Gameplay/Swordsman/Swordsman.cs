@@ -38,7 +38,7 @@ public abstract class Swordsman : MonoBehaviour
     {
         _config = config;
 
-        _animation.Init(_config.AnimationConfig);
+        _animation.Init(_config.AnimationConfig, _config.SpritesConfig);
         _positioning.Init(positionIndex);
         _attackIndicator.Deactivate();
 

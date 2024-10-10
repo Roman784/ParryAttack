@@ -40,8 +40,8 @@ public class LevelListMenu
     private void InitButton(LevelSelectionButton button, LevelData levelData)
     {
         int number = levelData.Number;
-        string enemyName = levelData.EnemyName;
-        Sprite enemyProfile = levelData.EnemySprites.Profile;
+        string enemyName = levelData.EnemyData.Name;
+        Sprite enemyProfile = levelData.EnemyData.SpritesConfig.Profile;
 
         button.Init(this, number, enemyName, enemyProfile);
     }

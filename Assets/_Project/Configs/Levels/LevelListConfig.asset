@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: LevelListConfig
   m_EditorClassIdentifier: 
   Levels:
-  - <EnemyName>k__BackingField: Enemy 1
-    <EnemySprites>k__BackingField: {fileID: 11400000, guid: 7d4e3475a1411ba459c6c561c76b73b0, type: 2}
-    <ArenaWidth>k__BackingField: 6
-  - <EnemyName>k__BackingField: Enemy 2
-    <EnemySprites>k__BackingField: {fileID: 11400000, guid: 7d4e3475a1411ba459c6c561c76b73b0, type: 2}
-    <ArenaWidth>k__BackingField: 6
-  - <EnemyName>k__BackingField: Enemy 3
-    <EnemySprites>k__BackingField: {fileID: 11400000, guid: 7d4e3475a1411ba459c6c561c76b73b0, type: 2}
-    <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 6
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 1
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3cfaf44e587352645bcf218d111335b7, type: 2}
+  - <ArenaWidth>k__BackingField: 6
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 2
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: b8eb85001e11b664693bf8d30bc9a36b, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 3
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2fda3abe48f0df94fa9e8a74c3bfc41d, type: 2}

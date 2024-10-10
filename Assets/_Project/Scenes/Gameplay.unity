@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 760003257}
   - component: {fileID: 760003256}
   - component: {fileID: 760003258}
-  - component: {fileID: 760003260}
+  - component: {fileID: 760003262}
   - component: {fileID: 760003259}
   - component: {fileID: 760003261}
   m_Layer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 760003258}
-  - {fileID: 760003260}
+  - {fileID: 760003262}
   - {fileID: 760003259}
   - {fileID: 760003261}
   _installerPrefabs: []
@@ -310,22 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47e2a394ef8fd34ba6f113025cbdc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialConfig: {fileID: 11400000, guid: 21a1fe5ab5b34a1498bc70859489d8e3, type: 2}
+  _initialPlayerConfig: {fileID: 11400000, guid: 77ddbee043f3c6944a91bd747420eb2f, type: 2}
+  _initialEnemyConfig: {fileID: 11400000, guid: a28854bc9b2798b40a004a7c3b13ddbd, type: 2}
   _playerPrefab: {fileID: 5577996011266343818, guid: 3c38ee74b5e5cbd45a4cc88675e68fc4, type: 3}
   _enemyPrefab: {fileID: 7905148010213599097, guid: e06215d97524be0499a835e57c442357, type: 3}
---- !u!114 &760003260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760003255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8053ab16a44a7e1498d1000ebe881a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _changesConfig: {fileID: 11400000, guid: 8ae15277a66106b42bd063ad33aed60e, type: 2}
 --- !u!114 &760003261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +328,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: d1555ae1b3e86fa4db086694b518d56d, type: 2}
   _gameplayCamera: {fileID: 1844212737}
+--- !u!114 &760003262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760003255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d033552d8ba4c84e9116437e9431415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerConfig: {fileID: 11400000, guid: 9bfed55e6c2c5cb498c279d750ac10a1, type: 2}
+  _enemyConfig: {fileID: 11400000, guid: 340016e0b2f1dba49b74ab6a9d3d7c27, type: 2}
 --- !u!1 &1844212734
 GameObject:
   m_ObjectHideFlags: 0

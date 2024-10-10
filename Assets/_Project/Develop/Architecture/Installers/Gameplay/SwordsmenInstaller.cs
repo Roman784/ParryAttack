@@ -3,7 +3,8 @@ using Zenject;
 
 public class SwordsmenInstaller : MonoInstaller
 {
-    [SerializeField] private InitialSwordsmenConfig _initialConfig;
+    [SerializeField] private PlayerConfig _initialPlayerConfig;
+    [SerializeField] private EnemyConfig _initialEnemyConfig;
 
     [Space]
 
@@ -20,7 +21,8 @@ public class SwordsmenInstaller : MonoInstaller
 
     private void BindConfigs()
     {
-        Container.Bind<InitialSwordsmenConfig>().FromInstance(_initialConfig).AsTransient();
+        Container.Bind<PlayerConfig>().FromInstance(_initialPlayerConfig).AsTransient();
+        Container.Bind<EnemyConfig>().FromInstance(_initialEnemyConfig).AsTransient();
     }
 
     private void BindSwordsmenPrefabs()

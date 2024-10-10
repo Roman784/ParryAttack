@@ -2,60 +2,50 @@ using UnityEngine;
 
 public abstract class SwordsmanConfigBuilder
 {
-    private InitialSwordsmenConfig _initialConfig;
+    private readonly SwordsmanConfig _initial;
+    private readonly SwordsmanProgressionConfig _progression;
 
-    public SwordsmanConfigBuilder(InitialSwordsmenConfig initialConfig)
+    private readonly float _levelProgress;
+
+    public SwordsmanConfigBuilder(SwordsmanConfig initialConfig, SwordsmanProgressionConfig progressionConfig, float levelProgress)
     { 
-        _initialConfig = initialConfig;
+        _initial = initialConfig;
+        _progression = progressionConfig;
+        _levelProgress = levelProgress;
     }
 
-    protected SwordsmanConfig InitialSwordsmanConfig => _initialConfig.SwordsmanConfig;
-    protected SwordsmanFeaturesConfig InitialFeaturesConfig => InitialSwordsmanConfig.FeaturesConfig;
-    protected SwordsmanAnimationConfig InitialAnimationConfig => InitialSwordsmanConfig.AnimationConfig;
+    private SwordsmanFeaturesConfig Features => _initial.FeaturesConfig;
+    private SwordsmanAnimationConfig Animation => _initial.AnimationConfig;
 
     protected SwordsmanConfig BuildSwordsman()
     {
-        SwordsmanFeaturesConfig featuresConfig = BuildFeatures();
-        SwordsmanAnimationConfig animationConfig = BuildAnimation();
+        var features = BuildFeatures();
+        var animation = BuildAnimation();
+        var sprites = BuildSprites();
 
-        SwordsmanConfig swordsmanConfig = new(featuresConfig, animationConfig);
-
-        return swordsmanConfig;
+        var swordsman = new SwordsmanConfig(features, animation, sprites);
+        return swordsman;
     }
 
-    protected virtual SwordsmanFeaturesConfig BuildFeatures()
+    protected SwordsmanFeaturesConfig BuildFeatures()
     {
-        int healthAmount = InitialFeaturesConfig.HealthAmount;
-        float preattackDuration = InitialFeaturesConfig.PreattackDuration;
-        float attackDuration = InitialFeaturesConfig.AttackDuration;
+        var healthAmount = Mathf.RoundToInt(Features.HealthAmount * _progression.HealthAmountOverLevel.Evaluate(_levelProgress));
+        var preattackDuration = Features.PreattackDuration * _progression.PreattackDurationOverLevel.Evaluate(_levelProgress);
+        var attackDuration = Features.AttackDuration * _progression.AttackDurationOverLevel.Evaluate(_levelProgress);
 
-        SwordsmanFeaturesConfig featuresConfig = new(healthAmount, preattackDuration, attackDuration);
-
-        return featuresConfig;
+        var features = new SwordsmanFeaturesConfig(healthAmount, preattackDuration, attackDuration);
+        return features;
     }
 
-    protected virtual SwordsmanAnimationConfig BuildAnimation()
+    protected SwordsmanAnimationConfig BuildAnimation()
     {
-        SwordsmanSpritesConfig spritesConfig = BuildSprites();
-        Color damageColor = InitialAnimationConfig.DamageColor;
-        int damageTickCount = InitialAnimationConfig.DamageTickCount;
-        float damageTickRate = InitialAnimationConfig.DamageTickRate;
+        var damageColor = Animation.DamageColor;
+        var damageTickCount = Animation.DamageTickCount;
+        var damageTickRate = Animation.DamageTickRate;
 
-        SwordsmanAnimationConfig animationConfig = new(spritesConfig, damageColor, damageTickCount, damageTickRate);
-
-        return animationConfig;
+        var animation = new SwordsmanAnimationConfig(damageColor, damageTickCount, damageTickRate);
+        return animation;
     }
 
-    protected virtual SwordsmanSpritesConfig BuildSprites()
-    {
-        Sprite idle = InitialAnimationConfig.SpritesConfig.Idle;
-        Sprite preattack = InitialAnimationConfig.SpritesConfig.Preattack;
-        Sprite attack = InitialAnimationConfig.SpritesConfig.Attack;
-        Sprite parry = InitialAnimationConfig.SpritesConfig.Parry;
-        Sprite defeat = InitialAnimationConfig.SpritesConfig.Defeat;
-
-        SwordsmanSpritesConfig spritesConfig = new(idle, preattack, attack, parry, defeat);
-
-        return spritesConfig;
-    }
+    protected abstract SwordsmanSpritesConfig BuildSprites();
 }
