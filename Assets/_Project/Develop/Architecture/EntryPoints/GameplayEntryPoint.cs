@@ -54,6 +54,7 @@ public class GameplayEntryPoint : EntryPoint
         _gameplayUI = Instantiate(_gameplayUIPrefab);
         UIRoot.AttachSceneUI(_gameplayUI.transform);
 
+        _gameplayUI.Init(_sceneLoader);
         _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 
