@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenLevelListScene()
     {
+        ContinueGame();
         _sceneLoader.LoadLevelList();
     }
 
