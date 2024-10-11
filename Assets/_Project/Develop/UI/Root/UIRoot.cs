@@ -25,6 +25,13 @@ public class UIRoot : MonoBehaviour
         ClearSceneUI();
 
         sceneUI.SetParent(_uiSceneContainer, false);
+
+        RectTransform rectTransform = sceneUI.GetComponent<RectTransform>();
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        rectTransform.anchorMin = new Vector2(0, 0);
+        rectTransform.anchorMax = new Vector2(1, 1);
+        rectTransform.offsetMin = Vector2.zero;
+        rectTransform.offsetMax = Vector2.zero;
     }
 
     private void ClearSceneUI()
