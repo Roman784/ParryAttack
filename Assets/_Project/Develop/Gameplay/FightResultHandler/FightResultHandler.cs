@@ -1,18 +1,43 @@
+using System.Collections;
+using UnityEngine;
+
 public class FightResultHandler
 {
-    public FightResultHandler(Player player, Enemy enemy)
+    private Player _player;
+    private Enemy _enemy;
+    private SceneLoader _sceneLoader;
+
+    public FightResultHandler(Player player, Enemy enemy, SceneLoader sceneLoader)
     {
-        player.OnDefeated.AddListener(HandleEnemyDefeat);
-        enemy.OnDefeated.AddListener(HandleEnemyDefeat);
+        _player = player;
+        _enemy = enemy;
+        _sceneLoader = sceneLoader;
+
+        _player.OnDefeated.AddListener(HandlePlayerDefeat);
+        _enemy.OnDefeated.AddListener(HandleEnemyDefeat);
     }
 
     private void HandlePlayerDefeat()
     {
-
+        ForbidFight();
+        Coroutines.StartRoutine(RestartLevel());
     }
 
     private void HandleEnemyDefeat()
     {
+        ForbidFight();
+    }
 
+    private void ForbidFight()
+    {
+        _player.ForbidFight();
+        _enemy.ForbidFight();
+    }
+
+    private IEnumerator RestartLevel()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _sceneLoader.LoadGameplay();
     }
 }
