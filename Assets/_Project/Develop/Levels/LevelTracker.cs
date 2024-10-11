@@ -1,3 +1,4 @@
+using UnityEngine;
 using Zenject;
 
 public class LevelTracker
@@ -12,11 +13,19 @@ public class LevelTracker
         _levelListConfig = levelListConfig;
     }
 
-    public float Progress => (_currentNumber - 1f) / (_levelListConfig.Levels.Count - 1f);
+    public float Progress => (_currentNumber - 1f) / (LevelCount - 1f);
     public LevelData CurrentLevelData => _levelListConfig.Levels[_currentNumber - 1];
+    private int LevelCount => _levelListConfig.Levels.Count;
+
+    public void IncreaseCurrentNumber()
+    {
+        int newNumber = _currentNumber + 1;
+        SetCurrentLevelNumber(newNumber);
+    }
 
     public void SetCurrentLevelNumber(int newNumber)
     {
+        newNumber = Mathf.Clamp(newNumber, 1, LevelCount);
         _currentNumber = newNumber;
     }
 }

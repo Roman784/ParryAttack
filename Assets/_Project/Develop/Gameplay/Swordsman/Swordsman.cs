@@ -58,7 +58,12 @@ public abstract class Swordsman : MonoBehaviour
     public SwordsmanStateHandler StateHandler => _stateHandler;
 
     public void AllowFight() => CanFight = true;
-    public void ForbidFight() => CanFight = false;
+    public void ForbidFight()
+    {
+        IsAttacking = false;
+        IsParrying = false;
+        CanFight = false;
+    }
 
     public abstract void PerformAttack();
 

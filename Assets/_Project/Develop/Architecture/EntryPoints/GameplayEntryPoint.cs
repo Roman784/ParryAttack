@@ -21,7 +21,8 @@ public class GameplayEntryPoint : EntryPoint
 
     [Inject]
     private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
-                           GameplayUI gameplayUIPrefab, LevelTracker levelTracker, LevelCreator levelCreator,
+                           GameplayUI gameplayUIPrefab, 
+                           LevelTracker levelTracker, LevelCreator levelCreator,
                            GameplayCamera camera, SceneLoader sceneLoader)
     {
         _swordsmanFactory = swordsmanFactory;
@@ -85,7 +86,7 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitFightResultHandler()
     {
-        new FightResultHandler(_player, _enemy, _sceneLoader);
+        new FightResultHandler(_gameplayUI.FightResultHandlerView, _player, _enemy, _levelTracker, _sceneLoader);
     }
 
     private void StartCountdownTimer()
