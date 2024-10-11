@@ -2,13 +2,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator))]
 public class FightResultHandlerView : MonoBehaviour
 {
     [SerializeField] private Button _retryButton;
     [SerializeField] private Button _nexLevelButton;
 
+    private Animator _animator;
+
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
+
         HideButtons();
 
         _retryButton.onClick.AddListener(() => OnRetryButtonClicked.Invoke());
@@ -21,11 +26,13 @@ public class FightResultHandlerView : MonoBehaviour
     public void ShowRetryButton()
     {
         _retryButton.gameObject.SetActive(true);
+        _animator.SetTrigger("ShowRetryButton");
     }
 
     public void ShowNextLevelButton()
     {
         _nexLevelButton.gameObject.SetActive(true);
+        _animator.SetTrigger("ShowNextLevelButton");
     }
 
     private void HideButtons()

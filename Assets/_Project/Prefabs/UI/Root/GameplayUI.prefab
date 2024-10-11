@@ -1449,6 +1449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5339037224159032012}
   - component: {fileID: 4376460212533223165}
+  - component: {fileID: 2508808481111241359}
   m_Layer: 5
   m_Name: FightResultHandler
   m_TagString: Untagged
@@ -1497,3 +1498,24 @@ MonoBehaviour:
   OnNexLevelButtonClicked:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &2508808481111241359
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492982113265475140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 779b66562ff72e847acf81a03ea2a48e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
