@@ -3,7 +3,10 @@ using UnityEngine;
 [System.Serializable]
 public class ThemeData
 {
-    [field: SerializeField] public Sprite ArenaTile {  get; private set; }
+    [field: SerializeField] public int Key {  get; private set; }
+
+    [field: Space]
+    [field: SerializeField] public Sprite ArenaTile { get; private set; }
     [field: SerializeField] public Vector2 ArenaTileSize { get; private set; }
     [field: SerializeField] public GameObject[] ArenaProps { get; private set; }
     [field: SerializeField] public GameObject Background { get; private set; }

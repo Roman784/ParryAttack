@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: ThemesConfig
   m_EditorClassIdentifier: 
   _themes:
-  - <ArenaTile>k__BackingField: {fileID: -1181851115, guid: 4969c843209519d49ad7cba19b7e0776, type: 3}
+  - <Key>k__BackingField: 1
+    <ArenaTile>k__BackingField: {fileID: -1768215425, guid: 50956ce6959c9e6478ac7e1bce5291ee, type: 3}
+    <ArenaTileSize>k__BackingField: {x: 1.5, y: 10}
+    <ArenaProps>k__BackingField:
+    - {fileID: 969037580889032289, guid: 68dd531bac67365448326c0659003c64, type: 3}
+    - {fileID: 4467820055038430018, guid: 50402cd000ef98445a7332ccb7bce40b, type: 3}
+    <Background>k__BackingField: {fileID: 8294141408697331923, guid: fa3d38d4448263e4585b7d980b2c02d4, type: 3}
+    <SkyColor>k__BackingField: {r: 0.78039217, g: 0.87058824, b: 0.87058824, a: 0}
+  - <Key>k__BackingField: 2
+    <ArenaTile>k__BackingField: {fileID: -139946229, guid: d4805d8bd19822b40801ff5ef2584380, type: 3}
+    <ArenaTileSize>k__BackingField: {x: 1.5, y: 10}
+    <ArenaProps>k__BackingField:
+    - {fileID: 969037580889032289, guid: df93d2a24d4a5cc489ab7c6cdf5a2395, type: 3}
+    <Background>k__BackingField: {fileID: 8294141408697331923, guid: 5a5b8d6975e5a8c47a6ac38fe1ce9820, type: 3}
+    <SkyColor>k__BackingField: {r: 0.19215687, g: 0.22352941, b: 0.28627452, a: 0}
+  - <Key>k__BackingField: 3
+    <ArenaTile>k__BackingField: {fileID: -1181851115, guid: 4969c843209519d49ad7cba19b7e0776, type: 3}
     <ArenaTileSize>k__BackingField: {x: 1.5, y: 10}
     <ArenaProps>k__BackingField:
     - {fileID: 969037580889032289, guid: bdd6533334818354ba04decace3aa618, type: 3}

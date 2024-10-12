@@ -2,15 +2,15 @@ using Zenject;
 
 public class LevelCreator
 {
-    private ThemesConfig _themesCongif;
+    private ThemeCreator _themeCreator;
     private LevelTracker _levelTracker;
 
     private ArenaPositions _arenaPositions;
 
     [Inject]
-    private void Construct(ThemesConfig themesConfig, LevelTracker levelTracker)
+    private void Construct(ThemeCreator themeCreator, LevelTracker levelTracker)
     {
-        _themesCongif = themesConfig;
+        _themeCreator = themeCreator;
         _levelTracker = levelTracker;
     }
 
@@ -26,8 +26,7 @@ public class LevelCreator
 
     private ThemeData CreateTheme()
     {
-        ThemeCreator creator = new ThemeCreator(_themesCongif);
-        return creator.Create();
+        return _themeCreator.Create();
     }
 
     private ArenaPositions CreateArena(ThemeData theme)
