@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4805d8bd19822b40801ff5ef2584380
+guid: 4969c843209519d49ad7cba19b7e0776
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Theme2_0
+      name: Theme3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 237
-        width: 512
-        height: 256
+        y: 258
+        width: 167
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba6192ea7f7be2f4aa6a43d3c75da55f
-      internalID: -196902314
+      spriteID: f3095ae09f928a741ba7dd37de7383ec
+      internalID: 1810494906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Theme2_1
+      name: Theme3_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 38
-        width: 512
-        height: 198
+        x: 200
+        y: 261
+        width: 232
+        height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,62 +171,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3142f34e970212a488d166dbeacc7c4c
-      internalID: -1686270072
+      spriteID: 403e645be0795c84884bdffcf50bb3ba
+      internalID: -1689919379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Theme2_2
+      name: Theme3_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 18
-        height: 32
-      alignment: 9
-      pivot: {x: 0.055555556, y: 1}
+        y: 80
+        width: 480
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a84026939d22fe444ba9001b4dfa0653
-      internalID: -1969479557
+      spriteID: 136af3309930cb1418e141f30dfdd540
+      internalID: -238386751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Theme2_3
+      name: Theme3_3
       rect:
         serializedVersion: 2
-        x: 19
+        x: 0
         y: 0
-        width: 10
-        height: 34
+        width: 40
+        height: 57
       alignment: 9
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 33}
+      pivot: {x: 0.5, y: 0.95614034}
+      border: {x: 0, y: 0, z: 0, w: 56}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea21153d799165e45889355a3ae71d16
-      internalID: -139946229
+      spriteID: 4a7a843fdbfe5134b91c72f136fad0bc
+      internalID: -1181851115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Theme2_4
+      name: Theme3_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 13
-        width: 16
-        height: 16
+        x: 44
+        y: 2
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5416667, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3e852c2f22f9042bbfa81d67c023c8
+      internalID: -397879306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Theme3_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2
+        width: 31
+        height: 48
+      alignment: 9
+      pivot: {x: 0.41935483, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519c848973a166648b669fa28cf6784b
+      internalID: -262657514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Theme3_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad8727e4f13410b48b4484edf0a1e2c6
-      internalID: 759264210
+      spriteID: 981b19c1a2f16144f947458d1c9c8979
+      internalID: -629646179
       vertices: []
       indices: 
       edges: []
@@ -251,11 +293,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Theme2_0: -196902314
-      Theme2_1: -1686270072
-      Theme2_2: -1969479557
-      Theme2_3: -139946229
-      Theme2_4: 759264210
+      Theme3_0: 1810494906
+      Theme3_1: -1689919379
+      Theme3_2: -238386751
+      Theme3_3: -1181851115
+      Theme3_4: -397879306
+      Theme3_5: -262657514
+      Theme3_6: -629646179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
