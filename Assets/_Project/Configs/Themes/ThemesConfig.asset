@@ -36,3 +36,10 @@ MonoBehaviour:
     - {fileID: 969037580889032289, guid: 39d476ebee3278d42af0722ea13e091e, type: 3}
     <Prefab>k__BackingField: {fileID: 3549739596126202742, guid: e7c3593be125ffd4789463dcc65cd971, type: 3}
     <SkyColor>k__BackingField: {r: 0.85490197, g: 0.8784314, b: 0.91764706, a: 0}
+  - <Key>k__BackingField: 4
+    <ArenaTile>k__BackingField: {fileID: -1329318612, guid: 7a480c997e644b74785b72ec6a7d6c5f, type: 3}
+    <ArenaTileSize>k__BackingField: {x: 1.5, y: 10}
+    <ArenaProps>k__BackingField:
+    - {fileID: 969037580889032289, guid: 26c1e98d9e1c02c4bb6b267d25da4ea2, type: 3}
+    <Prefab>k__BackingField: {fileID: 3549739596126202742, guid: 390fe75539e242542beb386d98d4096a, type: 3}
+    <SkyColor>k__BackingField: {r: 0.6509804, g: 0.9882353, b: 0.85882354, a: 0}
