@@ -95,7 +95,7 @@ MonoBehaviour:
   _uiRoot: {fileID: 5807412076554899150, guid: 738e973d99a045a40b4aee11474e892b, type: 3}
   _gameplayUI: {fileID: 6108827986113304289, guid: c6b9b7166e445fa40832fe31f8d93341, type: 3}
   _levelListUI: {fileID: 6711630563234177216, guid: 5c99334c39329a74990fcf90d6b530c9, type: 3}
-  _themeSelectionUI: {fileID: -3443449811013759943, guid: 4657b61b81c31374eb08cdd60c13540f, type: 3}
+  _themeSelectionUI: {fileID: 6029819483719039632, guid: 1f944812da4970f4fae6e2bcf27929dc, type: 3}
 --- !u!114 &8693643034549218363
 MonoBehaviour:
   m_ObjectHideFlags: 0

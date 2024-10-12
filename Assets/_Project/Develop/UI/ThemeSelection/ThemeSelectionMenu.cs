@@ -1,23 +1,30 @@
 using System.Collections.Generic;
-using TMPro;
 
 public class ThemeSelectionMenu
 {
     private ThemeSelectionUI _ui;
     private ThemeCreator _creator;
     private ThemeTracker _tracker;
+    private SceneLoader _sceneLoader;
 
     private ArenaCreator _arenaCreator;
 
     private List<Theme> _themes = new();
     private int _currentThemeIndex;
 
-    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker)
+    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader)
     {
         _ui = ui;
         _creator = creator;
         _tracker = tracker;
+        _sceneLoader = sceneLoader;
+
+        _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
+        _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
+        _ui.OnSelectThemeButtonClick.AddListener(SelectCurrentTheme);
     }
+
+    private Theme CurrentTheme => _themes[_currentThemeIndex];
 
     public void CreateThemes()
     {
@@ -27,9 +34,20 @@ public class ThemeSelectionMenu
         EnableCurrentTheme();
     }
 
-    public void SwitchTHeme(int step)
+    public void SwitchTheme(int step)
     {
-        
+        CurrentTheme.Disable();
+
+        _currentThemeIndex += step;
+        ClampCurrentThemeIndex();
+
+        EnableTheme(CurrentTheme);
+    }
+
+    public void SelectCurrentTheme()
+    {
+        _tracker.SetCurrentTheme(CurrentTheme.Data.Key);
+        _sceneLoader.LoadGameplay();
     }
 
     private void DisableThemes()
@@ -65,7 +83,13 @@ public class ThemeSelectionMenu
         if (_arenaCreator != null)
             _arenaCreator.Destroy();
 
-        _arenaCreator = new ArenaCreator(3, data);
+        _arenaCreator = new ArenaCreator(4, data);
         _arenaCreator.Create();
+    }
+
+    private void ClampCurrentThemeIndex()
+    {
+        if (_currentThemeIndex >= _themes.Count) _currentThemeIndex = 0;
+        if (_currentThemeIndex < 0) _currentThemeIndex = _themes.Count - 1;
     }
 }
