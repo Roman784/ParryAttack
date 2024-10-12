@@ -31,6 +31,7 @@ public class ArenaCreator
         renderer.transform.position = Vector2.zero;
         renderer.sprite = _themeData.ArenaTile;
         renderer.sortingLayerName = "Arena";
+        renderer.gameObject.layer = LayerMask.NameToLayer("Arena");
 
         SetArenaSize(renderer);
     }
