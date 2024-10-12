@@ -8,6 +8,9 @@ public class ArenaCreator
 
     private ThemeData _themeData;
 
+    private SpriteRenderer _renderer;
+    private List<GameObject> _props = new();
+
     public ArenaCreator(int width, ThemeData themeData)
     {
         _tileCount = width;
@@ -22,6 +25,13 @@ public class ArenaCreator
         return CreatePositions();
     }
 
+    public void Destroy()
+    {
+        Object.Destroy(_renderer.gameObject);
+        foreach (GameObject props in _props)
+            Object.Destroy(props);
+    }
+
     private float LeftEdge => _tileCount / 2f * _tileSize.x * -1f;
     private float RightEdge => _tileCount / 2f * _tileSize.x;
 
@@ -32,6 +42,8 @@ public class ArenaCreator
         renderer.sprite = _themeData.ArenaTile;
         renderer.sortingLayerName = "Arena";
         renderer.gameObject.layer = LayerMask.NameToLayer("Arena");
+
+        _renderer = renderer;
 
         SetArenaSize(renderer);
     }
@@ -57,6 +69,9 @@ public class ArenaCreator
         GameObject rightProps = Object.Instantiate(rightPropsPrefab);
         rightProps.transform.position = new Vector2(RightEdge, 0f);
         rightProps.transform.localScale = new Vector2(-1, 1);
+
+        _props.Add(leftProps);
+        _props.Add(rightProps);
     }
 
     private ArenaPositions CreatePositions()

@@ -27,6 +27,13 @@ public class SceneLoader
             LoadScene<LevelListEntryPoint>(Scenes.LEVEL_LIST));
     }
 
+    public void LoadThemeSelection()
+    {
+        Coroutines.StopAllRoutines();
+        Coroutines.StartRoutine(
+            LoadScene<ThemeSelectionEntryPoint>(Scenes.THEME_SELECTION));
+    }
+
     private IEnumerator LoadScene<T>(string sceneName) where T : EntryPoint
     {
         _uiRoot.ShowLoadingScreen();

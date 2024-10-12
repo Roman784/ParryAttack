@@ -48,7 +48,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenThemeSelectionScene()
     {
-
+        ContinueGame();
+        _sceneLoader.LoadThemeSelection();
     }
 
     private void StopGame()

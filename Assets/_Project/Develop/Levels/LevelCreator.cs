@@ -26,7 +26,7 @@ public class LevelCreator
 
     private ThemeData CreateTheme()
     {
-        return _themeCreator.Create();
+        return _themeCreator.CreateCurrent();
     }
 
     private ArenaPositions CreateArena(ThemeData theme)
