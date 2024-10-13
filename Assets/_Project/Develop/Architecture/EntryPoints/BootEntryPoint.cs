@@ -54,7 +54,7 @@ public class BootEntryPoint : EntryPoint
 
     private void SetCurrentLevel()
     {
-        int number = _storage.GameData.LastLevel;
+        int number = _storage.GameData.LastCompletedLevel + 1;
         _levelTracker.SetCurrentLevelNumber(number);
     }
 

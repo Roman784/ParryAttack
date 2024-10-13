@@ -8,14 +8,17 @@ public class FightResultHandler
     private Enemy _enemy;
     private LevelTracker _levelTracker;
     private SceneLoader _sceneLoader;
+    private Storage _storage;
 
-    public FightResultHandler(FightResultHandlerView view, Player player, Enemy enemy, LevelTracker levelTracker, SceneLoader sceneLoader)
+    public FightResultHandler(FightResultHandlerView view, Player player, Enemy enemy, 
+                              LevelTracker levelTracker, SceneLoader sceneLoader, Storage storage)
     {
         _view = view;
         _player = player;
         _enemy = enemy;
         _levelTracker = levelTracker;
         _sceneLoader = sceneLoader;
+        _storage = storage;
 
         _player.OnDefeated.AddListener(HandlePlayerDefeat);
         _enemy.OnDefeated.AddListener(HandleEnemyDefeat);
@@ -34,6 +37,8 @@ public class FightResultHandler
     {
         ForbidFight();
         _view.ShowNextLevelButton();
+
+        SetLastLevel();
     }
 
     private void ForbidFight()
@@ -51,5 +56,11 @@ public class FightResultHandler
     {
         _levelTracker.IncreaseCurrentNumber();
         _sceneLoader.LoadGameplay();
+    }
+
+    private void SetLastLevel()
+    {
+        if (_levelTracker.Current > _storage.GameData.LastCompletedLevel)
+            _storage.SetLastCompletedLevel(_levelTracker.Current);
     }
 }

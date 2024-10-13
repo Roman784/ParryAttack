@@ -18,10 +18,11 @@ public class GameplayEntryPoint : EntryPoint
     private GameplayCamera _camera;
     private ArenaPositions _arenaPositions;
     private SceneLoader _sceneLoader;
+    private Storage _storage;
 
     [Inject]
     private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
-                           GameplayUI gameplayUIPrefab, 
+                           GameplayUI gameplayUIPrefab, Storage storage, 
                            LevelTracker levelTracker, LevelCreator levelCreator,
                            GameplayCamera camera, SceneLoader sceneLoader)
     {
@@ -32,6 +33,7 @@ public class GameplayEntryPoint : EntryPoint
         _levelCreator = levelCreator;
         _camera = camera;
         _sceneLoader = sceneLoader;
+        _storage = storage;
     }
 
     public override IEnumerator Run()
@@ -87,7 +89,7 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitFightResultHandler()
     {
-        new FightResultHandler(_gameplayUI.FightResultHandlerView, _player, _enemy, _levelTracker, _sceneLoader);
+        new FightResultHandler(_gameplayUI.FightResultHandlerView, _player, _enemy, _levelTracker, _sceneLoader, _storage);
     }
 
     private void StartCountdownTimer()
