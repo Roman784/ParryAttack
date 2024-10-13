@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Zenject;
@@ -5,26 +6,44 @@ using Zenject;
 public class BootEntryPoint : EntryPoint
 {
     private SceneLoader _sceneLoader;
+    private Storage _storage;
     private LevelTracker _levelTracker;
     private ThemeTracker _themeTracker;
 
     [Inject]
-    private void Construct(SceneLoader sceneLoader, LevelTracker levelTracker, ThemeTracker themeTracker)
+    private void Construct(SceneLoader sceneLoader, Storage storage, LevelTracker levelTracker, ThemeTracker themeTracker)
     {
         _sceneLoader = sceneLoader;
+        _storage = storage;
         _levelTracker = levelTracker;
         _themeTracker = themeTracker;
     }
 
     public override IEnumerator Run()
     {
-        yield return new WaitForSeconds(0.5f);
-
         SetupGame();
+
+        yield return LoadData();
+
         SetCurrentLevel();
         SetCurrentTheme();
 
         LoadStartScene();
+    }
+
+    private IEnumerator LoadData()
+    {
+        bool isLoaded = false;
+
+        _storage.Load((res) => 
+        {
+            if (!res)
+                _storage.DefaultData();
+
+            isLoaded = true;
+        });
+
+        yield return new WaitUntil(() => isLoaded);
     }
 
     private void SetupGame()
