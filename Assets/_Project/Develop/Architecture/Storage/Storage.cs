@@ -21,4 +21,10 @@ public abstract class Storage
         GameData = GameObject.Instantiate(_defaultGameData).GameData;
         Save();
     }
+
+    public void SetLastComletedLevel(int number)
+    {
+        GameData.LastCompletedLevel = number;
+        Save();
+    }
 }
