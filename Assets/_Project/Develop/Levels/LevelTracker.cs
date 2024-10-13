@@ -4,13 +4,15 @@ using Zenject;
 public class LevelTracker
 {
     private LevelListConfig _levelListConfig;
+    private Storage _storage;
 
     private int _currentNumber = 1;
 
     [Inject]
-    private void Construct(LevelListConfig levelListConfig)
+    private void Construct(LevelListConfig levelListConfig, Storage storage)
     {
         _levelListConfig = levelListConfig;
+        _storage = storage;
     }
 
     public float Progress => (_currentNumber - 1f) / (LevelCount - 1f);
@@ -27,5 +29,8 @@ public class LevelTracker
     {
         newNumber = Mathf.Clamp(newNumber, 1, LevelCount);
         _currentNumber = newNumber;
+
+        if (_currentNumber > _storage.GameData.LastLevel)
+            _storage.SetLastLevel(_currentNumber);
     }
 }

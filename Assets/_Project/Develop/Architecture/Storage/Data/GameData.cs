@@ -3,5 +3,5 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int LastCompletedLevel;
+    public int LastLevel;
 }

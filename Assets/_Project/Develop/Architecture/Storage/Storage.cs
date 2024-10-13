@@ -22,9 +22,9 @@ public abstract class Storage
         Save();
     }
 
-    public void SetLastComletedLevel(int number)
+    public void SetLastLevel(int number)
     {
-        GameData.LastCompletedLevel = number;
+        GameData.LastLevel = number;
         Save();
     }
 }
