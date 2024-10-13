@@ -60,7 +60,8 @@ public class BootEntryPoint : EntryPoint
 
     private void SetCurrentTheme()
     {
-        _themeTracker.SetCurrentTheme(1); // <- From storage.
+        int key = _storage.GameData.CurrentTheme;
+        _themeTracker.SetCurrentTheme(key);
     }
 
     // The scene where the game begins.

@@ -27,4 +27,10 @@ public abstract class Storage
         GameData.LastCompletedLevel = number;
         Save();
     }
+
+    public void SetCurrentTheme(int key)
+    {
+        GameData.CurrentTheme = key;
+        Save();
+    }
 }

@@ -6,18 +6,20 @@ public class ThemeSelectionMenu
     private ThemeCreator _creator;
     private ThemeTracker _tracker;
     private SceneLoader _sceneLoader;
+    private Storage _storage;
 
     private ArenaCreator _arenaCreator;
 
     private List<Theme> _themes = new();
     private int _currentThemeIndex;
 
-    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader)
+    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader, Storage storage)
     {
         _ui = ui;
         _creator = creator;
         _tracker = tracker;
         _sceneLoader = sceneLoader;
+        _storage = storage;
 
         _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
         _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
@@ -47,6 +49,8 @@ public class ThemeSelectionMenu
     public void SelectCurrentTheme()
     {
         _tracker.SetCurrentTheme(CurrentTheme.Data.Key);
+        _storage.SetCurrentTheme(CurrentTheme.Data.Key);
+
         _sceneLoader.LoadGameplay();
     }
 
