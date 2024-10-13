@@ -3,12 +3,21 @@ using Zenject;
 
 public class StorageInstaller : MonoInstaller
 {
+    [SerializeField] private DefaultGameData _defaultGameData;
+
     public override void InstallBindings()
     {
+        BindDefaultGameData();
+
         if (Application.platform == RuntimePlatform.WebGLPlayer)
             return;
             
         BindJsonStorage();
+    }
+
+    private void BindDefaultGameData()
+    {
+        Container.Bind<DefaultGameData>().FromInstance(_defaultGameData).AsSingle().NonLazy();
     }
 
     private void BindJsonStorage()

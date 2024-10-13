@@ -5,10 +5,12 @@ using Zenject;
 public abstract class Storage
 {
     public abstract GameData GameData { get; protected set; }
+    private DefaultGameData _defaultGameData;
 
     [Inject]
-    private void Construct()
+    private void Construct(DefaultGameData defaultGameData)
     {
+        _defaultGameData = defaultGameData;
     }
 
     public abstract void Save();
@@ -16,6 +18,7 @@ public abstract class Storage
 
     public void DefaultData()
     {
-        Debug.Log("Default data");
+        GameData = GameObject.Instantiate(_defaultGameData).GameData;
+        Save();
     }
 }
