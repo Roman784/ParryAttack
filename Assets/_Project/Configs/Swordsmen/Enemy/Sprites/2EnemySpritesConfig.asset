@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76efe7641d03eb4d8217dd6dd514fc7, type: 3}
   m_Name: 2EnemySpritesConfig
   m_EditorClassIdentifier: 
-  <Idle>k__BackingField: {fileID: 1124143308, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Preattack>k__BackingField: {fileID: -775958100, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Attack>k__BackingField: {fileID: 429351448, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Parry>k__BackingField: {fileID: -1087367499, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Defeat>k__BackingField: {fileID: 478471107, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Profile>k__BackingField: {fileID: -1456217000, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Idle>k__BackingField: {fileID: 127005677, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Preattack>k__BackingField: {fileID: -363273503, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Attack>k__BackingField: {fileID: 879032978, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Parry>k__BackingField: {fileID: 503502853, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Defeat>k__BackingField: {fileID: -1807433364, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
+  <Profile>k__BackingField: {fileID: 1448414965, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}

@@ -13,7 +13,7 @@ public sealed class SwordsmenConfigBuilder
         float levelProgress = levelTracker.Progress;
 
         _playerBuilder = new PlayerConfigBuilder(initialPlayerConfig, playerProgressionConfig, levelProgress);
-        _enemyBuilder = new EnemyConfigBuilder(initialEnemyConfig, enemyProgressionConfig, levelProgress);
+        _enemyBuilder = new EnemyConfigBuilder(initialEnemyConfig, enemyProgressionConfig, levelTracker);
     }
 
     public PlayerConfig BuildPlayer()
