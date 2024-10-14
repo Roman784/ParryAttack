@@ -24,6 +24,7 @@ public class ThemeSelectionMenu
         _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
         _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
         _ui.OnSelectThemeButtonClick.AddListener(SelectCurrentTheme);
+        _ui.OnUnlockThemeButtonClick.AddListener(UnlockTheme);
     }
 
     private Theme CurrentTheme => _themes[_currentThemeIndex];
@@ -54,6 +55,11 @@ public class ThemeSelectionMenu
         _sceneLoader.LoadGameplay();
     }
 
+    public void UnlockTheme()
+    {
+
+    }
+
     private void DisableThemes()
     {
         foreach (var theme in _themes)
@@ -80,6 +86,11 @@ public class ThemeSelectionMenu
     {
         theme.Enable();
         CreateArena(theme.Data);
+
+        if (IsUnlocked(theme.Data.Key))
+            _ui.ShowSelectButton();
+        else
+            _ui.ShowUnlockButton();
     }
 
     private void CreateArena(ThemeData data)
@@ -95,5 +106,10 @@ public class ThemeSelectionMenu
     {
         if (_currentThemeIndex >= _themes.Count) _currentThemeIndex = 0;
         if (_currentThemeIndex < 0) _currentThemeIndex = _themes.Count - 1;
+    }
+
+    private bool IsUnlocked(int key)
+    {
+        return _storage.GameData.UnlockedThemes.Contains(key);
     }
 }
