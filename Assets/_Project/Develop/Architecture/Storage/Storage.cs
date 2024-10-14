@@ -33,4 +33,12 @@ public abstract class Storage
         GameData.CurrentTheme = key;
         Save();
     }
+
+    public void AddUnlockedTheme(int key)
+    {
+        if (GameData.UnlockedThemes.Contains(key)) return;
+
+        GameData.UnlockedThemes.Add(key);
+        Save();
+    }
 }

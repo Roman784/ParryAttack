@@ -24,7 +24,7 @@ public class ThemeSelectionMenu
         _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
         _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
         _ui.OnSelectThemeButtonClick.AddListener(SelectCurrentTheme);
-        _ui.OnUnlockThemeButtonClick.AddListener(UnlockTheme);
+        _ui.OnThemeUnlockConfirm.AddListener(UnlockTheme);
     }
 
     private Theme CurrentTheme => _themes[_currentThemeIndex];
@@ -57,7 +57,8 @@ public class ThemeSelectionMenu
 
     public void UnlockTheme()
     {
-
+        _storage.AddUnlockedTheme(CurrentTheme.Data.Key);
+        _ui.ShowSelectButton();
     }
 
     private void DisableThemes()
