@@ -11,16 +11,19 @@ public class LevelListEntryPoint : EntryPoint
     private SceneLoader _sceneLoader;
     private LevelTracker _levelTracker;
     private ThemeCreator _themeCreator;
+    private Storage _storage;
 
     [Inject]
     private void Construct(LevelListUI levelListUIPrefab, LevelListConfig levelListConfig,
-                           SceneLoader sceneLoader, LevelTracker levelTracker, ThemeCreator themeCreator)
+                           SceneLoader sceneLoader, LevelTracker levelTracker, ThemeCreator themeCreator,
+                           Storage storage)
     {
         _levelListUIPrefab = levelListUIPrefab;
         _levelListConfig = levelListConfig;
         _sceneLoader = sceneLoader;
         _levelTracker = levelTracker;
         _themeCreator = themeCreator;
+        _storage = storage;
     }
 
     public override IEnumerator Run()
@@ -40,7 +43,7 @@ public class LevelListEntryPoint : EntryPoint
 
     private void CreateLevelButtons()
     {
-        var menu = new LevelListMenu(_levelListUI, _levelListConfig, _sceneLoader, _levelTracker);
+        var menu = new LevelListMenu(_levelListUI, _levelListConfig, _sceneLoader, _levelTracker, _storage);
         menu.CreateButtons();
     }
 

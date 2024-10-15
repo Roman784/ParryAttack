@@ -21,7 +21,7 @@ MonoBehaviour:
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 2
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: b8eb85001e11b664693bf8d30bc9a36b, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 20
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 3
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2fda3abe48f0df94fa9e8a74c3bfc41d, type: 2}

@@ -6,13 +6,15 @@ public class LevelListMenu
     private LevelListConfig _config;
     private SceneLoader _sceneLoader;
     private LevelTracker _levelTracker;
+    private Storage _storage;
 
-    public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker)
+    public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker, Storage storage)
     {
         _ui = ui;
         _config = config;
         _sceneLoader = sceneLoader;
         _levelTracker = levelTracker;
+        _storage = storage;
     }
 
     public void OpenLevel(int number)
@@ -44,5 +46,12 @@ public class LevelListMenu
         Sprite enemyProfile = levelData.EnemyData.SpritesConfig.Profile;
 
         button.Init(this, number, enemyName, enemyProfile);
+
+        bool isLock = number > _storage.GameData.LastCompletedLevel + 1;
+
+        if (isLock)
+            button.Lock();
+        else
+            button.Unlock();
     }
 }
