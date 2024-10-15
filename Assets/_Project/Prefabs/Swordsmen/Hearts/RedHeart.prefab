@@ -125,6 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 7197099685393997073}
-  _fullSprite: {fileID: -347675129, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  _emptySprite: {fileID: 1953116398, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  _isEmpty: 0
+  _fullSprite: {fileID: 882656678, guid: 7ab22f4465d9002449b7389e426d09a0, type: 3}
+  _emptySprite: {fileID: 32426207, guid: 7ab22f4465d9002449b7389e426d09a0, type: 3}

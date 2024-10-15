@@ -1,23 +1,24 @@
+using System.Collections;
 using UnityEngine;
 
 public class UIRoot : MonoBehaviour
 {
     [SerializeField] private Transform _uiSceneContainer;
-    [SerializeField] private GameObject _loadingScreen;
+    [SerializeField] private LoadingScreen _loadingScreen;
 
     private void Awake()
     {
         HideLoadingScreen();
     }
 
-    public void HideLoadingScreen()
+    public Coroutine ShowLoadingScreen()
     {
-        _loadingScreen.SetActive(false);
+        return Coroutines.StartRoutine(_loadingScreen.Show());
     }
 
-    public void ShowLoadingScreen()
+    public Coroutine HideLoadingScreen()
     {
-        _loadingScreen.SetActive(true);
+        return Coroutines.StartRoutine(_loadingScreen.Hide());
     }
 
     public void AttachSceneUI(Transform sceneUI)

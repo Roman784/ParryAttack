@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 105
         width: 16
         height: 16
       alignment: 7
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 16
+        y: 105
         width: 11
         height: 15
       alignment: 7
@@ -182,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 42
-        y: 16
+        y: 105
         width: 20
         height: 14
       alignment: 7
@@ -199,57 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordsmen_4
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 16
-        width: 22
-        height: 15
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e208d96c4beb2664e8d5f4076ec99347
-      internalID: 2000804994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Swordsmen_11
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 3
-        width: 3
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e412f70cb735144c940b3291aad735b
-      internalID: -797036486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Swordsmen_12
       rect:
         serializedVersion: 2
-        x: 10
-        y: 5
-        width: 4
-        height: 4
+        x: 99
+        y: 87
+        width: 18
+        height: 16
       alignment: 9
-      pivot: {x: 0.625, y: 0.5000005}
+      pivot: {x: 0.7222222, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +223,12 @@ TextureImporter:
       name: Swordsmen_13
       rect:
         serializedVersion: 2
-        x: 15
-        y: 5
-        width: 4
-        height: 4
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        x: 125
+        y: 94
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,9 +244,9 @@ TextureImporter:
       name: Swordsmen_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 34
-        width: 16
+        x: 72
+        y: 105
+        width: 22
         height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -307,12 +265,12 @@ TextureImporter:
       name: Swordsmen_5
       rect:
         serializedVersion: 2
-        x: 24
-        y: 34
-        width: 11
-        height: 15
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 99
+        y: 105
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7222222, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,10 +286,10 @@ TextureImporter:
       name: Swordsmen_6
       rect:
         serializedVersion: 2
-        x: 42
-        y: 34
-        width: 20
-        height: 14
+        x: 125
+        y: 112
+        width: 10
+        height: 10
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +307,10 @@ TextureImporter:
       name: Swordsmen_7
       rect:
         serializedVersion: 2
-        x: 72
-        y: 34
-        width: 22
-        height: 15
+        x: 0
+        y: 87
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,12 +328,12 @@ TextureImporter:
       name: Swordsmen_8
       rect:
         serializedVersion: 2
-        x: 99
-        y: 16
-        width: 18
-        height: 16
-      alignment: 9
-      pivot: {x: 0.7222222, y: 0}
+        x: 24
+        y: 87
+        width: 11
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,12 +349,12 @@ TextureImporter:
       name: Swordsmen_9
       rect:
         serializedVersion: 2
-        x: 99
-        y: 34
-        width: 18
-        height: 16
-      alignment: 9
-      pivot: {x: 0.7222222, y: 0}
+        x: 42
+        y: 87
+        width: 20
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -412,12 +370,12 @@ TextureImporter:
       name: Swordsmen_10
       rect:
         serializedVersion: 2
-        x: 22
-        y: 4
-        width: 15
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 72
+        y: 87
+        width: 22
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -433,12 +391,12 @@ TextureImporter:
       name: Swordsmen_14
       rect:
         serializedVersion: 2
-        x: 126
-        y: 39
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 70
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -454,10 +412,10 @@ TextureImporter:
       name: Swordsmen_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 121
-        width: 16
-        height: 16
+        x: 24
+        y: 70
+        width: 11
+        height: 14
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,10 +433,10 @@ TextureImporter:
       name: Swordsmen_16
       rect:
         serializedVersion: 2
-        x: 24
-        y: 121
-        width: 11
-        height: 15
+        x: 42
+        y: 70
+        width: 20
+        height: 13
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,10 +454,10 @@ TextureImporter:
       name: Swordsmen_17
       rect:
         serializedVersion: 2
-        x: 42
-        y: 121
-        width: 20
-        height: 14
+        x: 72
+        y: 70
+        width: 22
+        height: 15
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,36 +472,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Swordsmen_18
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 121
-        width: 22
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26a2a82af9d709c4fb072ef841478fab
-      internalID: 879032978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Swordsmen_19
       rect:
         serializedVersion: 2
         x: 99
-        y: 121
+        y: 70
         width: 18
-        height: 16
+        height: 15
       alignment: 9
-      pivot: {x: 0.7222222, y: -0}
+      pivot: {x: 0.7222222, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -559,12 +496,12 @@ TextureImporter:
       name: Swordsmen_20
       rect:
         serializedVersion: 2
-        x: 123
-        y: 128
-        width: 12
+        x: 125
+        y: 77
+        width: 9
         height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -572,6 +509,489 @@ TextureImporter:
       bones: []
       spriteID: 7e1c9943f65588845a75eb98819101be
       internalID: 1448414965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311ba388fbc940b4381a280aa26fde97
+      internalID: -2100323323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 53
+        width: 11
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d9f6063eba7ca468b627a42d632ffe
+      internalID: 1863829188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 53
+        width: 20
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f325f30251363b548b4ffdae4f2a2c9b
+      internalID: 130237994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_24
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 53
+        width: 22
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772ecb394faf6bc4a933936c2edba588
+      internalID: 1893910583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_26
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 53
+        width: 18
+        height: 15
+      alignment: 9
+      pivot: {x: 0.7222222, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501e22a02d5dafa4bb0d2637863435a7
+      internalID: 1024085300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_27
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 60
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5e9a085d459e0449bcebecac87d012
+      internalID: 699441034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 16
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b602e2c8bc1d36e43a25167dbb8692b1
+      internalID: 1538417968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_29
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 36
+        width: 11
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d212fe918ff907a4bb046c5914076f4a
+      internalID: -2077065009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_30
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 36
+        width: 20
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5404db5eacbbc2d40a1de4acd8362ca7
+      internalID: 329918638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_31
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 36
+        width: 22
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc628afcbdc23c4bb558b20a59b7bb2
+      internalID: -293396027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_33
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 36
+        width: 18
+        height: 15
+      alignment: 9
+      pivot: {x: 0.7222222, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2dbd5db04063149ace7470c71667d8
+      internalID: -2137305087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_34
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 43
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f2462e7e1e8c74a8ac72833014c2a0
+      internalID: -1654344194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47673e86cb91f984b82443e2b118b6fe
+      internalID: -1801116724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_36
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 18
+        width: 11
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b98dc28535445549a9eaf163143df6f
+      internalID: -490840969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_37
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 18
+        width: 20
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d9e4a2f293b4946b1b5bb119b742ba
+      internalID: -1070461947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_38
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 18
+        width: 22
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aed5c2c54b9fd947899161432d40a42
+      internalID: 637852378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_40
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 18
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7222222, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ab671ba7e3ec24eb583ce4644f566d
+      internalID: 760119398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_41
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 23
+        width: 10
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab35a08029bbfad4ca2b183fa3900009
+      internalID: -155265946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff51af04fd50fa45bb04ab00e240858
+      internalID: -341600077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_43
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 11
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25d19493cae25746b77d1d0ae48b695
+      internalID: 786043380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_44
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 20
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c3634b32701ac418ed91a6ecabb0cf
+      internalID: -324479648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_45
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 22
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0fe018978ce56469292450c4ec1e2f
+      internalID: 1192884388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsmen_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7222222, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ebfeca63776e7498a9ffdb9a40c20c
+      internalID: -1121318885
       vertices: []
       indices: 
       edges: []
@@ -601,8 +1021,35 @@ TextureImporter:
       Swordsmen_19: -1807433364
       Swordsmen_2: -1344984559
       Swordsmen_20: 1448414965
+      Swordsmen_21: -2100323323
+      Swordsmen_22: 1863829188
+      Swordsmen_23: 130237994
+      Swordsmen_24: 1893910583
+      Swordsmen_25: 248298541
+      Swordsmen_26: 1024085300
+      Swordsmen_27: 699441034
+      Swordsmen_28: 1538417968
+      Swordsmen_29: -2077065009
       Swordsmen_3: 1124143308
+      Swordsmen_30: 329918638
+      Swordsmen_31: -293396027
+      Swordsmen_32: -1321298930
+      Swordsmen_33: -2137305087
+      Swordsmen_34: -1654344194
+      Swordsmen_35: -1801116724
+      Swordsmen_36: -490840969
+      Swordsmen_37: -1070461947
+      Swordsmen_38: 637852378
+      Swordsmen_39: 1064402875
       Swordsmen_4: 2000804994
+      Swordsmen_40: 760119398
+      Swordsmen_41: -155265946
+      Swordsmen_42: -341600077
+      Swordsmen_43: 786043380
+      Swordsmen_44: -324479648
+      Swordsmen_45: 1192884388
+      Swordsmen_46: -592099504
+      Swordsmen_47: -1121318885
       Swordsmen_5: -1087367499
       Swordsmen_6: -775958100
       Swordsmen_7: 429351448

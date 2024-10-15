@@ -36,13 +36,13 @@ public class SceneLoader
 
     private IEnumerator LoadScene<T>(string sceneName) where T : EntryPoint
     {
-        _uiRoot.ShowLoadingScreen();
+        yield return _uiRoot.ShowLoadingScreen();
 
         yield return SceneManager.LoadSceneAsync(sceneName);
 
         EntryPoint sceneEntryPoint = Object.FindFirstObjectByType<T>();
         yield return sceneEntryPoint.Run();
 
-        _uiRoot.HideLoadingScreen();
+        yield return _uiRoot.HideLoadingScreen();
     }
 }

@@ -21,7 +21,19 @@ MonoBehaviour:
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 2
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: b8eb85001e11b664693bf8d30bc9a36b, type: 2}
-  - <ArenaWidth>k__BackingField: 20
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 3
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2fda3abe48f0df94fa9e8a74c3bfc41d, type: 2}
+  - <ArenaWidth>k__BackingField: 10
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 4
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3343202c848f1fe4da8116cb4831a46e, type: 2}
+  - <ArenaWidth>k__BackingField: 10
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 5
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 97147fc0ecaab1e40beb4152ace0cf91, type: 2}
+  - <ArenaWidth>k__BackingField: 10
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 6
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 7e8eb6fe1e9bd4844be8b1a450bb1d4d, type: 2}
