@@ -41,4 +41,10 @@ public abstract class Storage
         GameData.UnlockedThemes.Add(key);
         Save();
     }
+
+    public void SetFirstEntry(bool value)
+    {
+        GameData.IsFirstEntry = value;
+        Save();
+    }
 }

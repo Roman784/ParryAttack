@@ -10,4 +10,8 @@ public class GameData
 
     public int CurrentTheme;
     public List<int> UnlockedThemes = new();
+
+    [Space]
+
+    public bool IsFirstEntry;
 }

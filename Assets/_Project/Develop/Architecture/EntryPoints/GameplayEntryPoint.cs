@@ -47,6 +47,7 @@ public class GameplayEntryPoint : EntryPoint
         InitCamera();
         InitFightResultHandler();
         StartCountdownTimer();
+        ShowEducation();
 
         yield return null;
     }
@@ -102,5 +103,13 @@ public class GameplayEntryPoint : EntryPoint
             _player.AllowFight();
             _enemy.AllowFight();
         });
+    }
+
+    private void ShowEducation()
+    {
+        if (!_storage.GameData.IsFirstEntry) return;
+
+        new EducationMenu(_gameplayUI.EducationView).Show();
+        _storage.SetFirstEntry(false);
     }
 }

@@ -24,6 +24,11 @@ public class LoadingScreen : MonoBehaviour
         _background.gameObject.SetActive(false);
     }
 
+    public void HideInstantly()
+    {
+        _background.gameObject.SetActive(false);
+    }
+
     private IEnumerator ChangeTransparency(float duration, AnimationCurve changesOverTime)
     {
         Color color = _background.color;

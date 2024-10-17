@@ -7,12 +7,14 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private CountdownTimerView _countdownTimer;
     [SerializeField] private FightResultHandlerView _fightResultHandlerView;
     [SerializeField] private PauseMenu _pauseMenu;
+    [SerializeField] private EducationView _educationView;
 
     [SerializeField] private TMP_Text _enemyNameView;
 
     public ArenaPositionIndicatorView ArenaPositionIndicatorView => _arenaPositionIndicatorView;
     public CountdownTimerView CountdownTimer => _countdownTimer;
     public FightResultHandlerView FightResultHandlerView => _fightResultHandlerView;
+    public EducationView EducationView => _educationView;
 
     public void Init(SceneLoader sceneLoader)
     {
