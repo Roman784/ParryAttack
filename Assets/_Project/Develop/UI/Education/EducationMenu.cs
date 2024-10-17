@@ -9,6 +9,11 @@ public class EducationMenu
         _view = view;
 
         _view.OnCLoseButtonClick.AddListener(Hide);
+
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+            _view.EnableTouchscreenInputView();
+        else
+            _view.EnableKeyboardInputView();
     }
 
     public void Show()

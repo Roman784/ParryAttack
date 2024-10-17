@@ -303,6 +303,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: EducationUI_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 43
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93f4db8b6cca39478d261814f481f40
+      internalID: -799876648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EducationUI_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 42
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85251d73c5424d40af6abc1821336ba
+      internalID: 1407875253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -322,6 +364,8 @@ TextureImporter:
       EducationUI_5: 2146634235
       EducationUI_6: -1279893122
       EducationUI_7: 1664206628
+      EducationUI_8: -799876648
+      EducationUI_9: 1407875253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
