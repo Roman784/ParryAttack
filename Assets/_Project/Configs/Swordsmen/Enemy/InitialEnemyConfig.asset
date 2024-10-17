@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3726eec88e1bf4184e76a62de952e1, type: 3}
   m_Name: InitialEnemyConfig
   m_EditorClassIdentifier: 
+  <SwordsmanConfig>k__BackingField: {fileID: 11400000, guid: 7b32bcc5571ee174fbb9deb876e8ab70, type: 2}
   <StateUpdateCooldown>k__BackingField: 0.5
   <AttackProbability>k__BackingField: 0.5
-  <ParryProbability>k__BackingField: 0.5
-  <SwordsmanConfig>k__BackingField: {fileID: 11400000, guid: 7b32bcc5571ee174fbb9deb876e8ab70, type: 2}
+  <ParryProbability>k__BackingField: 0.25

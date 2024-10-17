@@ -497,7 +497,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 77
+        y: 76
         width: 9
         height: 10
       alignment: 7
@@ -623,7 +623,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 60
+        y: 59
         width: 10
         height: 10
       alignment: 7
@@ -749,7 +749,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 43
+        y: 42
         width: 10
         height: 10
       alignment: 7
@@ -1253,7 +1253,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 126
-        y: 145
+        y: 144
         width: 10
         height: 10
       alignment: 0
@@ -1504,9 +1504,9 @@ TextureImporter:
       name: Swordsmen_65
       rect:
         serializedVersion: 2
-        x: 123
-        y: 182
-        width: 11
+        x: 124
+        y: 181
+        width: 10
         height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1757,7 +1757,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 217
+        y: 216
         width: 10
         height: 10
       alignment: 0
@@ -1883,7 +1883,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 234
+        y: 233
         width: 10
         height: 10
       alignment: 0
@@ -2135,7 +2135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 125
-        y: 268
+        y: 267
         width: 10
         height: 10
       alignment: 0
@@ -2261,7 +2261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 286
+        y: 285
         width: 10
         height: 10
       alignment: 0
@@ -2891,7 +2891,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 375
+        y: 373
         width: 10
         height: 10
       alignment: 0
@@ -2915,7 +2915,7 @@ TextureImporter:
         y: 385
         width: 16
         height: 15
-      alignment: 7
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -3041,8 +3041,8 @@ TextureImporter:
         y: 402
         width: 11
         height: 15
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.72727275, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

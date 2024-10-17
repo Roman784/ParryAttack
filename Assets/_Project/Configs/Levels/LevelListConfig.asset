@@ -21,19 +21,87 @@ MonoBehaviour:
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 2
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: b8eb85001e11b664693bf8d30bc9a36b, type: 2}
-  - <ArenaWidth>k__BackingField: 10
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 3
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2fda3abe48f0df94fa9e8a74c3bfc41d, type: 2}
-  - <ArenaWidth>k__BackingField: 10
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 4
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3343202c848f1fe4da8116cb4831a46e, type: 2}
-  - <ArenaWidth>k__BackingField: 10
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 5
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 97147fc0ecaab1e40beb4152ace0cf91, type: 2}
-  - <ArenaWidth>k__BackingField: 10
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Clown
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 7e8eb6fe1e9bd4844be8b1a450bb1d4d, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Alt girl
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 33ade2c90699bb742a7807ada7a04670, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Angel
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: d4fba401d7bd8674cb10fa49391f5111, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Anonymous
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2d47b51caecb54d49b1b6dd38fe97a66, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Cutie
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 6d3aa8c25ac3453428a4712327848715, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Devil
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: d21260bbbc204c3488669f9a92c0f550, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Miner
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 9829e09cc8a20424cb79bb397900af50, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Nudist
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: ab33fea30e6ae9c44b7400e93f44869e, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: My shadow
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: c34ca70a18f06c74bbc48ccc14db19da, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: '"undefined"'
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 6866d01d26ab8b941b94b86e75e8553f, type: 2}
+  - <ArenaWidth>k__BackingField: 8
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Enemy 6
-      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 7e8eb6fe1e9bd4844be8b1a450bb1d4d, type: 2}
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 8183d2af1ce5f2642944e693e241bfb1, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 7
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 72e42c300a587ba4da64800a8874fc77, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 8
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 8fded8ab486a2364d93420619988f48d, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 13
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 432ac30b34b6ca74c8a603aea07dec42, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 9
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: b368351ed0fccbe4faf674b00551e13e, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 10
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 769c6f61c43250a4ea16b2acc1f94981, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 11
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 742caa8b3980bd64ba7f22d032de793e, type: 2}
+  - <ArenaWidth>k__BackingField: 8
+    <EnemyData>k__BackingField:
+      <Name>k__BackingField: Enemy 12
+      <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 134e66ba9c9f4004f848c535c1788f7f, type: 2}
