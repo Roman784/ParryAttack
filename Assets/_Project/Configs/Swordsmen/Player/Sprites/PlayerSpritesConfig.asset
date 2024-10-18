@@ -17,4 +17,4 @@ MonoBehaviour:
   <Attack>k__BackingField: {fileID: 1192884388, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
   <Parry>k__BackingField: {fileID: 786043380, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
   <Defeat>k__BackingField: {fileID: -1121318885, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}
-  <Profile>k__BackingField: {fileID: 0}
+  <Profile>k__BackingField: {fileID: 2000804994, guid: 42f4302886ffbea42a6e1629b7a75dd1, type: 3}

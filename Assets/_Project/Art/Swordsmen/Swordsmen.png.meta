@@ -496,9 +496,9 @@ TextureImporter:
       name: Swordsmen_20
       rect:
         serializedVersion: 2
-        x: 125
-        y: 76
-        width: 9
+        x: 124
+        y: 77
+        width: 10
         height: 10
       alignment: 7
       pivot: {x: 0.5, y: 0}
