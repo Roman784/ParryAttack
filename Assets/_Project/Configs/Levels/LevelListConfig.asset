@@ -15,11 +15,11 @@ MonoBehaviour:
   Levels:
   - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
-      <Name>k__BackingField: Best friend
+      <Name>k__BackingField: Coach
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3343202c848f1fe4da8116cb4831a46e, type: 2}
   - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
-      <Name>k__BackingField: Big brother
+      <Name>k__BackingField: Best friend
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3cfaf44e587352645bcf218d111335b7, type: 2}
   - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
@@ -37,19 +37,19 @@ MonoBehaviour:
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Neighbor
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2fda3abe48f0df94fa9e8a74c3bfc41d, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Barber
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 97147fc0ecaab1e40beb4152ace0cf91, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Anonymous
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 2d47b51caecb54d49b1b6dd38fe97a66, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: School teacher
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 432ac30b34b6ca74c8a603aea07dec42, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 6
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Alt girl
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 33ade2c90699bb742a7807ada7a04670, type: 2}
@@ -93,43 +93,43 @@ MonoBehaviour:
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Nudist
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: ab33fea30e6ae9c44b7400e93f44869e, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Miss P1
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 769c6f61c43250a4ea16b2acc1f94981, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Miss P2
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 742caa8b3980bd64ba7f22d032de793e, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Miss P3
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 134e66ba9c9f4004f848c535c1788f7f, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Mr. P
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 3343202c848f1fe4da8116cb4831a46e, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: '"undefined"'
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 6866d01d26ab8b941b94b86e75e8553f, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Hermit
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 97147fc0ecaab1e40beb4152ace0cf91, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Digger
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 9829e09cc8a20424cb79bb397900af50, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Me?
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: 15458991e89674d4190f72812c2632b8, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: Sword Master
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: ab33fea30e6ae9c44b7400e93f44869e, type: 2}
-  - <ArenaWidth>k__BackingField: 8
+  - <ArenaWidth>k__BackingField: 10
     <EnemyData>k__BackingField:
       <Name>k__BackingField: My shadow
       <SpritesConfig>k__BackingField: {fileID: 11400000, guid: c34ca70a18f06c74bbc48ccc14db19da, type: 2}
