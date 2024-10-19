@@ -7,14 +7,17 @@ public class BootEntryPoint : EntryPoint
 {
     private SceneLoader _sceneLoader;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
     private LevelTracker _levelTracker;
     private ThemeTracker _themeTracker;
 
     [Inject]
-    private void Construct(SceneLoader sceneLoader, Storage storage, LevelTracker levelTracker, ThemeTracker themeTracker)
+    private void Construct(SceneLoader sceneLoader, Storage storage, AudioPlayer audioPlayer, 
+                           LevelTracker levelTracker, ThemeTracker themeTracker)
     {
         _sceneLoader = sceneLoader;
         _storage = storage;
+        _audioPlayer = audioPlayer;
         _levelTracker = levelTracker;
         _themeTracker = themeTracker;
     }
@@ -25,6 +28,7 @@ public class BootEntryPoint : EntryPoint
 
         yield return LoadData();
 
+        InitAudioPlayer();
         SetCurrentLevel();
         SetCurrentTheme();
 
@@ -50,6 +54,12 @@ public class BootEntryPoint : EntryPoint
     {
         Application.targetFrameRate = 60;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
+    private void InitAudioPlayer()
+    {
+        float volume = _storage.GameData.AudioVolume;
+        _audioPlayer.Init(volume);
     }
 
     private void SetCurrentLevel()

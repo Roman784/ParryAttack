@@ -4,6 +4,10 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public float AudioVolume;
+
+    [Space]
+
     public int LastCompletedLevel;
 
     [Space]

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultGameData
   m_EditorClassIdentifier: 
   <GameData>k__BackingField:
+    AudioVolume: 1
     LastCompletedLevel: 0
     CurrentTheme: 1
     UnlockedThemes: 01000000
