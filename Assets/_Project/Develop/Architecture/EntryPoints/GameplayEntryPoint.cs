@@ -19,12 +19,13 @@ public class GameplayEntryPoint : EntryPoint
     private ArenaPositions _arenaPositions;
     private SceneLoader _sceneLoader;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
 
     [Inject]
     private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
                            GameplayUI gameplayUIPrefab, Storage storage, 
                            LevelTracker levelTracker, LevelCreator levelCreator,
-                           GameplayCamera camera, SceneLoader sceneLoader)
+                           GameplayCamera camera, SceneLoader sceneLoader, AudioPlayer audioPlayer)
     {
         _swordsmanFactory = swordsmanFactory;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
@@ -34,6 +35,7 @@ public class GameplayEntryPoint : EntryPoint
         _camera = camera;
         _sceneLoader = sceneLoader;
         _storage = storage;
+        _audioPlayer = audioPlayer;
     }
 
     public override IEnumerator Run()
@@ -57,7 +59,7 @@ public class GameplayEntryPoint : EntryPoint
         _gameplayUI = Instantiate(_gameplayUIPrefab);
         UIRoot.AttachSceneUI(_gameplayUI.transform);
 
-        _gameplayUI.Init(_sceneLoader);
+        _gameplayUI.Init(_sceneLoader, _audioPlayer);
         _gameplayUI.SetLevelData(_levelTracker.CurrentLevelData);
     }
 

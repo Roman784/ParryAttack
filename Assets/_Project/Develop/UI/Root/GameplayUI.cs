@@ -16,9 +16,9 @@ public class GameplayUI : MonoBehaviour
     public FightResultHandlerView FightResultHandlerView => _fightResultHandlerView;
     public EducationView EducationView => _educationView;
 
-    public void Init(SceneLoader sceneLoader)
+    public void Init(SceneLoader sceneLoader, AudioPlayer audioPlayer)
     {
-        _pauseMenu.Init(sceneLoader);
+        _pauseMenu.Init(sceneLoader, audioPlayer);
     }
 
     public void SetLevelData(LevelData data)
