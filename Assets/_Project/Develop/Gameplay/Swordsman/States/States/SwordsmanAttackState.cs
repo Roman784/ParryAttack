@@ -22,6 +22,7 @@ public class SwordsmanAttackState : SwordsmanState
     {
         Swordsman.PerformAttack();
         Swordsman.Animation.SetAttack();
+        Swordsman.Sound.PlayAttackSound();
 
         yield return new WaitForSeconds(_duration);
 

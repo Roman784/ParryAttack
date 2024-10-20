@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5577996011266343818}
   - component: {fileID: 425014731576457280}
   - component: {fileID: 1032170614335274469}
+  - component: {fileID: 8529025077368257730}
   - component: {fileID: 2356744466655466662}
   - component: {fileID: -7241289114383342876}
   m_Layer: 6
@@ -185,6 +186,21 @@ MonoBehaviour:
   OnDroppedOutOfArena:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8529025077368257730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978025840771830340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a61c48014c6c4546ba27b1660663cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageSound: {fileID: 8300000, guid: 5590bc6899a98a54690791f10098b795, type: 3}
+  _parrySound: {fileID: 8300000, guid: ca318d88d1685224789fa49a46afe4b4, type: 3}
+  _attackSound: {fileID: 8300000, guid: 16742809871c7e94eaa262a39bee57e7, type: 3}
 --- !u!114 &2356744466655466662
 MonoBehaviour:
   m_ObjectHideFlags: 0
