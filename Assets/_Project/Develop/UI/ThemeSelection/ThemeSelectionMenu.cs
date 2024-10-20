@@ -7,24 +7,32 @@ public class ThemeSelectionMenu
     private ThemeTracker _tracker;
     private SceneLoader _sceneLoader;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
 
     private ArenaCreator _arenaCreator;
 
     private List<Theme> _themes = new();
     private int _currentThemeIndex;
 
-    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader, Storage storage)
+    public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader, 
+                               Storage storage, AudioPlayer audioPlayer)
     {
         _ui = ui;
         _creator = creator;
         _tracker = tracker;
         _sceneLoader = sceneLoader;
         _storage = storage;
+        _audioPlayer = audioPlayer;
 
         _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
         _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
         _ui.OnSelectThemeButtonClick.AddListener(SelectCurrentTheme);
         _ui.OnThemeUnlockConfirm.AddListener(UnlockTheme);
+
+        _ui.OnPreviousThemeButtonCLick.AddListener(_audioPlayer.UISounds.PlayButtonClick);
+        _ui.OnNextThemeButtonClick.AddListener(_audioPlayer.UISounds.PlayButtonClick);
+        _ui.OnSelectThemeButtonClick.AddListener(_audioPlayer.UISounds.PlayButtonClick);
+        _ui.OnThemeUnlockConfirm.AddListener(_audioPlayer.UISounds.PlayButtonClick);
     }
 
     private Theme CurrentTheme => _themes[_currentThemeIndex];

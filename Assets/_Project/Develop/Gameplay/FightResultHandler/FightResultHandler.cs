@@ -9,9 +9,11 @@ public class FightResultHandler
     private LevelTracker _levelTracker;
     private SceneLoader _sceneLoader;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
 
     public FightResultHandler(FightResultHandlerView view, Player player, Enemy enemy, 
-                              LevelTracker levelTracker, SceneLoader sceneLoader, Storage storage)
+                              LevelTracker levelTracker, SceneLoader sceneLoader, 
+                              Storage storage, AudioPlayer audioPlayer)
     {
         _view = view;
         _player = player;
@@ -19,6 +21,7 @@ public class FightResultHandler
         _levelTracker = levelTracker;
         _sceneLoader = sceneLoader;
         _storage = storage;
+        _audioPlayer = audioPlayer;
 
         _player.OnDefeated.AddListener(HandlePlayerDefeat);
         _enemy.OnDefeated.AddListener(HandleEnemyDefeat);
@@ -49,11 +52,13 @@ public class FightResultHandler
 
     private void RestartLevel()
     {
+        _audioPlayer.UISounds.PlayButtonClick();
         _sceneLoader.LoadGameplay();
     }
 
     private void OpenNextLevel()
     {
+        _audioPlayer.UISounds.PlayButtonClick();
         _levelTracker.IncreaseCurrentNumber();
         _sceneLoader.LoadGameplay();
     }

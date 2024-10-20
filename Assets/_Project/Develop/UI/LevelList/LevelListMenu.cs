@@ -7,18 +7,22 @@ public class LevelListMenu
     private SceneLoader _sceneLoader;
     private LevelTracker _levelTracker;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
 
-    public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker, Storage storage)
+    public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker, 
+                         Storage storage, AudioPlayer audioPlayer)
     {
         _ui = ui;
         _config = config;
         _sceneLoader = sceneLoader;
         _levelTracker = levelTracker;
         _storage = storage;
+        _audioPlayer = audioPlayer;
     }
 
     public void OpenLevel(int number)
     {
+        _audioPlayer.UISounds.PlayButtonClick();
         _levelTracker.SetCurrentLevelNumber(number);
         OpenGameplayScene();
     }

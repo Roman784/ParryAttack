@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7602abcf51fa1145ac8b686f755f74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiSoundsConfig: {fileID: 11400000, guid: ed9cf921960cd0a42a0713836bef7bb9, type: 2}
   _sourcerPrefab: {fileID: 5577458074005995113, guid: 1e81624bcc03539449bff996fe73a165, type: 3}

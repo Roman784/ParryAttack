@@ -92,7 +92,8 @@ public class GameplayEntryPoint : EntryPoint
 
     private void InitFightResultHandler()
     {
-        new FightResultHandler(_gameplayUI.FightResultHandlerView, _player, _enemy, _levelTracker, _sceneLoader, _storage);
+        new FightResultHandler(_gameplayUI.FightResultHandlerView, _player, _enemy, _levelTracker, 
+                               _sceneLoader, _storage, _audioPlayer);
     }
 
     private void StartCountdownTimer()

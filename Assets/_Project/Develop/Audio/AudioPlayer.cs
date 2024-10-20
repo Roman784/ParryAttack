@@ -9,21 +9,28 @@ public class AudioPlayer
     private AudioSourcer _sourcerPrefab;
     private float _volume;
 
+    private UISounds _uiSounds;
+    private UISoundsConfig _uiSoundsConfig;
+
     private Storage _storage;
 
     [Inject]
-    private void Construct(AudioSourcer sourcerPrefab, Storage storage)
+    private void Construct(AudioSourcer sourcerPrefab, UISoundsConfig uiSoundsConfig, Storage storage)
     {
         _sourcerPrefab = sourcerPrefab;
+        _uiSoundsConfig = uiSoundsConfig;
         _storage = storage;
     }
 
     public void Init(float volume)
     {
         _volume = volume;
+
+        _uiSounds = new UISounds(this, _uiSoundsConfig);
     }
 
     public float Volume => _volume;
+    public UISounds UISounds => _uiSounds;
 
     public void Play(AudioClip clip)
     {

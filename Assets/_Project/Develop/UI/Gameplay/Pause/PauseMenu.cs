@@ -45,6 +45,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        _audioPlayer.UISounds.PlayButtonClick();
+
         if (!_isPaused)
             StopGame();
         else
@@ -56,12 +58,16 @@ public class PauseMenu : MonoBehaviour
     public void OpenLevelListScene()
     {
         ContinueGame();
+
+        _audioPlayer.UISounds.PlayButtonClick();
         _sceneLoader.LoadLevelList();
     }
 
     public void OpenThemeSelectionScene()
     {
         ContinueGame();
+
+        _audioPlayer.UISounds.PlayButtonClick();
         _sceneLoader.LoadThemeSelection();
     }
 
@@ -69,6 +75,8 @@ public class PauseMenu : MonoBehaviour
     {
         float newVolume = _audioPlayer.ChangeVolume();
         UpdateAudioIconView(newVolume);
+
+        _audioPlayer.UISounds.PlayButtonClick();
     }
 
     private void StopGame()

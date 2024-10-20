@@ -11,16 +11,18 @@ public class ThemeSelectionEntryPoint : EntryPoint
 
     private SceneLoader _sceneLoader;
     private Storage _storage;
+    private AudioPlayer _audioPlayer;
 
     [Inject]
     private void Construct(ThemeSelectionUI themeSelectionUIPrefab, ThemeCreator themeCreator, 
-                           ThemeTracker themeTracker, SceneLoader sceneLoader, Storage storage)
+                           ThemeTracker themeTracker, SceneLoader sceneLoader, Storage storage, AudioPlayer audioPlayer)
     {
         _themeSelectionUIPrefab = themeSelectionUIPrefab;
         _themeCreator = themeCreator;
         _themeTracker = themeTracker;
         _sceneLoader = sceneLoader;
         _storage = storage;
+        _audioPlayer = audioPlayer;
     }
 
     public override IEnumerator Run()
@@ -39,7 +41,8 @@ public class ThemeSelectionEntryPoint : EntryPoint
 
     private void CreateThemes()
     {
-        var menu = new ThemeSelectionMenu(_themeSelectionUI, _themeCreator, _themeTracker, _sceneLoader, _storage);
+        var menu = new ThemeSelectionMenu(_themeSelectionUI, _themeCreator, _themeTracker, 
+                                          _sceneLoader, _storage, _audioPlayer);
         menu.CreateThemes();
     }
 }
