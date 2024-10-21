@@ -16,16 +16,31 @@ public class AudioSourcer : MonoBehaviour
         _player = player;
         _player.OnVolumeChanged.AddListener(ChangeVolume);
 
+        _source.volume = _player.Volume;
+
         return this;
     }
 
     public void PlayOneShot(AudioClip clip)
     {
-        _source.volume = _player.Volume;
         _source.PlayOneShot(clip);
 
         DontDestroyOnLoad(gameObject);
         Invoke(nameof(Destroy), clip.length);
+    }
+
+    public void PlayLoop(AudioClip clip)
+    {
+        _source.clip = clip;
+        _source.loop = true;
+        _source.Play();
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void ChangeClip(AudioClip clip)
+    {
+        _source.clip = clip;
     }
 
     private void ChangeVolume(float volume)

@@ -2,10 +2,10 @@ using Zenject;
 
 public class UISounds
 {
-    private UISoundsConfig _config;
+    private AudioConfig _config;
     private AudioPlayer _audioPlayer;
 
-    public UISounds(AudioPlayer audioPlayer, UISoundsConfig config)
+    public UISounds(AudioPlayer audioPlayer, AudioConfig config)
     {
         _audioPlayer = audioPlayer;
         _config = config;
@@ -13,6 +13,6 @@ public class UISounds
 
     public void PlayButtonClick()
     {
-        _audioPlayer.Play(_config._buttonClick);
+        _audioPlayer.Play(_config.ButtonClickSound);
     }
 }

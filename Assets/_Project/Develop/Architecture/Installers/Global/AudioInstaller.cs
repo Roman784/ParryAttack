@@ -4,7 +4,7 @@ using Zenject;
 
 public class AudioInstaller : MonoInstaller
 {
-    [SerializeField] private UISoundsConfig _uiSoundsConfig;
+    [SerializeField] private AudioConfig _config;
     [SerializeField] private AudioSourcer _sourcerPrefab; 
 
     public override void InstallBindings()
@@ -16,7 +16,7 @@ public class AudioInstaller : MonoInstaller
 
     private void BindConfigs()
     {
-        Container.Bind<UISoundsConfig>().FromInstance(_uiSoundsConfig).AsTransient();
+        Container.Bind<AudioConfig>().FromInstance(_config).AsTransient();
     }
 
     private void BindSorcerPrefab()

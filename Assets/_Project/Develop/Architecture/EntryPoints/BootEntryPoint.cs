@@ -31,6 +31,7 @@ public class BootEntryPoint : EntryPoint
         InitAudioPlayer();
         SetCurrentLevel();
         SetCurrentTheme();
+        StartBackgroundMusci();
 
         LoadStartScene();
     }
@@ -72,6 +73,11 @@ public class BootEntryPoint : EntryPoint
     {
         int key = _storage.GameData.CurrentTheme;
         _themeTracker.SetCurrentTheme(key);
+    }
+
+    private void StartBackgroundMusci()
+    {
+        _audioPlayer.BackgroundMusic.Start();
     }
 
     // The scene where the game begins.

@@ -9,16 +9,17 @@ public class AudioPlayer
     private AudioSourcer _sourcerPrefab;
     private float _volume;
 
+    private AudioConfig _config;
     private UISounds _uiSounds;
-    private UISoundsConfig _uiSoundsConfig;
+    private BackgroundMusic _backgroundMusic;
 
     private Storage _storage;
 
     [Inject]
-    private void Construct(AudioSourcer sourcerPrefab, UISoundsConfig uiSoundsConfig, Storage storage)
+    private void Construct(AudioSourcer sourcerPrefab, AudioConfig config, Storage storage)
     {
+        _config = config;
         _sourcerPrefab = sourcerPrefab;
-        _uiSoundsConfig = uiSoundsConfig;
         _storage = storage;
     }
 
@@ -26,16 +27,26 @@ public class AudioPlayer
     {
         _volume = volume;
 
-        _uiSounds = new UISounds(this, _uiSoundsConfig);
+        _uiSounds = new UISounds(this, _config);
+        _backgroundMusic = new BackgroundMusic(this, _config);
     }
 
     public float Volume => _volume;
     public UISounds UISounds => _uiSounds;
+    public BackgroundMusic BackgroundMusic => _backgroundMusic;
 
-    public void Play(AudioClip clip)
+    public AudioSourcer Play(AudioClip clip)
+    {
+        AudioSourcer sourcer = CreateSourcer();
+        sourcer.PlayOneShot(clip);
+
+        return sourcer;
+    }
+
+    public AudioSourcer CreateSourcer()
     {
         AudioSourcer sourcer = GameObject.Instantiate(_sourcerPrefab).Init(this);
-        sourcer.PlayOneShot(clip);
+        return sourcer;
     }
 
     public float ChangeVolume()
