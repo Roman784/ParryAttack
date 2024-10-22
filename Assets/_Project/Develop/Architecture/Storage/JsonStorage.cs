@@ -49,10 +49,10 @@ public class JsonStorage : Storage
 
     private void BuildPath()
     {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-            _path = Path.Combine (Application.persistentDataPath, "gameData.json");
-        #else
-            _path = Path.Combine (Application.dataPath, "gameData.json");
-        #endif
+#if UNITY_EDITOR
+        _path = Path.Combine(Application.dataPath, "gameData.json");
+#else
+        _path = Path.Combine(Application.persistentDataPath, "gameData.json"); 
+#endif
     }
 }
