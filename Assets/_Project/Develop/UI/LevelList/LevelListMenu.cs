@@ -45,6 +45,8 @@ public class LevelListMenu
 
     private void InitButton(LevelSelectionButton button, LevelData levelData)
     {
+        Debug.Log($"number: {levelData.Number}");
+        Debug.Log($"last completed: {_storage.GameData.LastCompletedLevel + 1}");
         int number = levelData.Number;
         string enemyName = levelData.EnemyData.Name;
         Sprite enemyProfile = levelData.EnemyData.SpritesConfig.Profile;
