@@ -32,12 +32,16 @@ public class FightResultHandler
 
     private void HandlePlayerDefeat()
     {
+        _audioPlayer.FightResultSounds.PlayLosing();
+
         ForbidFight();
         _view.ShowRetryButton();
     }
 
     private void HandleEnemyDefeat()
     {
+        _audioPlayer.FightResultSounds.PlayVictory();
+
         ForbidFight();
         _view.ShowNextLevelButton();
 

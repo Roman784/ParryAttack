@@ -15,3 +15,5 @@ MonoBehaviour:
   <ButtonClickSound>k__BackingField: {fileID: 8300000, guid: 879812307491dc7419aaef57acbf9ce6, type: 3}
   <BackgroundMusic>k__BackingField:
   - {fileID: 8300000, guid: 5053be1b077bd1a4ea7fcfa253b7e06f, type: 3}
+  <VictorySound>k__BackingField: {fileID: 8300000, guid: d9f8688bcbf0bc747b97d031e0805e9b, type: 3}
+  <LosingSound>k__BackingField: {fileID: 8300000, guid: 346aaa025da8f7749bc94dc3fcd7d0d1, type: 3}

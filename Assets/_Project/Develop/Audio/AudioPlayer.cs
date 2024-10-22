@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -12,6 +13,7 @@ public class AudioPlayer
     private AudioConfig _config;
     private UISounds _uiSounds;
     private BackgroundMusic _backgroundMusic;
+    private FightResultSounds _fightResultSounds;
 
     private Storage _storage;
 
@@ -29,11 +31,13 @@ public class AudioPlayer
 
         _uiSounds = new UISounds(this, _config);
         _backgroundMusic = new BackgroundMusic(this, _config);
+        _fightResultSounds = new FightResultSounds(this, _config);
     }
 
     public float Volume => _volume;
     public UISounds UISounds => _uiSounds;
     public BackgroundMusic BackgroundMusic => _backgroundMusic;
+    public FightResultSounds FightResultSounds => _fightResultSounds;
 
     public AudioSourcer Play(AudioClip clip)
     {
