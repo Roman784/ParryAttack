@@ -10,6 +10,7 @@ public class ThemeInstaller : MonoInstaller
         BindConfigs();
         BindTracker();
         BindCreator();
+        Debug.Log("Theme inst");
     }
 
     private void BindConfigs()

@@ -6,6 +6,7 @@ public class SceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindSceneLoader();
+        Debug.Log("Scene inst");
     }
 
     private void BindSceneLoader()

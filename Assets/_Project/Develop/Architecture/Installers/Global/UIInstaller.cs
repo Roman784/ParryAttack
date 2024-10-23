@@ -14,6 +14,7 @@ public class UIInstaller : MonoInstaller
         BindGameplayUI();
         BindLevelListUI();
         BindThemeSelectionUI();
+        Debug.Log("UI inst");
     }
 
     private void BindUIRoot()

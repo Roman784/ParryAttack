@@ -10,6 +10,7 @@ public class LevelsInstaller : MonoInstaller
         BindConfigs();
         BindLevelTracker();
         BindCreator();
+        Debug.Log("Levels inst");
     }
 
     private void BindConfigs()

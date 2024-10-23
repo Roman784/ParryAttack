@@ -12,6 +12,7 @@ public class AudioInstaller : MonoInstaller
         BindConfigs();
         BindSorcerPrefab();
         BindPlayer();
+        Debug.Log("Audio inst");
     }
 
     private void BindConfigs()

@@ -9,10 +9,11 @@ public class StorageInstaller : MonoInstaller
     {
         BindDefaultGameData();
 
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
-            return;
+        /*if (Application.platform == RuntimePlatform.WebGLPlayer)
+            return;*/
             
         BindJsonStorage();
+        Debug.Log("Strage inst");
     }
 
     private void BindDefaultGameData()

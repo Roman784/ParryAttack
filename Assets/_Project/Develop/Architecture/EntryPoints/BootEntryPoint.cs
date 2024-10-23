@@ -24,6 +24,7 @@ public class BootEntryPoint : EntryPoint
 
     public override IEnumerator Run()
     {
+        Debug.Log("Start boot");
         SetupGame();
 
         yield return LoadData();
@@ -34,6 +35,7 @@ public class BootEntryPoint : EntryPoint
         StartBackgroundMusci();
 
         LoadStartScene();
+        Debug.Log("end boot");
     }
 
     private IEnumerator LoadData()
@@ -54,7 +56,6 @@ public class BootEntryPoint : EntryPoint
     private void SetupGame()
     {
         Application.targetFrameRate = 60;
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     private void InitAudioPlayer()
