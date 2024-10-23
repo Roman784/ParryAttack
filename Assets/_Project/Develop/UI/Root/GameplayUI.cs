@@ -23,8 +23,6 @@ public class GameplayUI : MonoBehaviour
 
     public void SetLevelData(LevelData data)
     {
-        Debug.Log($"text: {_enemyNameView}");
         _enemyNameView.text = data.EnemyData.Name;
-        Debug.Log("aboba");
     }
 }
