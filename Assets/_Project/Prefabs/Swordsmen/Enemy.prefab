@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a61c48014c6c4546ba27b1660663cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageSound: {fileID: 8300000, guid: 5590bc6899a98a54690791f10098b795, type: 3}
-  _parrySound: {fileID: 8300000, guid: ca318d88d1685224789fa49a46afe4b4, type: 3}
-  _attackSound: {fileID: 8300000, guid: 16742809871c7e94eaa262a39bee57e7, type: 3}
+  _damageSound: {fileID: 8300000, guid: f3bb11088dfd64347b4e4a6efa52bc07, type: 3}
+  _parrySound: {fileID: 8300000, guid: 8cc20f65d8a259943b4b4ec6c8b57584, type: 3}
+  _attackSound: {fileID: 8300000, guid: d9c091e1e3adf994bb6ae5dbf65aae42, type: 3}
 --- !u!114 &6612495636079486713
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f475ff5c0d4be409c97d0db55008c1, type: 3}
   m_Name: AudioConfig
   m_EditorClassIdentifier: 
-  <ButtonClickSound>k__BackingField: {fileID: 8300000, guid: 879812307491dc7419aaef57acbf9ce6, type: 3}
+  <ButtonClickSound>k__BackingField: {fileID: 8300000, guid: dc01763ccd2b40a42bed30935ff99640, type: 3}
   <BackgroundMusic>k__BackingField:
   - {fileID: 8300000, guid: a8ff6e8c9b51b7d46a1b409c7c45461a, type: 3}
   - {fileID: 8300000, guid: 209ca5f1304dc0243ab3c46f4acd9c6c, type: 3}
-  <VictorySound>k__BackingField: {fileID: 8300000, guid: d9f8688bcbf0bc747b97d031e0805e9b, type: 3}
-  <LosingSound>k__BackingField: {fileID: 8300000, guid: 346aaa025da8f7749bc94dc3fcd7d0d1, type: 3}
+  <VictorySound>k__BackingField: {fileID: 8300000, guid: 0d4e50eeaa0b9074eb555b1890492119, type: 3}
+  <LosingSound>k__BackingField: {fileID: 8300000, guid: a70b6c28f4b3acc48b365984c3dc71e1, type: 3}
