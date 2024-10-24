@@ -9,11 +9,12 @@ public class LevelListConfig : ScriptableObject
 
     private void OnValidate()
     {
-        SetNumbers();
+        //SetNumbers();
         ValidateArenaWidth();
     }
 
     // Sets the level numbers based on the location in the list.
+    [ContextMenu("Set numbers")]
     private void SetNumbers()
     {
         for (int i = 0; i < Levels.Count; i++)
