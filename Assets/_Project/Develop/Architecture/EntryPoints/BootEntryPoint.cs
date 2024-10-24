@@ -22,6 +22,11 @@ public class BootEntryPoint : EntryPoint
         _themeTracker = themeTracker;
     }
 
+    private void Start()
+    {
+        Coroutines.StartRoutine(Run());
+    }
+
     public override IEnumerator Run()
     {
         SetupGame();
