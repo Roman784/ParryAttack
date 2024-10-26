@@ -119,6 +119,7 @@ public class ThemeSelectionMenu
 
     private bool IsUnlocked(int key)
     {
-        return _storage.GameData.UnlockedThemes.Contains(key);
+        //return _storage.GameData.UnlockedThemes.Contains(key);
+        return true;
     }
 }

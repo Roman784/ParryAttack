@@ -10,7 +10,7 @@ public class EducationMenu
 
         _view.OnCLoseButtonClick.AddListener(Hide);
 
-        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android || Application.isMobilePlatform)
             _view.EnableTouchscreenInputView();
         else
             _view.EnableKeyboardInputView();
