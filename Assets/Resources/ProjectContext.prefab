@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8239444572478302602}
   - component: {fileID: 8528884937871498931}
+  - component: {fileID: -6677808540190790137}
   - component: {fileID: 6215096607124931560}
   - component: {fileID: -6230832884193727591}
   - component: {fileID: 5187928425706664329}
@@ -52,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: -6677808540190790137}
   - {fileID: 5187928425706664329}
   - {fileID: -6230832884193727591}
   - {fileID: 6215096607124931560}
@@ -72,6 +74,20 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
+--- !u!114 &-6677808540190790137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6946783010646621050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b7de608bbc3844888407a4e42143d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _editorSDK: {fileID: 2343603126054379182, guid: b631f6a54ec7af84bbb71c4177a858db, type: 3}
+  _yandexSDK: {fileID: 8042791659070409055, guid: 51fef840279f53049ad5542783d8c2b7, type: 3}
 --- !u!114 &6215096607124931560
 MonoBehaviour:
   m_ObjectHideFlags: 0
