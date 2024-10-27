@@ -9,15 +9,20 @@ public class StorageInstaller : MonoInstaller
     {
         BindDefaultGameData();
 
-        /*if (Application.platform == RuntimePlatform.WebGLPlayer)
-            return;*/
-            
-        BindJsonStorage();
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            BindSDKStorage();
+        else
+            BindJsonStorage();
     }
 
     private void BindDefaultGameData()
     {
         Container.Bind<DefaultGameData>().FromInstance(_defaultGameData).AsSingle().NonLazy();
+    }
+
+    private void BindSDKStorage()
+    {
+        Container.Bind<Storage>().To<SDKStorage>().AsSingle();
     }
 
     private void BindJsonStorage()

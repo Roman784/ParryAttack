@@ -7,10 +7,13 @@ public abstract class Storage
     public abstract GameData GameData { get; protected set; }
     private DefaultGameData _defaultGameData;
 
+    protected SDK SDK;
+
     [Inject]
-    private void Construct(DefaultGameData defaultGameData)
+    private void Construct(DefaultGameData defaultGameData, SDK SDK)
     {
         _defaultGameData = defaultGameData;
+        this.SDK = SDK;
     }
 
     public abstract void Save();
