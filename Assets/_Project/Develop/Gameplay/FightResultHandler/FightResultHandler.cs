@@ -10,10 +10,11 @@ public class FightResultHandler
     private SceneLoader _sceneLoader;
     private Storage _storage;
     private AudioPlayer _audioPlayer;
+    private SDK _SDK;
 
     public FightResultHandler(FightResultHandlerView view, Player player, Enemy enemy, 
                               LevelTracker levelTracker, SceneLoader sceneLoader, 
-                              Storage storage, AudioPlayer audioPlayer)
+                              Storage storage, AudioPlayer audioPlayer, SDK SDK)
     {
         _view = view;
         _player = player;
@@ -22,6 +23,7 @@ public class FightResultHandler
         _sceneLoader = sceneLoader;
         _storage = storage;
         _audioPlayer = audioPlayer;
+        _SDK = SDK;
 
         _player.OnDefeated.AddListener(HandlePlayerDefeat);
         _enemy.OnDefeated.AddListener(HandleEnemyDefeat);
@@ -56,12 +58,14 @@ public class FightResultHandler
 
     private void RestartLevel()
     {
+        _SDK.ShowFullscreenAdv();
         _audioPlayer.UISounds.PlayButtonClick();
         _sceneLoader.LoadGameplay();
     }
 
     private void OpenNextLevel()
     {
+        _SDK.ShowFullscreenAdv();
         _audioPlayer.UISounds.PlayButtonClick();
         _levelTracker.IncreaseCurrentNumber();
         _sceneLoader.LoadGameplay();
