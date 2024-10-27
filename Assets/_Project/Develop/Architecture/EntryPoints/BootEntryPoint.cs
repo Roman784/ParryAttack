@@ -103,6 +103,7 @@ public class BootEntryPoint : EntryPoint
     // The scene where the game begins.
     private void LoadStartScene()
     {
+        _SDK.GameReady();
         _sceneLoader.LoadGameplay();
     }
 }
