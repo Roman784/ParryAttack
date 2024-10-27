@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class GameEntryPoint
 {
-    /*[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void RunGame()
     {
         Coroutines.StartRoutine(LoadBootScene());
-    }*/
+    }
 
     private static IEnumerator LoadBootScene()
     {

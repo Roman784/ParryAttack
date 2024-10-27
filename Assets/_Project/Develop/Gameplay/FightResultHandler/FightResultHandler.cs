@@ -10,10 +10,11 @@ public class FightResultHandler
     private SceneLoader _sceneLoader;
     private Storage _storage;
     private AudioPlayer _audioPlayer;
+    private RevivalMenu _revivalMenu;
 
     public FightResultHandler(FightResultHandlerView view, Player player, Enemy enemy, 
                               LevelTracker levelTracker, SceneLoader sceneLoader, 
-                              Storage storage, AudioPlayer audioPlayer)
+                              Storage storage, AudioPlayer audioPlayer, GameplayUI gameplayUI)
     {
         _view = view;
         _player = player;
@@ -22,6 +23,7 @@ public class FightResultHandler
         _sceneLoader = sceneLoader;
         _storage = storage;
         _audioPlayer = audioPlayer;
+        _revivalMenu = gameplayUI.RevivalMenu;
 
         _player.OnDefeated.AddListener(HandlePlayerDefeat);
         _enemy.OnDefeated.AddListener(HandleEnemyDefeat);
@@ -34,8 +36,13 @@ public class FightResultHandler
     {
         _audioPlayer.FightResultSounds.PlayLosing();
 
-        ForbidFight();
-        _view.ShowRetryButton();
+        _revivalMenu.Open((bool res) =>
+        {
+            if (res) return;
+
+            ForbidFight();
+            _view.ShowRetryButton();
+        });
     }
 
     private void HandleEnemyDefeat()
