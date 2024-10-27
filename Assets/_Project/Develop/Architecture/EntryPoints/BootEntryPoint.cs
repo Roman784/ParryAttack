@@ -10,16 +10,18 @@ public class BootEntryPoint : EntryPoint
     private AudioPlayer _audioPlayer;
     private LevelTracker _levelTracker;
     private ThemeTracker _themeTracker;
+    private SDK _SDK;
 
     [Inject]
     private void Construct(SceneLoader sceneLoader, Storage storage, AudioPlayer audioPlayer, 
-                           LevelTracker levelTracker, ThemeTracker themeTracker)
+                           LevelTracker levelTracker, ThemeTracker themeTracker, SDK SDK)
     {
         _sceneLoader = sceneLoader;
         _storage = storage;
         _audioPlayer = audioPlayer;
         _levelTracker = levelTracker;
         _themeTracker = themeTracker;
+        _SDK = SDK;
     }
 
     private void Start()
@@ -31,6 +33,7 @@ public class BootEntryPoint : EntryPoint
     {
         SetupGame();
 
+        yield return InitSDK();
         yield return LoadData();
 
         InitAudioPlayer();
@@ -39,6 +42,18 @@ public class BootEntryPoint : EntryPoint
         StartBackgroundMusci();
 
         LoadStartScene();
+    }
+
+    private IEnumerator InitSDK()
+    {
+        bool isInited = false;
+
+        _SDK.Init((res) =>
+        {
+            isInited = res;
+        });
+
+        yield return new WaitUntil(() => isInited);
     }
 
     private IEnumerator LoadData()

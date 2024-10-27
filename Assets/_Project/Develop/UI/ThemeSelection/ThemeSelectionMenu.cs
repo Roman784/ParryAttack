@@ -8,6 +8,7 @@ public class ThemeSelectionMenu
     private SceneLoader _sceneLoader;
     private Storage _storage;
     private AudioPlayer _audioPlayer;
+    private SDK _SDK;
 
     private ArenaCreator _arenaCreator;
 
@@ -15,7 +16,7 @@ public class ThemeSelectionMenu
     private int _currentThemeIndex;
 
     public ThemeSelectionMenu (ThemeSelectionUI ui, ThemeCreator creator, ThemeTracker tracker, SceneLoader sceneLoader, 
-                               Storage storage, AudioPlayer audioPlayer)
+                               Storage storage, AudioPlayer audioPlayer, SDK SDK)
     {
         _ui = ui;
         _creator = creator;
@@ -23,6 +24,7 @@ public class ThemeSelectionMenu
         _sceneLoader = sceneLoader;
         _storage = storage;
         _audioPlayer = audioPlayer;
+        _SDK = SDK;
 
         _ui.OnPreviousThemeButtonCLick.AddListener(() => SwitchTheme(-1));
         _ui.OnNextThemeButtonClick.AddListener(() => SwitchTheme(1));
@@ -65,8 +67,18 @@ public class ThemeSelectionMenu
 
     public void UnlockTheme()
     {
-        _storage.AddUnlockedTheme(CurrentTheme.Data.Key);
-        _ui.ShowSelectButton();
+        _SDK.ShowRewardedVideo((bool res) =>
+        {
+            if (res)
+            {
+                _storage.AddUnlockedTheme(CurrentTheme.Data.Key);
+                _ui.ShowSelectButton();
+            }
+            else
+            {
+                _ui.ShowUnlockButton();
+            }
+        });
     }
 
     private void DisableThemes()
@@ -119,7 +131,6 @@ public class ThemeSelectionMenu
 
     private bool IsUnlocked(int key)
     {
-        //return _storage.GameData.UnlockedThemes.Contains(key);
-        return true;
+        return _storage.GameData.UnlockedThemes.Contains(key);
     }
 }
