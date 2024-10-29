@@ -8,9 +8,10 @@ public class LevelListMenu
     private LevelTracker _levelTracker;
     private Storage _storage;
     private AudioPlayer _audioPlayer;
+    private Translator _translator;
 
     public LevelListMenu(LevelListUI ui, LevelListConfig config, SceneLoader sceneLoader, LevelTracker levelTracker, 
-                         Storage storage, AudioPlayer audioPlayer)
+                         Storage storage, AudioPlayer audioPlayer, Translator translator)
     {
         _ui = ui;
         _config = config;
@@ -18,6 +19,7 @@ public class LevelListMenu
         _levelTracker = levelTracker;
         _storage = storage;
         _audioPlayer = audioPlayer;
+        _translator = translator;
     }
 
     public void OpenLevel(int number)
@@ -46,7 +48,7 @@ public class LevelListMenu
     private void InitButton(LevelSelectionButton button, LevelData levelData)
     {
         int number = levelData.Number;
-        string enemyName = levelData.EnemyData.Name;
+        string enemyName = _translator.GetEnemyName(levelData.EnemyData.Name);
         Sprite enemyProfile = levelData.EnemyData.SpritesConfig.Profile;
 
         button.Init(this, number, enemyName, enemyProfile);
