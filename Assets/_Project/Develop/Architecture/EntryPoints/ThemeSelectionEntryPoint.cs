@@ -13,12 +13,14 @@ public class ThemeSelectionEntryPoint : EntryPoint
     private Storage _storage;
     private AudioPlayer _audioPlayer;
     private SDK _SDK;
+    private DiContainer _diContainer;
 
     [Inject]
-    private void Construct(ThemeSelectionUI themeSelectionUIPrefab, ThemeCreator themeCreator, 
+    private void Construct(DiContainer diContainer, ThemeSelectionUI themeSelectionUIPrefab, ThemeCreator themeCreator, 
                            ThemeTracker themeTracker, SceneLoader sceneLoader, AudioPlayer audioPlayer,
                            Storage storage, SDK SDK)
     {
+        _diContainer = diContainer;
         _themeSelectionUIPrefab = themeSelectionUIPrefab;
         _themeCreator = themeCreator;
         _themeTracker = themeTracker;
@@ -38,7 +40,7 @@ public class ThemeSelectionEntryPoint : EntryPoint
 
     private void CreateUI()
     {
-        _themeSelectionUI = Instantiate(_themeSelectionUIPrefab);
+        _themeSelectionUI = _diContainer.InstantiatePrefab(_themeSelectionUIPrefab).GetComponent<ThemeSelectionUI>();
         UIRoot.AttachSceneUI(_themeSelectionUI.transform);
     }
 

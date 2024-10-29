@@ -13,124 +13,164 @@ MonoBehaviour:
   m_Name: TranslationsConfig
   m_EditorClassIdentifier: 
   Enemies:
-  - <En>k__BackingField: Coach
+  - <Key>k__BackingField: EnemyName.1
+    <En>k__BackingField: Coach
     <Ru>k__BackingField: "\u0422\u0440\u0435\u043D\u0435\u0440"
     <Tr>k__BackingField: " Ko\xE7"
-    <Key>k__BackingField: EnemyName.1
-  - <En>k__BackingField: Best friend
+  - <Key>k__BackingField: EnemyName.2
+    <En>k__BackingField: Best friend
     <Ru>k__BackingField: "\u041B\u0443\u0447\u0448\u0438\u0439 \u0434\u0440\u0443\u0433"
     <Tr>k__BackingField: "En iyi arkada\u015F"
-    <Key>k__BackingField: EnemyName.2
-  - <En>k__BackingField: Babysitter
+  - <Key>k__BackingField: EnemyName.3
+    <En>k__BackingField: Babysitter
     <Ru>k__BackingField: "\u041D\u044F\u043D\u044C\u043A\u0430"
     <Tr>k__BackingField: "Bebek bak\u0131c\u0131s\u0131"
-    <Key>k__BackingField: EnemyName.3
-  - <En>k__BackingField: Girlfriend
+  - <Key>k__BackingField: EnemyName.4
+    <En>k__BackingField: Girlfriend
     <Ru>k__BackingField: "\u0414\u0435\u0432\u0443\u0448\u043A\u0430"
     <Tr>k__BackingField: "K\u0131z arkada\u015F"
-    <Key>k__BackingField: EnemyName.4
-  - <En>k__BackingField: Clown
+  - <Key>k__BackingField: EnemyName.5
+    <En>k__BackingField: Clown
     <Ru>k__BackingField: "\u041A\u043B\u043E\u0443\u043D"
     <Tr>k__BackingField: "Palya\xE7o"
-    <Key>k__BackingField: EnemyName.5
-  - <En>k__BackingField: Neighbor
+  - <Key>k__BackingField: EnemyName.6
+    <En>k__BackingField: Neighbor
     <Ru>k__BackingField: "\u0421\u043E\u0441\u0435\u0434"
     <Tr>k__BackingField: "Kom\u015Fu"
-    <Key>k__BackingField: EnemyName.6
-  - <En>k__BackingField: Barber
+  - <Key>k__BackingField: EnemyName.7
+    <En>k__BackingField: Barber
     <Ru>k__BackingField: "\u041F\u0430\u0440\u0438\u043A\u043C\u0430\u0445\u0435\u0440"
     <Tr>k__BackingField: Berber
-    <Key>k__BackingField: EnemyName.7
-  - <En>k__BackingField: Anonymous
+  - <Key>k__BackingField: EnemyName.8
+    <En>k__BackingField: Anonymous
     <Ru>k__BackingField: "\u0410\u043D\u043E\u043D\u0438\u043C\u0443\u0441"
     <Tr>k__BackingField: Anonim
-    <Key>k__BackingField: EnemyName.8
-  - <En>k__BackingField: School teacher
+  - <Key>k__BackingField: EnemyName.9
+    <En>k__BackingField: School teacher
     <Ru>k__BackingField: "\u0428\u043A\u043E\u043B\u044C\u043D\u044B\u0439 \u0443\u0447\u0438\u0442\u0435\u043B\u044C"
     <Tr>k__BackingField: "Okul \xF6\u011Fretmeni"
-    <Key>k__BackingField: EnemyName.9
-  - <En>k__BackingField: Alt girl
+  - <Key>k__BackingField: EnemyName.10
+    <En>k__BackingField: Alt girl
     <Ru>k__BackingField: "\u0410\u043B\u044C\u0442\u0443\u0448\u043A\u0430"
     <Tr>k__BackingField: "Alt k\u0131z"
-    <Key>k__BackingField: EnemyName.10
-  - <En>k__BackingField: Just a man
+  - <Key>k__BackingField: EnemyName.11
+    <En>k__BackingField: Just a man
     <Ru>k__BackingField: "\u041F\u0440\u043E\u0441\u0442\u043E \u0447\u0435\u043B"
     <Tr>k__BackingField: Sadece bir adam
-    <Key>k__BackingField: EnemyName.11
-  - <En>k__BackingField: Demon
+  - <Key>k__BackingField: EnemyName.12
+    <En>k__BackingField: Demon
     <Ru>k__BackingField: "\u0414\u0435\u043C\u043E\u043D"
     <Tr>k__BackingField: "\u015Eeytan"
-    <Key>k__BackingField: EnemyName.12
-  - <En>k__BackingField: Angel
+  - <Key>k__BackingField: EnemyName.13
+    <En>k__BackingField: Angel
     <Ru>k__BackingField: "\u0410\u043D\u0433\u0435\u043B"
     <Tr>k__BackingField: Melek
-    <Key>k__BackingField: EnemyName.13
-  - <En>k__BackingField: Vegan
+  - <Key>k__BackingField: EnemyName.14
+    <En>k__BackingField: Vegan
     <Ru>k__BackingField: "\u0412\u0435\u0433\u0430\u043D"
     <Tr>k__BackingField: Vegan
-    <Key>k__BackingField: EnemyName.14
-  - <En>k__BackingField: Cutie
+  - <Key>k__BackingField: EnemyName.15
+    <En>k__BackingField: Cutie
     <Ru>k__BackingField: "\u041C\u0438\u043B\u0430\u0448\u043A\u0430"
     <Tr>k__BackingField: "Tatl\u0131"
-    <Key>k__BackingField: EnemyName.15
-  - <En>k__BackingField: Skinhead
+  - <Key>k__BackingField: EnemyName.16
+    <En>k__BackingField: Skinhead
     <Ru>k__BackingField: "\u0421\u043A\u0438\u043D\u0445\u0435\u0434"
     <Tr>k__BackingField: Dazlak
-    <Key>k__BackingField: EnemyName.16
-  - <En>k__BackingField: Ex-girlfriend
+  - <Key>k__BackingField: EnemyName.17
+    <En>k__BackingField: Ex-girlfriend
     <Ru>k__BackingField: "\u0411\u044B\u0432\u0448\u0430\u044F"
     <Tr>k__BackingField: "Eski k\u0131z arkada\u015F"
-    <Key>k__BackingField: EnemyName.17
-  - <En>k__BackingField: Sushi Master
+  - <Key>k__BackingField: EnemyName.18
+    <En>k__BackingField: Sushi Master
     <Ru>k__BackingField: "\u0421\u0443\u0448\u0438 \u043C\u0430\u0441\u0442\u0435\u0440"
     <Tr>k__BackingField: "Su\u015Fi Ustas\u0131"
-    <Key>k__BackingField: EnemyName.18
-  - <En>k__BackingField: Presiden of Poland
+  - <Key>k__BackingField: EnemyName.19
+    <En>k__BackingField: Presiden of Poland
     <Ru>k__BackingField: "\u041F\u0440\u0435\u0437\u0438\u0434\u0435\u043D\u0442
       \u041F\u043E\u043B\u044C\u0448\u0438"
     <Tr>k__BackingField: "Polonya Cumhurba\u015Fkan\u0131"
-    <Key>k__BackingField: EnemyName.19
-  - <En>k__BackingField: Nudist
+  - <Key>k__BackingField: EnemyName.20
+    <En>k__BackingField: Nudist
     <Ru>k__BackingField: "\u041D\u0443\u0434\u0438\u0441\u0442"
     <Tr>k__BackingField: "\xC7\u0131plaklar"
-    <Key>k__BackingField: EnemyName.20
-  - <En>k__BackingField: Miss P1
+  - <Key>k__BackingField: EnemyName.21
+    <En>k__BackingField: Miss P1
     <Ru>k__BackingField: "\u041C\u0438\u0441\u0441 \u041F1"
     <Tr>k__BackingField: Bayan P1
-    <Key>k__BackingField: EnemyName.21
-  - <En>k__BackingField: Miss P2
+  - <Key>k__BackingField: EnemyName.22
+    <En>k__BackingField: Miss P2
     <Ru>k__BackingField: "\u041C\u0438\u0441\u0441 \u041F2"
     <Tr>k__BackingField: Bayan P2
-    <Key>k__BackingField: EnemyName.22
-  - <En>k__BackingField: Miss P3
+  - <Key>k__BackingField: EnemyName.23
+    <En>k__BackingField: Miss P3
     <Ru>k__BackingField: "\u041C\u0438\u0441\u0441 \u041F3"
     <Tr>k__BackingField: Bayan P3
-    <Key>k__BackingField: EnemyName.23
-  - <En>k__BackingField: Mr. P
+  - <Key>k__BackingField: EnemyName.24
+    <En>k__BackingField: Mr. P
     <Ru>k__BackingField: "\u041C\u0438\u0441\u0442\u0435\u0440 \u041F"
     <Tr>k__BackingField: Bay P
-    <Key>k__BackingField: EnemyName.24
-  - <En>k__BackingField: '"undefined"'
+  - <Key>k__BackingField: EnemyName.25
+    <En>k__BackingField: '"undefined"'
     <Ru>k__BackingField: "\"\u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E\""
     <Tr>k__BackingField: "\u201Ctan\u0131mlanmam\u0131\u015F\u201D"
-    <Key>k__BackingField: EnemyName.25
-  - <En>k__BackingField: Hermit
+  - <Key>k__BackingField: EnemyName.26
+    <En>k__BackingField: Hermit
     <Ru>k__BackingField: "\u041E\u0442\u0448\u0435\u043B\u044C\u043D\u0438\u043A"
     <Tr>k__BackingField: "Ermi\u015F"
-    <Key>k__BackingField: EnemyName.26
-  - <En>k__BackingField: Digger
+  - <Key>k__BackingField: EnemyName.27
+    <En>k__BackingField: Digger
     <Ru>k__BackingField: "\u041A\u043E\u043F\u0430\u0442\u0435\u043B\u044C"
     <Tr>k__BackingField: "Kaz\u0131c\u0131"
-    <Key>k__BackingField: EnemyName.27
-  - <En>k__BackingField: Me?
+  - <Key>k__BackingField: EnemyName.28
+    <En>k__BackingField: Me?
     <Ru>k__BackingField: "\u042F?"
     <Tr>k__BackingField: Ben mi?
-    <Key>k__BackingField: EnemyName.28
-  - <En>k__BackingField: Sword Master
+  - <Key>k__BackingField: EnemyName.29
+    <En>k__BackingField: Sword Master
     <Ru>k__BackingField: "\u041C\u0430\u0441\u0442\u0435\u0440 \u043C\u0435\u0447\u0430"
     <Tr>k__BackingField: "K\u0131l\u0131\xE7 Ustas\u0131"
-    <Key>k__BackingField: EnemyName.29
-  - <En>k__BackingField: My shadow
+  - <Key>k__BackingField: EnemyName.30
+    <En>k__BackingField: My shadow
     <Ru>k__BackingField: "\u0422\u0435\u043D\u044C"
     <Tr>k__BackingField: "Benim g\xF6lgem"
-    <Key>k__BackingField: EnemyName.30
+  UI:
+  - <Key>k__BackingField: UI.Retry
+    <En>k__BackingField: Retry
+    <Ru>k__BackingField: "\u0417\u0430\u043D\u043E\u0432\u043E"
+    <Tr>k__BackingField: Yeniden Dene
+  - <Key>k__BackingField: UI.Next
+    <En>k__BackingField: Next
+    <Ru>k__BackingField: "\u0414\u0430\u043B\u044C\u0448\u0435"
+    <Tr>k__BackingField: Sonraki
+  - <Key>k__BackingField: UI.Pause
+    <En>k__BackingField: Pause
+    <Ru>k__BackingField: "\u041F\u0430\u0443\u0437\u0430"
+    <Tr>k__BackingField: Duraklat
+  - <Key>k__BackingField: UI.Parry
+    <En>k__BackingField: Parry
+    <Ru>k__BackingField: "\u041F\u0430\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
+    <Tr>k__BackingField: "Savu\u015Fturma"
+  - <Key>k__BackingField: UI.Attack
+    <En>k__BackingField: Attack
+    <Ru>k__BackingField: "\u0410\u0442\u0430\u043A\u043E\u0432\u0430\u0442\u044C"
+    <Tr>k__BackingField: "Sald\u0131r\u0131"
+  - <Key>k__BackingField: UI.Ok
+    <En>k__BackingField: Ok
+    <Ru>k__BackingField: "\u041E\u043A"
+    <Tr>k__BackingField: Tamam
+  - <Key>k__BackingField: UI.ThemeUnlockOffer
+    <En>k__BackingField: Unlock this theme for watching a video?
+    <Ru>k__BackingField: "\u0420\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u0442\u044C
+      \u0442\u0435\u043C\u0443 \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440
+      \u0432\u0438\u0434\u0435\u043E?"
+    <Tr>k__BackingField: "Video izlemek i\xE7in bu teman\u0131n kilidini a\xE7al\u0131m
+      m\u0131?"
+  - <Key>k__BackingField: UI.Yes
+    <En>k__BackingField: Yes
+    <Ru>k__BackingField: "\u0414\u0430"
+    <Tr>k__BackingField: Evet
+  - <Key>k__BackingField: UI.No
+    <En>k__BackingField: No
+    <Ru>k__BackingField: "\u041D\u0435\u0442"
+    <Tr>k__BackingField: "Hay\u0131r"

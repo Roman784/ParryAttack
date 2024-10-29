@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using System.Data;
 using Zenject;
 
 public class Translator
 {
     private TranslationsConfig _config;
-    private Language _language = Language.Ru;
+    private Language _language = Language.Tr;
 
     [Inject]
     private void Construct(TranslationsConfig config)
@@ -19,7 +20,17 @@ public class Translator
 
     public string GetEnemyName(string key)
     {
-        foreach(var data in _config.Enemies)
+        return Get(key, _config.Enemies);
+    }
+
+    public string GetUI(string key)
+    {
+        return Get(key, _config.UI);
+    }
+
+    private string Get(string key, List<TranslationData> datas)
+    {
+        foreach (var data in datas)
         {
             if (data.Key == key)
                 return GetTranslation(data);

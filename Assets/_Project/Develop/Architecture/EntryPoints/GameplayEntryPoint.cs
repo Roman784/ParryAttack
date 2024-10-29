@@ -22,14 +22,16 @@ public class GameplayEntryPoint : EntryPoint
     private AudioPlayer _audioPlayer;
     private SDK _SDK;
     private Translator _translator;
+    private DiContainer _diContainer;
 
     [Inject]
-    private void Construct(SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
+    private void Construct(DiContainer diContainer, SwordsmanFactory swordsmanFactory, SwordsmenConfigBuilder swordsmenConfigBuilder, 
                            GameplayUI gameplayUIPrefab, Storage storage, 
                            LevelTracker levelTracker, LevelCreator levelCreator,
                            GameplayCamera camera, SceneLoader sceneLoader, 
                            AudioPlayer audioPlayer, SDK SDK, Translator translator)
     {
+        _diContainer = diContainer;
         _swordsmanFactory = swordsmanFactory;
         _swordsmenConfigBuilder = swordsmenConfigBuilder;
         _gameplayUIPrefab = gameplayUIPrefab;
@@ -61,7 +63,7 @@ public class GameplayEntryPoint : EntryPoint
 
     private void CreateUI()
     {
-        _gameplayUI = Instantiate(_gameplayUIPrefab);
+        _gameplayUI = _diContainer.InstantiatePrefab(_gameplayUIPrefab).GetComponent<GameplayUI>();
         UIRoot.AttachSceneUI(_gameplayUI.transform);
 
         _gameplayUI.Init(_sceneLoader, _audioPlayer, _translator);
