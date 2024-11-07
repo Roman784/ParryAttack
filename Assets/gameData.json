@@ -1,10 +1,9 @@
 {
-    "AudioVolume": 0.0,
-    "LastCompletedLevel": 1,
-    "CurrentTheme": 2,
+    "AudioVolume": 1.0,
+    "LastCompletedLevel": 0,
+    "CurrentTheme": 1,
     "UnlockedThemes": [
-        1,
-        2
+        1
     ],
     "IsFirstEntry": false
 }

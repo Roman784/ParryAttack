@@ -17,7 +17,7 @@ public class YandexSDK : SDK
     private Dictionary<int, Action<bool>> _callbacksMap = new Dictionary<int, Action<bool>>();
     private Action<string> _jsonDataCallback;
 
-    //private Dictionary<string, Language> _languageMap = new Dictionary<string, Language>();
+    private Dictionary<string, Language> _languageMap = new Dictionary<string, Language>();
 
     private void Awake()
     {
@@ -26,9 +26,9 @@ public class YandexSDK : SDK
 
     private void InitLanguageMap()
     {
-        /*_languageMap["en"] = Language.En;
+        _languageMap["en"] = Language.En;
         _languageMap["ru"] = Language.Ru;
-        _languageMap["tr"] = Language.Tr;*/
+        _languageMap["tr"] = Language.Tr;
     }
 
     public override void Init(Action<bool> callback = null)
@@ -78,7 +78,7 @@ public class YandexSDK : SDK
         catch { Debug.Log("Full screen adv error"); }
     }
 
-    /*public override Language GetLanguage()
+    public override Language GetLanguage()
     {
         try
         {
@@ -86,7 +86,7 @@ public class YandexSDK : SDK
             return _languageMap[res];
         }
         catch { return Language.En; }
-    }*/
+    }
 
     public override void GameReady()
     {

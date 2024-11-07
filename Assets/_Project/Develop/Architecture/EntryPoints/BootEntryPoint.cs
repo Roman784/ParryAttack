@@ -11,10 +11,11 @@ public class BootEntryPoint : EntryPoint
     private LevelTracker _levelTracker;
     private ThemeTracker _themeTracker;
     private SDK _SDK;
+    private Translator _translator;
 
     [Inject]
     private void Construct(SceneLoader sceneLoader, Storage storage, AudioPlayer audioPlayer, 
-                           LevelTracker levelTracker, ThemeTracker themeTracker, SDK SDK)
+                           LevelTracker levelTracker, ThemeTracker themeTracker, SDK SDK, Translator translator)
     {
         _sceneLoader = sceneLoader;
         _storage = storage;
@@ -22,6 +23,7 @@ public class BootEntryPoint : EntryPoint
         _levelTracker = levelTracker;
         _themeTracker = themeTracker;
         _SDK = SDK;
+        _translator = translator;
     }
 
     private void Start()
@@ -36,6 +38,7 @@ public class BootEntryPoint : EntryPoint
         yield return InitSDK();
         yield return LoadData();
 
+        InitTranslator();
         InitAudioPlayer();
         SetCurrentLevel();
         SetCurrentTheme();
@@ -75,6 +78,12 @@ public class BootEntryPoint : EntryPoint
     {
         Application.targetFrameRate = 60;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
+    private void InitTranslator()
+    {
+        Language language = _SDK.GetLanguage();
+        _translator.SetaLanguage(language);
     }
 
     private void InitAudioPlayer()

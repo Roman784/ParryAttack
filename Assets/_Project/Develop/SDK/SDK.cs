@@ -13,7 +13,7 @@ public abstract class SDK : MonoBehaviour
     public abstract void LoadData(Action<string> jsonCallback);
     public abstract void ShowRewardedVideo(Action<bool> callback = null);
     public abstract void ShowFullscreenAdv();
-    //public abstract Language GetLanguage();
+    public abstract Language GetLanguage();
     public abstract void GameReady();
 
     public void SetNameToToken()
