@@ -2,7 +2,7 @@
 ### You can play here
 - https://rmnmrn.itch.io/king-of-sword
 
-**Zenject**, **R3** and **DOTween** are used as external extensions. 
+**Zenject** are used as external extension. 
 The game is localized and supports different types of saves.
 
 
